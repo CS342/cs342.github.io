@@ -111,3 +111,6 @@ a:hover {
 .overflow-clear {
   overflow: hidden;
 }
+.project-details {
+  margin-bottom: 1em;
+}
