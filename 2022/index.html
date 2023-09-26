@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Building for Digital Health (CS342/MED253)</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/semantic.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Josefin+Sans">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- <div class="top-bar"></div> -->
+    <div id="wrapper">
+        <div class="ui grid">
+            <div class="row logo overflow-clear">
+                <div class="eight wide column floated left"><span style="font-style: normal;" class="subline">Stanford
+                        CS342/MED253 (2022-2023)</span>
+                    <h1>Building for Digital Health</h1>
+                </div>
+                <!-- <div class="two wide column floated right"><img src="/images/js.png" alt="JS"></div> -->
+            </div>
+            <div class="row overflow-clear">
+                <div class="four wide column floated left nav">
+                    <div class="ui vertical menu">
+                        <a href="#overview" class="active item"><i class="home icon"></i>Overview</a>
+                        <a href="#projects" class="item"><i class="phone icon"></i>Projects</a>
+                        <a href="#schedule" class="item"><i class="calendar icon"></i>Schedule</a>
+                        <a href="#studentinformation" class="item"><i class="doc icon"></i>Student Infos</a>
+                    </div>
+                </div>
+                <div class="eleven wide column floated right content">
+                    <div id="overview" class="section">
+                        <h2>Overview</h2>
+                        <table class="ui definition table segment">
+                            <tbody>
+                                <tr>
+                                    <td>Date/Time</td>
+                                    <td>
+                                        Tuesdays and Thursdays at 5:30PM - 7:00PM
+                                        <br>2022 - 2023 Winter Quarter
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Location</td>
+                                    <td><a href="https://25live.collegenet.com/pro/stanfordsom#!/home/location/739/details">MSOB 303</a> + Zoom</td>
+                                </tr>
+                                <tr>
+                                    <td>Units</td>
+                                    <td>3 Ltr (CR/NC and Med option available)</td>
+                                </tr>
+                                <tr>
+                                    <td>Instructors</td>
+                                    <td>
+                                        Oliver Aalami, M.D. (<a href="mailto:aalami@stanford.edu">aalami@stanford.edu</a>)
+                                        <br />
+                                        Carlos Guestrin, Ph.D. (<a href="mailto:guestrin@stanford.edu">guestrin@stanford.edu</a>)
+                                        <br />
+                                        Vishnu Ravi, M.D. (<a href="mailto:vishnur@stanford.edu">vishnur@stanford.edu</a>)
+                                        <br />
+                                        Paul Schmiedmayer, Ph.D. (<a href="mailto:schmiedmayer@stanford.edu">schmiedmayer@stanford.edu</a>)
+                                        <br />
+                                        Ashley Griffin, Ph.D. (<a href="mailto:griffina@stanford.edu">griffina@stanford.edu</a>)
+                                        <br />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Project Coaches</td>
+                                    <td>
+                                        Raghav Samavedam (<a href="raghavsa@stanford.edu">raghavsa@stanford.edu</a>) <br />
+                                        Varun Shenoy (<a href="vnshenoy@stanford.edu">vnshenoy@stanford.edu</a>)
+                                    </td>
+                                </tr>
+                                <!--
+                                <tr>
+                                    <td>TAs</td>
+                                    <td>
+                                        GIVEN_NAME FAMILY_NAME (<a href="mailto:EMAIL@stanford.edu">EMAIL@stanford.edu</a>)
+                                    </td>
+                                </tr>
+                                -->
+                                <tr>
+                                    <td>Office hours</td>
+                                    <td>
+                                        Oliver Aalami - Mondays 2-3pm via Zoom <br />
+                                        Vishnu Ravi - Fridays 4-5pm via Zoom <br />
+                                        Paul Schmiedmayer - Wednesdays 10-11am at Biodesign Office
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>GitHub</td>
+                                    <td><a href="https://github.com/cs342">http://github.com/cs342</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Syllabus</td>
+                                    <td><a href="https://docs.google.com/document/d/1wUvFQ7rlDyQ3DJK9uCYKiZ31e7L6wb17JM52-Z8K3ZA/edit">View Course Syllabus on Google Docs</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <h3 class="pulled left">Introduction</h3>
+                        <p>
+                            As our world becomes more and more digitized, patients and their devices are generating streams 
+                            of valuable data that can provide meaningful clinical insights. This digital health revolution 
+                            provides great opportunities to design and validate new digital health concepts. Many groups 
+                            within Stanford Medicine have promising ideas that are ripe for development, however, they lack 
+                            the software engineering and healthcare compliance know-how to take them forward.
+                        </p>
+                        <p>
+                            Building for Digital Health is a Biodesign course sponsored by the Stanford School of Medicine (SoM) 
+                            and Stanford's Computer Science (CS) department. Its goal is to provide CS students with the 
+                            opportunity to apply their skills to real-world health technology development projects, while 
+                            enabling SoM faculty to leverage these talented individuals to help advance their technology 
+                            concepts toward patients. Both audiences will learn a repeatable approach for developing new 
+                            digital health technologies and preparing to launch them in the market.
+                        <p>
+                        </p>
+                            Over the course of ten weeks, students and faculty will work together to tackle a project and 
+                            launch an app-enabled solution for research use. Every week, students will learn about app-development, 
+                            sensor technologies, privacy, security, and more. In the final week of class, teams will present 
+                            their final project (app) to a panel of digital health experts. 
+                        </p>
+                        <h3 class="pulled left">Goals</h3>
+                        <ul style="padding-left: 0">
+                            <li>
+                                Gain exposure to unmet needs in the healthcare field and learn to design and build 
+                                secure digital solutions to address them.
+                            </li>
+                            <li>
+                                Get experience working with technical and multidisciplinary teams with the help of 
+                                external mentors and industry experts who can help guide career paths in health tech 
+                                innovation.
+                            </li>
+                            <li>
+                                Become familiar with the iOS platform, the Swift programming language, 
+                                the use of CardinalKit and other open-source frameworks, and secure 
+                                data collection practices.
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="projects" class="section">
+                        <div class="ui secondary pointing menu">
+                            <a href="#overview" class="item"><i class="home icon"></i>Overview</a>
+                            <a href="#projects" class="active item"><i class="phone icon"></i>Projects</a>
+                            <a href="#schedule" class="item"><i class="calendar icon"></i>Schedule</a>
+                            <a href="#studentinformation" class="item"><i class="doc icon"></i>Student Info</a>
+                        </div>
+
+                        <h3 class="pulled left">Projects</h3>
+                        
+                        <p>
+                            Students will be able to work on one of five projects for the Winter of 2023. 
+                            The participating projects will present their challenges during the first lecture.
+                            Everyone will have an opportunity to submit a form of interest with their preference 
+                            during the first day of class. We will then create balanced teams based on this input. 
+                        </p>
+
+                        <!-- 
+                        <h2>TITLE</h2>
+                        <p>SUBTITLE</p>
+                        <p>
+                            DESCRIPTION
+                        </p>
+                        <div class="action">
+                            <a href="LINK" class="ui mini teal button disabled">Team Card</a>
+                        </div>
+                        -->
+
+                        <!-- University of Utah Project -->
+                        <div class="project-details">
+                            <h2>Vascular Surgery Patient Reported Outcomes</h2>
+                            <h3>Mentors</h3>
+                            <p>
+                                <a href="https://healthcare.utah.edu/fad/mddetail.php?physicianID=u0079813#tabAcademic">Benjamin Brooke, MD, PhD</a>, Professor and Chief of Vascular Surgery<br />
+                                <a href="https://medicine.utah.edu/population-health-sciences/staff/teryn-holeman">Teryn Holeman, MS</a>, MD/PhD Candidate<br />
+                                <a href="https://faculty.utah.edu/u0255761-JULIE_HALES/teaching/index.hml">Julie Hales, MSN, RN, CCRC</a>, Research Associate<br />
+                                <i>University of Utah, Division of Vascular Surgery</i>
+                            </p>
+                            <p>
+                                The University of Utah provides care for a wide region (Mountain West) covering many remote areas making access to care and coordination of care challenging. The system is government funded and has a history of collecting patient reported outcomes (PROs) in person to assess quality of life and functional capacity measures. The Division of Vascular Surgery is interested in expanding this program via a mobile application to achieve broader adoption, increase accessibility and to gain improved longitudinal data. This project will include building the application in iOS and will include 1) consenting, 2) collecting HealthKit data metrics (including passive activity), 3) Deploying PRO surveys, 4) Deploying active tasks such as the remote 6-minute-walk test, among other features. 
+                            </p>
+                            <div class="action">
+                                <a href="#" class="ui mini teal button disabled">Team Card</a>
+                            </div>
+                        </div>
+
+                        <!-- Pediatric Apple Watch Study -->
+                        <div class="project-details">
+                            <h2>Pediatric Apple Watch Study</h2>
+                            <h3>Mentors</h3>
+                            <p>
+                                <a href="https://profiles.stanford.edu/scott-ceresnak">Scott Ceresnak, MD</a>, Professor of Pediatric Cardiology<br />
+                                <a href="https://dura.stanford.edu/profiles/aydin-zahedivash">Aydin Zahevidash, MD, MBA</a>, Pediatric Resident Physician<br />
+                                <i>Stanford University, Pediatric Cardiology</i>
+                            </p>
+                            <p>
+                                ​​Arrhythmia symptoms are frequent complaints in children and often require a pediatric cardiology referral. Wearable technologies, such as the Apple Watch®, have been studied in adults but there are limited data on the utility of these wearable technologies in children. We hypothesized that an Apple Watch can be used to identify clinically significant arrhythmias in children. Since 2018, the Stanford group has had 41 pediatric patients detect arrhythmias on an Apple Watch which were later confirmed through traditional clinical  methods. Dr. Ceresnak’s group would like to develop an iOS research application which leverages the Apple watch to collect ECG tracings in pediatric patients. Their application will have the standard 1) onboarding consent, 2) PRO/survey collection, 3) Apple Watch ECG Active task, among other features. 
+                            </p>
+                            <div class="action">
+                                <a href="#" class="ui mini teal button disabled">Team Card</a>
+                            </div>
+                        </div>
+
+                        <!-- Balance App -->
+                        <div class="project-details">
+                            <h2>Balance (Management of Eating Disorders)</h2>
+                            <h3>Mentors</h3>
+                            <p>
+                                <a href="https://profiles.stanford.edu/james-lock">James Lock, MD</a>, Professor and Vice Chair, Department of Psychiatry<br />
+                                <a href="https://profiles.stanford.edu/brittany-matheson">Brittany Matheson, PhD</a>, Clinical Instructor, Psychiatry and Behavioral Sciences<br />
+                                <a href="https://profiles.stanford.edu/nandini-datta">Nandini Datta, PhD</a>, Post-Doctoral Scholar, Eating Disorders Research Program
+                                <i>Stanford University School of Medicine</i>
+                            </p>
+                            <p>
+                                Eating disorders are a common condition many teenagers and young adults suffer from. 
+                                Sometimes the condition requires a hospital admission to help manage this condition. Dr. Locke’s group specializes in the treatment of anorexia and bulimia. In particular he studies dialectical behavioral therapy treatments and is looking to build a companion application to support patients in-between therapy sessions- which is most of the time! For this project you will build a new iOS app which will include, 1) Onboarding/Consenting, 2) Survey assessments/PROs, and several others which could include 3) setting up an “SOS” button, 4) a “Distract Me” feature, 5)  a “Let’s Chill Out” feature, 6) a “Feeling Learning” feature, or 7) a Diary feature. 
+                            </p>
+                            <div class="action">
+                                <a href="#" class="ui mini teal button disabled">Team Card</a>
+                            </div>
+                        </div>
+
+                        <!-- GetMoovin App -->
+                        <div class="project-details">
+                            <h2>GetMoovin</h2>
+                            <h3>Mentors</h3>
+                            <p>
+                                HealthSpan Heroes Team (BIOE273 NEXT Award Winners)<br />
+                                Jack Keene, MD<br />
+                                Ank Agarwal<br />
+                                Ben Randoing<br />
+                                Natasha Kacharia<br />
+                            </p>
+                            <p>
+                                GetMoovin is an app/digital system focused on motivating seniors to
+                                engage in physical activity to improve their healthspan. The aging process
+                                decreases one’s muscle strength, agility, and cardiovascular fitness leading
+                                to frailty and chronic disease. GetMoovin’s free app engages families and
+                                friends in synchronous photo curation of physical activities. The 
+                                subscription side provides customers personalized plans to mitigate the 
+                                decline of aging so they will be able to do the things that really matter to 
+                                them as they age. We want to give people the Gift of a Better Healthspan.
+                            </p>
+                            <div class="action">
+                                <a href="#" class="ui mini teal button disabled">Team Card</a>
+                            </div>
+                        </div>
+
+                        <!-- Dermatology App -->
+                        <div class="project-details">
+                            <h2>Remote Assessment of Contact Allergies</h2>
+                            <h3>Mentors</h3>
+                            <p>
+                                <a href="https://profiles.stanford.edu/golara-honari">Golara Honari, MD</a>, Professor of Dermatology<br />
+                                <a href="https://profiles.stanford.edu/mottaghi">Ali Mottaghi</a>, PhD Candidate in Electrical Engineering<br />
+                                <a href="https://profiles.stanford.edu/serena-yeung">Serena Yeung, PhD</a>, Assistant Professor of Biomedical Data Science<br />
+                                <a href="https://profiles.stanford.edu/haiwen-gui">Haiwen Gui</a>, MD Candidate<br />
+                                <i>Stanford University School of Medicine</i>
+                            </p>
+                            <p>
+                                Eczematous dermatoses are a group of common inflammatory skin disorders, also known as dermatitis. Currently, patch testing is only offered in specialty clinics, and the procedure typically requires three visits to the specialty clinic within a week. The limited number of specialty clinics nationwide and the fact that specialty clinics are mostly concentrated in large cities and academic centers make access to care very limited. Only a small portion of patients who benefit from patch testing have access to this test. A cost analysis study of patients with eczema shows that among 2.6 million patients with eczema and continuous enrollment at the IBM market scan dataset between 2014-2016 only about 2% had patch testing. Patient with patch testing had an average 50% reduction in direct cost of care in the year following patch testing compared to the prior year. This project aims to facilitate access to care through a multimodal digital health solution for patients with chronic eczema, facilitate patch testing from a remote location, and interpretation of patch test results through AI augmented analysis of sequential photos from the allergen application site.
+                            </p>
+                            <div class="action">
+                                <a href="#" class="ui mini teal button disabled">Team Card</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="schedule" class="section">
+                        <div class="ui secondary pointing menu">
+                            <a href="#overview" class="item"><i class="home icon"></i>Overview</a>
+                            <a href="#projects" class="item"><i class="phone icon"></i>Projects</a>
+                            <a href="#schedule" class="active item"><i class="calendar icon"></i>Schedule</a>
+                            <a href="#studentinformation" class="item"><i class="doc icon"></i>Student Info</a>
+                        </div>
+
+                        <h2>Schedule</h2>  
+
+                        <br />
+
+                        <h3 class="pulled left">Week 1 (1/10 & 1/12)</h3>
+                        <div class="class meta"><span class="topic">1A Overview of Course</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/12zEypytZ70QWGnkLjY-CYxza6m27nV3LDWvsI3rn4Ok/" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Syllabus overview, course website, grading, attendance, and guest lectures.</li>
+                                <li>Discussion of topics covered, assignments, Health Insurance Portability and Accountability Act (HIPAA) training, and delivers.</li>
+                                <li>Introducing our projects for this quarter (need statement presentation).</li>
+                            </ul>
+                        </div>
+                        <div class="class assignment"><span class="name">Submit your project preferences!</span>
+                            <div class="action"><a href="" class="ui mini red button disabled">Form</a></div>
+                        </div>
+
+                        <div class="class meta"><span class="topic">1B Basics of iOS development</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1EvPipsZ5d5CA_CODo2zCUciiNlzm5BXxEAFZzFzPWrM/" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Xcode, the Swift programming language, and Swift UI</li>
+                                <li><a href="https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html">Swift Language Guide</a></li>
+                                <li><a href="https://developer.apple.com/tutorials/swiftui/">SwiftUI Tutorials</a></li>
+                            </ul>
+                        </div>
+                        <div class="class assignment"><span class="name">Assignment #1: Xcode, Swift, and SwiftUI</span>
+                            <div class="action"><a href="https://canvas.stanford.edu/courses/166251/assignments/499078" class="ui mini teal button">Open</a></div>
+                        </div>
+
+                        <h3 class="pulled left">Week 2 (1/17 & 1/19)</h3>
+                        <div class="class meta"><span class="topic">2A What makes health apps different?</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1i3sjsjvDFBN4jANhHVNhDHUtpoifNq_Z_Zw77T7_mNY" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Data privacy, personally identifiable information (PII), and data-risk assessments (DRA).</li>
+                                <li>HIPPA-compliance, Institutional Review Board (IRB) protocols, and the consent process.</li>
+                            </ul>
+                        </div>
+                        <div class="class meta"><span class="topic">2B Mobile Application Software Engineering</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1qcbHNC2SsYGdoLaWmM52S_kfrRcK3yIajszMEkJumBs" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>What does it mean to develop reusable software?</li>
+                                <li>Testing & Linting, Code Quality</li>
+                                <li>How do you develop reusable applications and interfaces?</li>
+                                <li>Mobile application architectures</li>
+                            </ul>
+                        </div>
+                        <div class="class assignment"><span class="name">Assignment #2: App Requirements and Architecture</span>
+                            <div class="action"><a href="https://canvas.stanford.edu/courses/166251/assignments/499557" class="ui mini teal button">Open</a></div>
+                        </div>
+
+                        <h3 class="pulled left">Week 3 (1/24 & 1/26)</h3>
+                        <div class="class meta"><span class="topic">3A The CardinalKit Framework</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/16OF8JaVKnBDPmHN-zPM8VCvVHxWhuNmyTCW1oVI2soQ" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>CardinalKit architecture and application programming interface (API)</li>
+                                <li>Use your first CardinalKit modules</li>
+                                <li>Combining modules to build software components</li>
+                            </ul>
+                        </div>
+                        <div class="class meta"><span class="topic">3B Module Building &amp; User Flow</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1XJGBUMWoBGUyPGQRCdZ6oEKhfN775RJgNo8zLzlLlQM" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>How do you develop your own modules?</li>
+                                <li>How do you create a well-architected mobile application with CardinalKit?</li>
+                            </ul>
+                        </div>
+                        <div class="class assignment"><span class="name">Assignment 3: Prepare your Midterm Presentation</span>
+                            <div class="action"><a href="https://canvas.stanford.edu/courses/166251/assignments/502370" class="ui mini red button">Open</a></div>
+                        </div>
+
+                        <h3 class="pulled left">Week 4 (1/31 & 2/2)</h3>
+                        <div class="class meta"><span class="topic">4A Intro to Health Records</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1yBpTvoVg-7trZbqF6RnCjM66WmW2QSGbaXVhugtLKIA" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Accessing health record data</li>
+                                <li>Guest lecture - Ricky Bloomfield, Apple Health</li>
+                            </ul>
+                        </div>
+                        <div class="class meta"><span class="topic">4B Cloud Service Providers</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1ac9yV3kHQ5r9vdw7dem4Y8Hnh3avgSxHuQEDfG2-rvo" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Learn how to architect a cloud backend for your digital health app</li>
+                            </ul>
+                        </div>
+
+                        <h3 class="pulled left">Week 5 (2/7 & 2/9)</h3>
+                        <div class="class meta">
+                            <span class="topic">5A Intro to HealthKit and CareKit</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1QxQWYK81NsCGJ1RN-HxAI5UBHbrkO3gug1RECR8wFbw" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Accessing health and fitness data</li>
+                                <li>Health management, symptom tracking, and more.</li>
+                                <li>Guest workshop - Pariece McKinney & Gavi Rawson, Apple</li>
+                            </ul>
+                        </div>
+                        <div class="class meta">
+                            <span class="topic">5B Midterm Presentation: Design Review</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1MYSetW7HhUgXujfmo40cUrPNnY_fBefEn7OcQ1YBhbU" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Share your plan and software architecture for your application</li>
+                                <li>Demonstrate the API and design of your first modules</li>
+                            </ul>
+                        </div>
+
+                        <h3 class="pulled left">Week 6 (2/14 - 2/16)</h3>
+                        <div class="class meta"><span class="topic">6A App Workshop #1</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1nEIhg7oW8Nl2HaDQZwVJtZSK2PtE2CJsRHccokoSdkk" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>In-class feedback and development.</li>
+                            </ul>
+                        </div>
+                        <div class="class meta">
+                            <span class="topic">6B Scalable FHIR Data Analysis</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1R2XvHLL4P_vYCcyaRF5HpKlsA3BSySOUDyQhq02Eqec/edit?usp=sharing" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Tools for analyzing healthcare data.</li>
+                                <li>Guest lecture - Ryan Brush, Google</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="class assignment"><span class="name">Assignment #4: Application Beta Deployment</span>
+                            <div class="action"><a href="" class="ui mini teal button disabled">Open</a></div>
+                        </div>
+
+                        <h3 class="pulled left">Week 7 (2/21 & 02/23)</h3>
+                        <div class="class meta">
+                            <span class="topic">7A Digital Health Innovations & App Workshop #2</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1ALAiPvrAW3zXHhKiTbFyyyD6JrOyZrm2EY3YpmPgK98/edit?usp=sharing" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Guest Lecture - Marius Mainz / Daphne Petrich, <a href="https://hellobetter.de/en/">HelloBetter</a></li>
+                                <li>In-class development and feedback.</li>
+                            </ul>
+                        </div>
+
+                        <div class="class meta"><span class="topic">7B USCDI/Argonaut</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1-LfxJRHz4ae1SFIRzpHtRbIcDY_WOG-_sVj-Wqy_QY0/edit?usp=sharing" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>The United States Core Data for Interoperability (USCDI) and the Argonaut project.</li>
+                                <li>If time permits: in-class development and feedback.</li>
+                            </ul>
+                        </div>
+                        <h3 class="pulled left">Week 8 (2/28 & 3/2)</h3>
+                        <div class="class meta">
+                            <span class="topic">8A Health Data Interoperability</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1uj0Pv8EmkDSsCiaU7L2-WsShF60Ce_np42FxwsOhFDs/edit?usp=sharing" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Learn how the HL7 FHIR data standard works for interoperability</li>
+                                <li>Guest lecture - Vivian Neilley, Google Cloud</li>
+                            </ul>
+                        </div>
+                        <div class="class meta"><span class="topic">8B Implementation of Digital Health Apps</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1ELccN3qmAjc8eHdbu5SN_mpKQRxRuOqeYEqGOzFg_NE/edit?usp=sharing" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Guest lecture - Garrick Olson & Lei Wang, Stanford Research IT</li>
+                                <li>Guest lecture - Ron Li, Stanford Hospital SEAL Team</li>
+                            </ul>
+                        </div>
+                        <div class="class assignment"><span class="name">Assignment #5: Prepare the Final Presentation and Deployment</span>
+                            <div class="action"><a href="" class="ui mini teal button disabled">Open</a></div>
+                        </div>
+
+                        <h3 class="pulled left">Week 9 (3/7 & 3/9)</h3>
+                        <div class="class meta"><span class="topic">9A Trust in Machine Learning for Healthcare & App Workshop #3</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1P7JuGHWJqcL-5foKKxh1s5FTQtqmdYQLgEeOb0iOWRw/edit?usp=sharing" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Trust in Machine Learning for Healthcare - <a href="https://guestrin.su.domains">Carlos Guestrin, Stanford University, Computer Science Department</a></li>
+                                <li>In-class feedback and development.</li>
+                            </ul>
+                        </div>
+                        <div class="class meta"><span class="topic">9B Digital Therapeutics & App Workshop #4</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/11Qqw9gZlzLaVScgGI56e-ySMvCLwe04INXGn5pxc-Yk/edit?usp=sharing" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Guest lecture - Steve Hershman, <a href="https://biofourmis.com/">Biofourmis</a></li>
+                                <li>In-class feedback and development.</li>
+                            </ul>
+                        </div>
+                        <h3 class="pulled left">Week 10 (3/14 & 3/16)</h3>
+                        <div class="class meta"><span class="topic">10A App Workshop #5</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1pUjKbaMFeTGDPeyQaBpePBTIPHtEmdMIbo-j-ZZlVNc/edit?usp=sharing" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>In-class feedback and development.</li>
+                            </ul>
+                        </div>
+                        <div class="class meta"><span class="topic">10B Final Presentations</span>
+                            <div class="action"><a href="https://docs.google.com/presentation/d/1TI65RfFywruVrnHqFn2fjeoq_fudBtm10E86d7NCxgM/edit?usp=sharing" class="ui mini teal button">Slides</a></div>
+                        </div>
+                        <div class="class description">
+                            <ul>
+                                <li>Teams will share their final apps</li>
+                            </ul>
+                        </div>
+                        <img src="images/health.png" width="400"
+                            height="300" style="margin-left:auto;margin-right:auto;display:block;">
+                    </div>
+                    <div id="studentinformation" class="section">
+                        <div class="ui secondary pointing menu">
+                            <a href="#overview" class="item"><i class="home icon"></i>Overview</a>
+                            <a href="#projects" class="item"><i class="phone icon"></i>Projects</a>
+                            <a href="#schedule" class="item"><i class="calendar icon"></i>Schedule</a>
+                            <a href="#studentinformation" class="active item"><i class="doc icon"></i>Student Info</a>
+                        </div>
+
+                        <h2>Student Info</h2>
+
+                        <h3 class="pulled left">Skills Survey</h3>
+
+                        <p>
+                            Please fill out the <a href="https://forms.gle/TqWb9hZCku7jeHpQ9">the skills survey</a>
+                            when you sign up for the class, so we are aware of your current skill level at the beginning
+                            of the course.
+                        </p>
+
+                        <h3 class="pulled left">Responsibilities</h3>
+
+                        <b>Attendance</b>
+                        <br/>
+                        No more than one unexcused absence is permitted. A second absence may be permitted 
+                        with written justification by the student and fulfillment of a make-up assignment. 
+                        Two or more unexcused absences will lead to a No CR grade. 
+
+                        <br/>
+                        <br/>
+                        <b>Amount of Work Expected</b>
+                        <br/>
+                        Teams can expect up to 7-9 hours of work each week beyond classroom hours. 
+                        A majority of the effort is spent researching needs, meeting need coaches and 
+                        mentors, interviewing stakeholders, and coding solutions as a team.
+
+                        <br/>
+                        <br/>
+                        <b>Deliverables</b>
+                        <br/>
+                        Teams will complete a midterm and final presentation, discussing progress and functionality. 
+                        The final deliverable will be a research-ready iOS mobile application hosted on GitHub. 
+                        Code and IP created is governed by Stanford's standard IP procedures, and will be used to 
+                        inform University research.
+
+                        <br/>
+                        <br/>
+                        <b>Trainings and Certifications</b>
+                        <br/>
+                        Health research requires adherence to strict security and privacy protocols, and Stanford 
+                        requires researchers working in this area to obtain specific certifications. Specifically,
+                        a Stanford HIPAA certificate is required, and will be obtained through 
+                        <a href="https://starsexpress.stanford.edu/index.html?ref=LM_SS_LEARNING.LM_BROWSE_LEARNER.GBL&type=COURSE&code=PRIV-2022">starsexpress.stanford.edu</a>. 
+                        This certification will enable students to work on other IRB-approved research, and is a requirement 
+                        for most research within the School of Medicine. This training is offered through the STARS 
+                        system (use the link above).
+
+                        <br/>
+                        <br/>
+                        <b>Coding and Requirements</b>
+                        <br/>
+                        Teams will be coding throughout the quarter. We require that you have taken CS106A/B or equivalent. 
+                        We highly recommend some experience with mobile platforms (CS193P/A, CS47), OR web platforms (CS142).
+                        Since we are working primarily on iOS, you will need access to a macOS computer running Xcode.
+                        The Macs in residential clusters and at Lathrop come with Xcode pre-installed. You can checkout Macbook
+                        Airs from the Tech Desk for up to 4 weeks through this link. See list of computers on-campus with Xcode 
+                        here or here. 
+                        <br />
+                        <br />
+
+
+                        <h3 class="pulled left">Topics Covered</h3>
+
+                        <b>Open Source + the iPhone as a platform for digital health</b>
+                        <br/>
+                        Learn about what makes the iPhone a powerful platform to develop clinical apps. Overview of 
+                        how some open source frameworks leverage iOS to accelerate medical research. 
+
+                        <br/>
+                        <br/>
+                        <b>Using GitHub (https://github.com/CS342)</b>
+                        <br/>
+                        Become familiar with using GitHub to manage software development projects. 
+
+                        <br/>
+                        <br/>
+                        <b>Using CardinalKit (<a href="https://cardinalkit.stanford.edu">https://cardinalkit.stanford.edu</a>)</b>
+                        <br/>
+                        Developed with the goal of providing a suite of tools to build and accelerate your digital 
+                        health experience from the ground up — from an app itself to storing collected data in the cloud.
+
+                        <br/>
+                        <br/>
+                        <b>Using ResearchKit (<a href="https://www.apple.com/researchkit/">https://www.apple.com/researchkit/</a>)</b>
+                        <br/>
+                        Developed with the goal of streamlining the process of gathering robust and meaningful data. 
+                        Used to document patient-reported outcomes (surveys) and track a person’s reaction time, balance,
+                         gait, mobility, among many other things.
+
+
+                        <br/>
+                        <br/>
+                        <b>Using CareKit (<a href="https://www.apple.com/carekit/">https://www.apple.com/carekit/</a>)</b>
+                        <br/>
+                        Developed with the goal of helping track the development of symptoms and adherence to medication 
+                        over a period of time. Often used to help patients manage a particular health condition. 
+
+
+                        <br/>
+                        <br/>
+                        <b>Using HealthKit (<a href="https://developer.apple.com/healthkit/">https://developer.apple.com/healthkit/</a>)</b>
+                        <br/>
+                        We will use HealthKit to read health and activity data from the iPhone. This enables providers 
+                        to track a patient’s step count, heart rate, flights climbed, calories burned, and other similar 
+                        metrics over time. HealthKit also allows us to download electronic health records (EHR) to your 
+                        iPhone using the Fast Healthcare Interoperability Resources (FHIR) specification.
+
+
+                        <br/>
+                        <br/>
+                        <b>Using iPhone Sensors (<a href="https://developer.apple.com/documentation/coremotion">https://developer.apple.com/documentation/coremotion</a>)</b>
+                        <br/>
+                        We will use CoreMotion to track accelerometer, gyroscope, and pedometer data in real-time.
+
+
+                        <br/>
+                        <br/>
+                        <b>Backend for Data Visualization and Analysis on Google Cloud</b>
+                        <br/>
+                        Introduction to internet-enabled dynamic apps. We will build a web dashboard hosted on Google Cloud 
+                        to conceptualize how data can travel from a patient to a provider's hands in real-time. We will explore 
+                        how data can be analyzed using BigQuery.
+
+
+                        <br/>
+                        <br/>
+                        <b>Launching your first health app</b>
+                        <br/>
+                        We will discuss data privacy and HIPAA compliance in-depth. We will discuss IRB approval for those 
+                        interested in clinical-trial applications.
+                        <br />
+                        <br />
+
+
+                        <h3 class="pulled left">Grading</h3>
+
+                        <b>3 Units – CR/NC or Letter Grade</b>
+                        <br/>
+                        Students may elect to attend the course for CR/NC or for a Letter Grade.
+                        In addition to attending classes, completing readings, and participating actively in 
+                        the classroom environment, students are required to complete a class project exploring 
+                        a need in digital mobile health. Projects are chosen in advance from a list of need areas, 
+                        sourced by faculty. 
+
+                        <br/>
+                        <br/>
+                        <b>Grading will be based on:</b>
+
+                        <ul>
+                            <li>
+                                <b>10%	Attendance</b>
+                            </li>
+                            <li>
+                                <b>10%	Individual and team class participation;</b> project teams must share presentation responsibilities. 
+                            </li>
+                            <li>
+                                <b>30%	Assignments</b>
+                            </li>
+                            <li>
+                                <b>20%	Midterm Presentation.</b> All team members must be present.
+                            </li>
+                            <li>
+                                <b>30%	Final Presentation and Deliverables (10-15 slides).</b>
+                                All team members must be present. The slide deck (powerpoint or pdf) must be submitted in 
+                                advance and no later than 2:00 PM on March 16th. Code must be submitted on the last day of 
+                                class via GitHub. (The HIPAA training certificate is also part of the final presentation grade!)
+                            </li>
+                        </ul>
+
+                        <h3 class="pulled left">Readings</h3>
+
+                        <div class="ui divided list">
+                            <div class="item"><a href="https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html"
+                                    class="ui right floated mini teal button">View</a>
+                                <div class="content">Getting Started Swift Language Guide</div>
+                            </div>
+                            <div class="item"><a href="https://developer.apple.com/tutorials/swiftui"
+                                class="ui right floated mini teal button">View</a>
+                            <div class="content">Swift UI Tutorials</div>
+                            </div>
+                            <div class="item"><a href="https://goshdarnswiftui.com/" class="ui right floated mini teal button">View</a>
+                                <div class="content">SwiftUI Cheat Sheet</div>
+                            </div>
+                            <div class="item"><a
+                                    href="https://biodesign.stanford.edu/programs/stanford-courses/building-for-digital-health.html"
+                                    class="ui right floated mini teal button">View</a>
+                                <div class="content">Stanford Biodesign Course Website</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class description">
+                        <b>Information for Students with Disabilities</b>
+                        <br>
+                        <p>
+                            Students with Documented Disabilities: 
+                            Students who may need academic accommodation based on the impact of a disability must initiate 
+                            the request with the Office of Accessible Education (OAE). Professional staff will evaluate the 
+                            request with required documentation, recommend reasonable accommodations, and prepare an 
+                            Accommodation Letter for faculty dated in the current quarter in which the request is made. 
+                            Students should contact the OAE as soon as possible since timely notice is needed to coordinate
+                            accommodations. The OAE is located at 563 Salvatierra Walk 
+                            (phone: 723-1066, URL: http://studentaffairs.stanford.edu/oae).
+                        </p>
+                    </div>
+
+                    <div class="class description">
+                        <p>Looking for class content for previous years?
+                            <a href="2019/" class="ui right floated mini purple button">2019</a>
+                            <a href="2020/" class="ui right floated mini purple button">2020</a>
+                            <a href="2021/" class="ui right floated mini purple button">2021</a>
+                        </p>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="bottom-bar"></div> -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
