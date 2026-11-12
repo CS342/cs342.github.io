@@ -272,10 +272,6 @@ a:hover { text-decoration-thickness: 2px; }
   .hero__block { height: auto; padding: 1.5rem; }
   .hero__block svg { width: 100%; max-width: 19rem; }
 }
-@media (prefers-reduced-motion: no-preference) {
-  .rosette { animation: turn 120s linear infinite; transform-origin: center; }
-  @keyframes turn { to { transform: rotate(360deg); } }
-}
 
 /* ---------- route cells (the three application pathways) ---------- */
 .routes { display: grid; grid-template-columns: minmax(0, 1fr); }

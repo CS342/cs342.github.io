@@ -372,8 +372,8 @@ session rows are clickable.
 
 ### Motion
 
-Hover transitions are 150–200ms. The rosette turns once every two minutes and the astronaut drifts;
-both stop under `prefers-reduced-motion`.
+Hover transitions are 150–200ms. The rosette is static. The astronaut drifts slowly and stops under
+`prefers-reduced-motion`.
 
 ### Print
 
