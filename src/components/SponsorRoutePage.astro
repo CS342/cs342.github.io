@@ -5,8 +5,9 @@ import Band from './Band.astro';
 import PageHeader from './PageHeader.astro';
 import AppPanel from './AppPanel.astro';
 import InfoSections from './InfoSections.astro';
-import { applications, courseCode, offering, pages, routes } from '../lib/content';
+import { applications, offering, pages, routes, tokens } from '../lib/content';
 import { url } from '../lib/paths';
+import { fillTokens, renderInline } from '../lib/richtext';
 
 interface Props {
   route: 'academic' | 'industry';
@@ -21,23 +22,20 @@ const tone = routes[route].tone as 'navy' | 'orange';
 const other = route === 'academic' ? 'industry' : 'academic';
 ---
 <Base title={title} description={description}>
-  <PageHeader tone={tone} title={title} lead={page.lead}>
+  <PageHeader tone={tone} title={title} lead={fillTokens(page.lead, tokens)}>
     <p slot="crumbs" class="label crumbs">
       <a href={url('/sponsors/')}>Propose a Project</a><span aria-hidden="true">/</span><span>{crumb} · {offering.term}</span>
     </p>
     <AppPanel slot="side" app={app} tone={tone} />
   </PageHeader>
 
-  <InfoSections sections={page.sections} />
+  <InfoSections sections={[pages.proposal.section, ...page.sections]} />
 
   <Band id="submit" label="Submit">
     <div class="stack">
       <h2>{app.action}</h2>
       <AppPanel app={app} tone={tone} boxed />
-      <p style="max-width: 43rem">
-        Describe your project at a level suitable for an initial review. Do not include patient records or confidential datasets.
-        Submitting a proposal does not guarantee selection, and the form does not collect payments or execute agreements.
-      </p>
+      <p class="prose" set:html={renderInline(pages.proposal.submitNote, tokens)} />
       <p class="actions">
         <a class="more" href={url('/sponsors/')}>Expectations for all projects <span class="arrow" aria-hidden="true">→</span></a>
         <a class="more" href={routes[other].href}>{routes[other].title} instead <span class="arrow" aria-hidden="true">→</span></a>

@@ -150,6 +150,7 @@ const PagesSchema = z.object({
     projects: z.object({ status: Status, text }),
   }),
   apply: InfoPageSchema,
+  proposal: z.object({ section: SectionSchema, submitNote: text }),
   sponsors: InfoPageSchema,
   academic: InfoPageSchema,
   industry: InfoPageSchema,
@@ -281,6 +282,7 @@ export type Application = ReturnType<typeof deriveApplication>;
 
 /** Placeholders available in content text, e.g. {term} or {sessionDate:week-5}. */
 export const tokens: Tokens = {
+  course: courseName,
   term: offering.term,
   academicYear: offering.academicYear,
   previousYear: offering.previousYear,
@@ -290,6 +292,11 @@ export const tokens: Tokens = {
   lastClass: formatDate(lastSession.date, 'long'),
   quarterStart: formatDate(offering.quarter.instructionBegins, 'long'),
   quarterEnd: formatDate(offering.quarter.classesEnd, 'long'),
+  // "January 4–March 12, 2027"; the year is repeated only when the quarter spans two.
+  quarterRange: `${formatDate(
+    offering.quarter.instructionBegins,
+    offering.quarter.instructionBegins.slice(0, 4) === offering.quarter.classesEnd.slice(0, 4) ? 'monthDay' : 'long',
+  )}–${formatDate(offering.quarter.classesEnd, 'long')}`,
   ...Object.fromEntries(sessions.map((s) => [`sessionDate:${s.slug}`, formatDate(s.date, 'full')])),
 };
 

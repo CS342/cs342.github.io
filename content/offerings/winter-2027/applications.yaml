@@ -38,7 +38,7 @@ academic:
   closesAt:
   signInNote:
   contact: sponsors
-  process: "Proposal dates and review timing for academic projects will be posted here."
+  process: "How to submit, the deadline, and review timing for academic proposals will be posted here."
   closedMessage: "Academic project proposals for Winter 2027 are closed. Contact the team to discuss a future project."
 
 industry:
@@ -50,5 +50,5 @@ industry:
   closesAt:
   signInNote:
   contact: sponsors
-  process: "Proposal dates and review timing for industry projects will be posted here."
+  process: "How to submit, the deadline, and review timing for industry proposals will be posted here."
   closedMessage: "Industry project proposals for Winter 2027 are closed. Contact the team to discuss a future partnership."

@@ -22,6 +22,7 @@ export function applicationView(app: Application, status: ApplicationStatus) {
     case 'closed':
       return { tag: 'Closed', headline: `${Noun} are closed`, detail: '' };
     default:
-      return { tag: 'Details forthcoming', headline: `${noun} details forthcoming`, detail: '' };
+      // Sponsor pages already say what a proposal contains; what is still to come is how and when to submit.
+      return { tag: 'Details forthcoming', headline: `${app.key === 'student' ? noun : 'Submission'} details forthcoming`, detail: '' };
   }
 }

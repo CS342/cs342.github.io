@@ -62,6 +62,7 @@ file and the field instead of publishing a broken page.
 | Application status, form links, opening and closing dates | `content/offerings/winter-2027/applications.yaml` |
 | Syllabus sections and policies | `content/offerings/winter-2027/syllabus.yaml` |
 | "How the course works", student application page, sponsor pages | `content/offerings/winter-2027/pages.yaml` |
+| What a project proposal must include (shown on all three sponsor pages) | `content/offerings/winter-2027/pages.yaml` → `proposal` |
 | Introduction, Goals of the Course, Topics Covered (preserved wording) | `content/offerings/winter-2027/course-copy.json` |
 | Review banner, footer affiliations, address, earlier offerings | `content/site.yaml` |
 

@@ -2,9 +2,14 @@
 # the student application page, and the sponsor pages.
 #
 # Section bodies use the same blocks and placeholders as syllabus.yaml.
-# Sponsor and application text is drafted from the 2025–26 request for proposals
-# and is marked draft until approved for Winter 2027. Fees, agreements and
-# eligibility are deliberately left as "pending" — publish approved terms only.
+# Placeholders also include {course} ("CS 342 / MED 253: Building for Digital
+# Health") and {quarterRange} ("January 4–March 12, 2027").
+#
+# The "proposal" block is the Winter 2027 call for proposals from the course
+# team. The other sponsor and application text is drafted from the 2025–26
+# request for proposals and is marked draft until approved for Winter 2027.
+# Fees, agreements and eligibility are deliberately left as "pending" — publish
+# approved terms only.
 
 home:
   process:
@@ -73,8 +78,32 @@ apply:
       body:
         - pending: "Whether an application is required before enrolling, and how selected students receive enrollment instructions, will be explained here when application details are published."
 
+# What a project proposal must contain: the Winter 2027 call for proposals as
+# supplied by the course team. It is shown on Propose a Project and on both route
+# pages, so edit it here once. submitNote is the short reminder next to the
+# submission panel at the foot of the academic and industry pages.
+proposal:
+  section:
+    id: proposal
+    label: "Proposal"
+    title: "What to include in your proposal"
+    status: confirmed
+    statusNote: "Confirmed for {term}"
+    body:
+      - p: "Proposals should be approximately 1–2 pages long and should include:"
+      - list:
+          - "**Problem and intended users:** Describe the health need, who experiences it, and the outcome you hope to achieve."
+          - "**Focused scope:** Identify 2–3 core capabilities that a student team could realistically prototype during the quarter."
+          - "**Available resources:** Describe any existing designs, content, software, data sources, or technical infrastructure students could use."
+          - "**Project readiness:** Identify technical dependencies, access requirements, and any approvals needed before work can begin."
+          - "**Dedicated mentor:** Name a mentor who can meet with students weekly, provide feedback, and help make timely decisions."
+          - "**Continuation plan:** Explain who will take ownership of the project and support its development or maintenance after the course."
+          - "**Contact information:** Provide the organization, project lead, and preferred contact email."
+      - note: "Please include only information suitable for initial review; omit patient information, credentials, and confidential material. Submission does not guarantee project selection."
+  submitNote: "Proposals should be approximately 1–2 pages long and cover the points under [What to include in your proposal](#proposal). Submitting a proposal does not involve a payment or an agreement."
+
 sponsors:
-  lead: "Each winter, student teams build digital health prototypes for projects proposed by academic and industry partners."
+  lead: "We invite academic researchers, clinicians, and industry partners to propose projects for {course}, {term}. Student teams will work with project mentors to develop a focused digital health prototype during the ten-week course, {quarterRange}."
   sections:
     - id: scope
       label: "Scope"
@@ -84,18 +113,6 @@ sponsors:
       body:
         - p: "A team builds a focused minimum viable product (MVP) within the ten-week quarter. An MVP in this course is typically either a mobile or a web application built around two or three core capabilities that the project cannot do without."
         - p: "The result is an educational prototype, not a finished, supported product. It usually needs further development, validation, and operational support before it can be deployed."
-    - id: fit
-      label: "Fit"
-      title: "What makes a suitable project"
-      status: draft
-      statusNote: "Draft · to be confirmed"
-      body:
-        - list:
-            - "It uses digital technology to address a need in healthcare or medical research, with an outcome that benefits patients, users of the technology, or medical knowledge."
-            - "Its goal is specified well enough to be built by a student team during the quarter."
-            - "Its scope is feasible: two or three must-have capabilities rather than a complete product."
-            - "It has a mentor who can work with the team every week."
-            - "It has an owner and a plan for the work after the course ends."
     - id: selection
       label: "Selection"
       title: "How projects are selected"
@@ -103,26 +120,18 @@ sponsors:
       statusNote: "Draft · criteria and dates to be confirmed"
       body:
         - olist:
-            - "**Propose.** Submit a project through the academic or the industry proposal form."
+            - "**Propose.** Submit a proposal through the academic or the industry route."
             - "**Review.** The course team reviews proposals for fit, feasibility, and readiness."
             - "**Pitch.** Selected projects are pitched to students in the [first session](/sessions/week-1/)."
             - "**Match.** Students form teams around the projects, and building begins."
-        - p: "Submitting a proposal does not guarantee selection."
         - pending: "Review criteria and the selection timeline for {term} will be posted here."
-    - id: mentors
-      label: "Mentors"
-      title: "Mentor involvement"
-      status: draft
-      statusNote: "Draft · to be confirmed"
-      body:
-        - p: "Every project needs a mentor who knows the problem and can make decisions about it. Plan to meet with the student team every week during the quarter to refine specifications, answer domain questions, and guide the direction of the project."
     - id: after
       label: "After"
       title: "Handoff and work after the quarter"
       status: draft
       statusNote: "Draft · to be confirmed"
       body:
-        - p: "At the end of the quarter the team hands its work off to the project sponsor. The sponsor keeps ownership of the project’s direction: continued development, deployment, hosting, and maintenance are the sponsor’s responsibility, and a plan for them is part of a strong proposal."
+        - p: "At the end of the quarter the team hands its work off to the project sponsor. The sponsor keeps ownership of the project’s direction: continued development, deployment, hosting, and maintenance are the sponsor’s responsibility, which is why every proposal includes a continuation plan."
     - id: terms
       label: "Terms"
       title: "Costs and terms"
@@ -130,10 +139,10 @@ sponsors:
       statusNote: "To be announced"
       body:
         - pending: "Participation costs and terms for {term} have not been published. Approved terms will appear on the academic and industry pages."
-        - p: "The proposal forms do not collect payments or execute agreements. Describe your project at a level suitable for an initial review, and do not include patient records or confidential datasets."
+        - p: "Submitting a proposal does not involve a payment or an agreement."
 
 academic:
-  lead: "For research groups and faculty who want a student team to build a first prototype of a digital health idea."
+  lead: "We invite academic researchers and clinicians to propose projects for {term}. A student team will work with your project mentor to develop a focused digital health prototype during the ten-week course, {quarterRange}."
   sections:
     - id: eligibility
       label: "Eligibility"
@@ -141,48 +150,16 @@ academic:
       status: draft
       statusNote: "Draft · eligibility to be confirmed"
       body:
-        - p: "In previous years, academic projects were led by Stanford faculty with the authority and initiative to act as principal investigator for the project."
+        - p: "The academic route is for academic researchers and clinicians. In previous years, academic projects were led by Stanford faculty with the authority and initiative to act as principal investigator for the project."
         - pending: "Whether research partners at other institutions may propose projects for {term} will be confirmed here."
-    - id: responsibilities
-      label: "Role"
-      title: "PI and mentor responsibilities"
-      status: draft
-      statusNote: "Draft · to be confirmed"
-      body:
-        - list:
-            - "Name a mentor who can meet with the student team every week during the quarter."
-            - "Be available to make decisions about scope and priorities as the team builds."
-            - "Take responsibility for any approvals the project itself requires."
-            - "Own the project and its next steps after the course ends."
-    - id: readiness
-      label: "Readiness"
-      title: "Project readiness"
-      status: draft
-      statusNote: "Draft · to be confirmed"
-      body:
-        - p: "A project is ready when its goal is specified in time to be built during the quarter: the need, the intended users, the two or three core capabilities of the prototype, and any existing designs, content, software, or integrations the team should build on."
-    - id: students
-      label: "Students"
-      title: "Working with students"
-      status: draft
-      statusNote: "Draft · to be confirmed"
-      body:
-        - p: "Selected projects are pitched to students in the first session and matched with a team. Students learn how to develop digital health solutions in class and apply that learning directly to the project, with guidance from the teaching team."
     - id: approvals
       label: "Approvals"
       title: "Approvals and data"
       status: draft
       statusNote: "Draft · expectations to be confirmed"
       body:
-        - p: "Projects that involve research participants or protected data need their own approvals, such as IRB review and a data risk assessment. These remain the responsibility of the PI."
+        - p: "Projects that involve research participants or protected data need their own approvals, such as IRB review and a data risk assessment. These remain the responsibility of the project lead. Identify them in your proposal under project readiness."
         - pending: "Project-specific approval expectations for {term} will be posted here."
-    - id: handoff
-      label: "Handoff"
-      title: "Handoff after the quarter"
-      status: draft
-      statusNote: "Draft · to be confirmed"
-      body:
-        - p: "The course produces a minimum viable product, which may need further development for your purposes. Plan for continued involvement beyond the prototype, and describe your handoff plan in the proposal."
     - id: costs
       label: "Costs"
       title: "Participation costs"
@@ -192,7 +169,7 @@ academic:
         - pending: "Participation costs for academic projects in {term} have not been published. Approved terms will appear here."
 
 industry:
-  lead: "For companies that want to explore a digital health idea with a student team and a technical mentor."
+  lead: "We invite industry partners to propose projects for {term}. A student team will work with your project mentor to develop a focused digital health prototype during the ten-week course, {quarterRange}."
   sections:
     - id: eligibility
       label: "Eligibility"
@@ -200,7 +177,7 @@ industry:
       status: draft
       statusNote: "Draft · eligibility to be confirmed"
       body:
-        - p: "The partnership route is for companies, large or small, with a digital health idea that a student team could turn into a first prototype."
+        - p: "The industry route is for companies, large or small, with a digital health idea that a student team could turn into a first prototype."
         - pending: "Eligibility criteria for industry partners in {term} will be confirmed here."
     - id: purpose
       label: "Purpose"
@@ -212,30 +189,6 @@ industry:
             - "**Student engagement.** Work closely with a student team for a quarter."
             - "**Fresh perspectives.** See a longstanding challenge approached by the next generation of engineers and developers."
             - "**A first prototype.** Take an idea to a working MVP built around two or three core capabilities."
-    - id: responsibilities
-      label: "Role"
-      title: "Sponsor and technical-mentor responsibilities"
-      status: draft
-      statusNote: "Draft · to be confirmed"
-      body:
-        - list:
-            - "Name a sponsor contact who owns the project and its goals."
-            - "Name a technical mentor who can meet with the student team every week during the quarter."
-            - "Provide the context, designs, and access the team needs to build, without sharing patient records or confidential datasets."
-    - id: scope
-      label: "Scope"
-      title: "Scope and deliverables"
-      status: draft
-      statusNote: "Draft · to be confirmed"
-      body:
-        - p: "The deliverable is an educational prototype: a mobile or web MVP with two or three must-have capabilities, presented at the end of the quarter. It is not a finished, supported product."
-    - id: followon
-      label: "After"
-      title: "Follow-on support"
-      status: draft
-      statusNote: "Draft · to be confirmed"
-      body:
-        - p: "The course does not maintain projects after the quarter. Plan for the engineering and product support needed to continue, deploy, and maintain the work, and describe your handoff and maintenance plan in the proposal."
     - id: terms
       label: "Terms"
       title: "Sponsorship costs, agreements, and IP"

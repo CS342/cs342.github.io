@@ -4,12 +4,13 @@ import Band from '../../components/Band.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import RouteCell from '../../components/RouteCell.astro';
 import InfoSections from '../../components/InfoSections.astro';
-import { courseCode, offering, pages } from '../../lib/content';
+import { courseName, offering, pages, tokens } from '../../lib/content';
+import { fillTokens } from '../../lib/richtext';
 
 const contact = offering.contacts.sponsors;
 ---
-<Base title="Propose a Project" description={`How academic and industry partners propose projects for ${courseCode}: ${offering.title}, ${offering.term}: scope, mentor involvement, selection, and handoff.`}>
-  <PageHeader eyebrow={`Project sponsors · ${offering.term}`} title="Propose a Project" lead={pages.sponsors.lead}>
+<Base title="Propose a Project" description={`How academic researchers, clinicians, and industry partners propose projects for ${courseName}, ${offering.term}: what a proposal should include, scope, selection, and handoff.`}>
+  <PageHeader eyebrow={`Project sponsors · ${offering.term}`} title="Propose a Project" lead={fillTokens(pages.sponsors.lead, tokens)}>
     <p style="margin-top: 1.25rem; max-width: 40rem">
       Proposals follow one of two routes. The expectations on this page apply to both.
     </p>
@@ -22,7 +23,7 @@ const contact = offering.contacts.sponsors;
     </div>
   </nav>
 
-  <InfoSections sections={pages.sponsors.sections} />
+  <InfoSections sections={[pages.proposal.section, ...pages.sponsors.sections]} />
 
   <Band id="routes" label="Routes" flush>
     <div style="padding: var(--pad-y) var(--pad-x) 1.5rem">
