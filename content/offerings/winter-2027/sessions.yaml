@@ -1,0 +1,122 @@
+# Class sessions. Start/end times and the room come from offering.yaml unless a
+# session overrides them (start, end, room).
+#
+# slug           stable URL (/sessions/<slug>/). Do not change it when a title changes.
+# dateStatus     confirmed | draft | pending   — is the date fixed?
+# contentStatus  confirmed | draft | pending   — are topic, agenda and speakers fixed?
+# statusLabel    short public wording for the content status
+# guest          tba = show "Speaker to be announced"; none = no guest slot
+# speakers       [{ name, affiliation, url }]  — confirmed speakers only
+# agenda         [{ time: "3:30 pm", item: "…" }]  — time is optional
+# resources      [{ label, url, type, access, description }]
+#                type: slides | recording | code | reading | workshop | link
+#                access: public | stanford | course   (leave url empty to show "forthcoming")
+# deliverables   [{ title, due: "2027-01-20T23:59", submit, access, note }]
+#                Leave due empty until the deadline is approved. Deadlines are never
+#                inferred from the class date.
+
+- week: 1
+  slug: week-1
+  date: "2027-01-06"
+  title: "Course introduction, development workflow, and project pitches"
+  summary: "Kick-off for the quarter: how the course runs, the development workflow teams will use, and pitches for this year’s projects."
+  dateStatus: confirmed
+  contentStatus: draft
+  statusLabel: "Draft agenda"
+  guest: none
+
+- week: 2
+  slug: week-2
+  date: "2027-01-13"
+  title: "Mobile application development and AI-assisted prototyping"
+  summary: "Building mobile applications and using AI coding tools to move from an idea to a working prototype."
+  dateStatus: confirmed
+  contentStatus: draft
+  statusLabel: "Draft agenda"
+  guest: none
+
+- week: 3
+  slug: week-3
+  date: "2027-01-20"
+  title: "Prompt engineering, health informatics, and health policy"
+  summary: "Working effectively with AI models through prompt engineering, alongside an introduction to health informatics and health policy."
+  dateStatus: confirmed
+  contentStatus: draft
+  statusLabel: "Draft agenda"
+  guest: none
+
+- week: 4
+  slug: week-4
+  date: "2027-01-27"
+  title: "Backend infrastructure and interoperability"
+  summary: "The backend side of digital health: infrastructure for health data and interoperability between systems."
+  dateStatus: confirmed
+  contentStatus: draft
+  statusLabel: "Draft agenda"
+  guest: none
+
+- week: 5
+  slug: week-5
+  date: "2027-02-03"
+  title: "Midterm presentations"
+  summary: "Teams present their progress and working functionality at the midpoint of the quarter."
+  dateStatus: confirmed
+  contentStatus: draft
+  statusLabel: "Planned · assessment details to be confirmed"
+  guest: none
+  deliverables:
+    - title: "Midterm presentation"
+      note: "Presented in class. Format and assessment details will be posted once confirmed."
+
+- week: 6
+  slug: week-6
+  date: "2027-02-10"
+  title: "Project feedback and development workshop"
+  summary: "Feedback on team projects, followed by hands-on development time."
+  dateStatus: confirmed
+  contentStatus: pending
+  statusLabel: "Guest and agenda to be announced"
+  guest: tba
+
+- week: 7
+  slug: week-7
+  date: "2027-02-17"
+  title: "Digital health guest session and workshop"
+  summary: "A guest perspective on digital health, followed by hands-on development time."
+  dateStatus: confirmed
+  contentStatus: pending
+  statusLabel: "Guest and topic to be announced"
+  guest: tba
+
+- week: 8
+  slug: week-8
+  date: "2027-02-24"
+  title: "AI in digital health, business models, and workshop"
+  summary: "AI in digital health and the business models behind digital health products, followed by hands-on development time."
+  dateStatus: confirmed
+  contentStatus: pending
+  statusLabel: "Guest and agenda to be announced"
+  guest: tba
+
+- week: 9
+  slug: week-9
+  date: "2027-03-03"
+  title: "Development workshop and final presentation preparation"
+  summary: "Hands-on development time and preparation for the final presentations."
+  dateStatus: confirmed
+  contentStatus: draft
+  statusLabel: "Draft agenda"
+  guest: none
+
+- week: 10
+  slug: week-10
+  date: "2027-03-10"
+  title: "Final presentations"
+  summary: "Teams present their final projects."
+  dateStatus: confirmed
+  contentStatus: draft
+  statusLabel: "Planned · presentation order to be confirmed"
+  guest: none
+  deliverables:
+    - title: "Final presentation"
+      note: "Presented in class. Presentation order and deliverable requirements will be posted once confirmed."

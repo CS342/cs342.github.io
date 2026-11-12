@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import Band from '../../components/Band.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import RouteCell from '../../components/RouteCell.astro';
+import InfoSections from '../../components/InfoSections.astro';
+import { courseCode, offering, pages } from '../../lib/content';
+
+const contact = offering.contacts.sponsors;
+---
+<Base title="Propose a Project" description={`How academic and industry partners propose projects for ${courseCode}: ${offering.title}, ${offering.term}: scope, mentor involvement, selection, and handoff.`}>
+  <PageHeader eyebrow={`Project sponsors · ${offering.term}`} title="Propose a Project" lead={pages.sponsors.lead}>
+    <p style="margin-top: 1.25rem; max-width: 40rem">
+      Proposals follow one of two routes. The expectations on this page apply to both.
+    </p>
+  </PageHeader>
+
+  <nav class="band" aria-label="Proposal routes">
+    <div class="frame routes routes--two">
+      <RouteCell route="academic" />
+      <RouteCell route="industry" />
+    </div>
+  </nav>
+
+  <InfoSections sections={pages.sponsors.sections} />
+
+  <Band id="routes" label="Routes" flush>
+    <div style="padding: var(--pad-y) var(--pad-x) 1.5rem">
+      <h2>Choose your route</h2>
+      <p style="margin-top: 1rem; max-width: 40rem">
+        Each route has its own requirements, dates, and proposal form. Questions about either:
+        <a class="link" href={`mailto:${contact.email}`}>{contact.email}</a>.
+      </p>
+    </div>
+    <div class="routes routes--two" style="border-top: 1px solid var(--rule)">
+      <RouteCell route="academic" level="h3" />
+      <RouteCell route="industry" level="h3" />
+    </div>
+  </Band>
+</Base>

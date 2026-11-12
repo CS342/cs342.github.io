@@ -1,0 +1,20 @@
+---
+// One application pathway: kicker, title link, and that route's own status.
+import AppStatus from './AppStatus.astro';
+import { applications, routes, type RouteKey } from '../lib/content';
+
+interface Props {
+  route: RouteKey;
+  level?: 'h2' | 'h3';
+}
+const { route, level: Heading = 'h2' } = Astro.props;
+const r = routes[route];
+---
+<article class={`route tone-${r.tone}`}>
+  <p class="label route__kicker">{r.kicker}</p>
+  <Heading class="route__title"><a href={r.href}>{r.title}</a></Heading>
+  <div class="route__foot">
+    <AppStatus app={applications[route]} />
+    <span class="route__arrow" aria-hidden="true">→</span>
+  </div>
+</article>

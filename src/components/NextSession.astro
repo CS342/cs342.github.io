@@ -1,0 +1,38 @@
+---
+// "Next session" card. Rendered for the build date, then re-evaluated in the browser
+// (src/scripts/live.ts). Before the quarter it shows the first session; after the last
+// class it shows a completed-offering state instead of a misleading "next class".
+import { sessions, firstSession, offering } from '../lib/content';
+import { nextSessionIndex } from '../lib/state';
+import { formatDate } from '../lib/time';
+import { url } from '../lib/paths';
+
+interface Props {
+  level?: 'h2' | 'h3';
+}
+const { level: Heading = 'h3' } = Astro.props;
+
+const now = Date.now();
+const index = nextSessionIndex(now, sessions.map((s) => ({ end: s.endUtc.getTime() })));
+const next = index >= 0 ? sessions[index] : null;
+const shown = next ?? firstSession;
+const label = next && now >= next.startUtc.getTime() ? 'In session now' : index === 0 ? 'First session' : 'Next session';
+---
+<div class="nextcard" data-next-session data-offering={next ? 'active' : 'completed'}>
+  <div class="nextcard__body" data-next-active hidden={!next}>
+    <p class="label" data-f="label">{label}</p>
+    <p class="nextcard__when">
+      <span data-f="date">{formatDate(shown.date, 'full')}</span><br />
+      <span data-f="time">{shown.timeLabel}</span>
+    </p>
+    <p class="label" data-f="week">Week {shown.week}</p>
+    <Heading class="nextcard__title" data-f="title">{shown.title}</Heading>
+    <a class="more" data-f="link" href={shown.href}>Session details <span class="arrow" aria-hidden="true">→</span></a>
+  </div>
+  <div class="nextcard__body" data-next-done hidden={!!next}>
+    <p class="label">{offering.term}</p>
+    <Heading class="nextcard__title">This offering has concluded</Heading>
+    <p>All {sessions.length} sessions are complete. Session pages and their materials remain available.</p>
+    <a class="more" href={url('/sessions/')}>View the schedule <span class="arrow" aria-hidden="true">→</span></a>
+  </div>
+</div>

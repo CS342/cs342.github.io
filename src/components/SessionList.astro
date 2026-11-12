@@ -1,0 +1,43 @@
+---
+// Chronological session list. Uses the same session records as the calendar.
+import Tag from './Tag.astro';
+import { sessions, offering } from '../lib/content';
+import { nextSessionIndex, sessionState, sessionStateLabel } from '../lib/state';
+import { formatDate } from '../lib/time';
+
+const now = Date.now();
+const nextIndex = nextSessionIndex(now, sessions.map((s) => ({ end: s.endUtc.getTime() })));
+---
+<ul class="slist">
+  <li class="srow srow--marker">
+    <span class="label">Quarter</span>
+    <span><strong>Instruction begins</strong> · {formatDate(offering.quarter.instructionBegins, 'full')}</span>
+  </li>
+  {sessions.map((s, i) => {
+    const state = sessionState(now, s.startUtc.getTime(), s.endUtc.getTime());
+    const isNext = i === nextIndex;
+    return (
+      <li class="srow" data-session={s.slug} data-time-state={state} data-next={String(isNext)}>
+        <p class="srow__week"><span class="label">Week</span> <b>{s.weekLabel}</b></p>
+        <p class="srow__when">
+          <time datetime={s.date}>{formatDate(s.date, 'short')}</time>
+          <span>{s.timeLabel}</span>
+        </p>
+        <div>
+          <h3 class="srow__title"><a href={s.href}>{s.title}</a></h3>
+          <p class="srow__summary">{s.summary}</p>
+        </div>
+        <div class="srow__meta">
+          <span class="srow__state" data-state-label>{sessionStateLabel(state, isNext)}</span>
+          {s.dateStatus !== 'confirmed' && <Tag kind={s.dateStatus} label="Date to be confirmed" />}
+          <Tag kind={s.contentStatus} label={s.statusLabel} />
+        </div>
+        <span class="srow__arrow" aria-hidden="true">→</span>
+      </li>
+    );
+  })}
+  <li class="srow srow--marker">
+    <span class="label">Quarter</span>
+    <span><strong>Classes end</strong> · {formatDate(offering.quarter.classesEnd, 'full')}</span>
+  </li>
+</ul>

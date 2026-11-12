@@ -1,0 +1,27 @@
+---
+import type { Person } from '../lib/content';
+import { url } from '../lib/paths';
+
+interface Props {
+  person: Person;
+}
+const { person } = Astro.props;
+const initials = person.name.split(/\s+/).map((part) => part[0]).join('').slice(0, 2).toUpperCase();
+---
+<li class="person">
+  <div class="person__mark">
+    {person.headshot ? (
+      <img class="person__photo" src={url(`/images/people/${person.headshot}`)} alt={person.headshotAlt ?? `Portrait of ${person.name}`} width="160" height="160" loading="lazy" />
+    ) : (
+      <span class="ring ring--sm" aria-hidden="true">{initials}</span>
+    )}
+  </div>
+  <h3>{person.name}{person.credentials && <>, <span>{person.credentials}</span></>}</h3>
+  <p class="label">{person.role}</p>
+  {person.bio && <p class="person__bio">{person.bio}</p>}
+  {person.profileUrl && (
+    <p class="person__link">
+      <a class="link" href={person.profileUrl} rel="noopener">{person.profileLabel ?? 'Profile'}<span class="visually-hidden"> for {person.name}</span></a>
+    </p>
+  )}
+</li>

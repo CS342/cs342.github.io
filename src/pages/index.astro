@@ -1,0 +1,190 @@
+---
+import Base from '../layouts/Base.astro';
+import Band from '../components/Band.astro';
+import RouteCell from '../components/RouteCell.astro';
+import Rosette from '../components/Rosette.astro';
+import NextSession from '../components/NextSession.astro';
+import Tag from '../components/Tag.astro';
+import { courseCode, courseCopy, firstSession, lastSession, meetingPattern, offering, pages, people, quarter, sessions } from '../lib/content';
+import { renderRuns, type Run } from '../lib/richtext';
+import { offeringState } from '../lib/state';
+import { formatDate } from '../lib/time';
+import { url } from '../lib/paths';
+
+const { process, projects } = pages.home;
+
+// Topics Covered: each bold source paragraph is a sub-heading that opens a group.
+const topicGroups: { heading: Run[] | null; paragraphs: Run[][] }[] = [];
+for (const block of courseCopy.topics.blocks) {
+  if (block.type === 'subheading' || topicGroups.length === 0) topicGroups.push({ heading: block.type === 'subheading' ? block.runs : null, paragraphs: [] });
+  if (block.type === 'paragraph') topicGroups[topicGroups.length - 1].paragraphs.push(block.runs);
+}
+
+const stepTone = (i: number) => (i < 2 ? 'green' : i === process.steps.length - 1 ? 'navy' : 'orange');
+const instructors = people.filter((p) => p.group === 'instructors');
+const state = offeringState(Date.now(), quarter.startUtc.getTime(), quarter.endUtc.getTime());
+const stateLabel = state === 'before' ? `Begins ${formatDate(offering.quarter.instructionBegins, 'long')}` : state === 'during' ? 'In progress' : 'Completed';
+const sessionSpan = `${sessions.length} sessions, ${formatDate(firstSession.date, 'monthDay')} – ${formatDate(lastSession.date, 'long')}`;
+const students = offering.contacts.students;
+---
+<Base>
+  <header class="hero">
+    <div class="frame hero__grid">
+      <div class="hero__bar" aria-hidden="true"></div>
+      <div class="hero__main">
+        <div>
+          <p><span class="label hero__term">{offering.term}</span></p>
+          <h1 class="hero__h1">
+            <span class="hero__code">{courseCode}</span>
+            <span class="hero__title">{offering.title}</span>
+          </h1>
+        </div>
+        <div>
+          <p class="hero__meta">
+            {meetingPattern}
+            <small>{offering.room.name ?? 'Room to be announced'} · {sessionSpan}</small>
+          </p>
+          <p class="hero__links">
+            <a class="more" href={url('/syllabus/')}>View syllabus <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="more" href={url('/sessions/')}>Browse sessions <span class="arrow" aria-hidden="true">→</span></a>
+          </p>
+        </div>
+        <img class="hero__astronaut" src={url('/images/astronaut.png')} alt="" width="328" height="600" />
+      </div>
+      <div class="hero__side" aria-hidden="true">
+        <div class="gridmotif"></div>
+        <div class="hero__block"><Rosette /></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="band" aria-label="Applications and project proposals">
+    <div class="frame routes">
+      <RouteCell route="student" />
+      <RouteCell route="academic" />
+      <RouteCell route="industry" />
+    </div>
+  </nav>
+
+  <Band id="about" label="About">
+    <h2 class="band__head">About the course</h2>
+    <div class="intro">
+      {courseCopy.introduction.map((runs) => <p data-copy-block="introduction" set:html={renderRuns(runs)} />)}
+    </div>
+  </Band>
+
+  <Band id="goals" label="Goals">
+    <h2 class="band__head" data-copy-block="goals-heading" set:html={renderRuns(courseCopy.goals.heading)} />
+    <ul class="goals">
+      {courseCopy.goals.items.map((runs) => <li data-copy-block="goals" set:html={renderRuns(runs)} />)}
+    </ul>
+  </Band>
+
+  <Band id="topics" label="Topics">
+    <h2 class="band__head" data-copy-block="topics-heading" set:html={renderRuns(courseCopy.topics.heading)} />
+    <div class="topics">
+      {topicGroups.map((group) => (
+        <div class="topic">
+          {group.heading ? <h3 data-copy-block="topics-subheading" set:html={renderRuns(group.heading)} /> : <span></span>}
+          <div class="topic__body">
+            {group.paragraphs.map((runs) => <p data-copy-block="topics-paragraph" set:html={renderRuns(runs)} />)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </Band>
+
+  <Band id="how-it-works" label="Process">
+    <h2 class="band__head">{process.title}</h2>
+    <div class="processwrap">
+      <ol class="process">
+        {process.steps.map((step, i) => (
+          <li class={`tone-${stepTone(i)}`}>
+            <span class="ring" aria-hidden="true">{i + 1}</span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p class="process__after"><span class="process__chevrons" aria-hidden="true">›››</span>{process.after}</p>
+    </div>
+    <div class="compare">
+      <div class="compare__yes">
+        <p class="label">What teams build</p>
+        <h3>{process.prototype.title}</h3>
+        <p>{process.prototype.text}</p>
+      </div>
+      <div>
+        <p class="label">What it is not</p>
+        <h3>{process.product.title}</h3>
+        <p>{process.product.text}</p>
+      </div>
+    </div>
+    <p class="actions backlink">
+      <a class="more" href={url('/syllabus/')}>Read the full syllabus <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="more" href={url('/sponsors/')}>Expectations for project sponsors <span class="arrow" aria-hidden="true">→</span></a>
+    </p>
+  </Band>
+
+  <Band id="current" label={offering.term} sideFlush>
+    <h2 class="band__head">{offering.term} at a glance</h2>
+    <dl class="facts">
+      <div>
+        <dt class="label">Offering</dt>
+        <dd>{offering.term} · academic year {offering.academicYear}<span class="note" data-offering-state={state}>{stateLabel}</span></dd>
+      </div>
+      <div>
+        <dt class="label">Quarter</dt>
+        <dd>
+          Instruction begins {formatDate(offering.quarter.instructionBegins, 'full')}
+          <span class="note">Classes end {formatDate(offering.quarter.classesEnd, 'full')}</span>
+        </dd>
+      </div>
+      <div>
+        <dt class="label">Class meetings</dt>
+        <dd>{meetingPattern}<span class="note">{sessionSpan}</span></dd>
+      </div>
+      <div>
+        <dt class="label">Classroom</dt>
+        <dd>
+          {offering.room.name ? (offering.room.mapUrl ? <a class="link" href={offering.room.mapUrl} rel="noopener">{offering.room.name}</a> : offering.room.name) : <Tag kind="pending" label="To be announced" />}
+        </dd>
+      </div>
+      <div>
+        <dt class="label">Units</dt>
+        <dd>
+          {offering.units.value ?? <Tag kind="pending" label="To be announced" />}
+          {offering.units.note && <span class="note">{offering.units.note}</span>}
+        </dd>
+      </div>
+      <div>
+        <dt class="label">Course materials</dt>
+        <dd>
+          {offering.canvasUrl ? <a class="link" href={offering.canvasUrl} rel="noopener">Canvas (course access required)</a> : <Tag kind="pending" label="Canvas link forthcoming" />}
+          <span class="note">Session materials are posted on each <a class="link" href={url('/sessions/')}>session page</a>.</span>
+        </dd>
+      </div>
+      <div>
+        <dt class="label">Contact</dt>
+        <dd><a class="link" href={`mailto:${students.email}`}>{students.email}</a><span class="note">{students.name}{students.role ? `, ${students.role}` : ''}</span></dd>
+      </div>
+    </dl>
+    <NextSession slot="side" />
+  </Band>
+
+  <Band id="team" label="People">
+    <h2 class="band__head">Faculty &amp; team</h2>
+    <ul class="namelist">
+      {instructors.map((p) => <li>{p.name}{p.credentials ? `, ${p.credentials}` : ''} <span>{p.role}</span></li>)}
+    </ul>
+    <p class="backlink"><a class="more" href={url('/faculty/')}>Meet the full team <span class="arrow" aria-hidden="true">→</span></a></p>
+    <div slot="side" class="stack">
+      <h2 class="title">Current projects</h2>
+      <Tag kind={projects.status} label={projects.status === 'pending' ? 'To be announced' : projects.status} />
+      <p>{projects.text}</p>
+      <a class="more" href={url('/sponsors/')}>Propose a project <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </Band>
+</Base>

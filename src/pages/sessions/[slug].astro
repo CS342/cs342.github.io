@@ -1,0 +1,168 @@
+---
+import Base from '../../layouts/Base.astro';
+import Band from '../../components/Band.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Tag from '../../components/Tag.astro';
+import { offering, sessions } from '../../lib/content';
+import { nextSessionIndex, sessionState, sessionStateLabel } from '../../lib/state';
+import { formatDate, formatLocalDateTime } from '../../lib/time';
+import { url } from '../../lib/paths';
+
+export function getStaticPaths() {
+  return sessions.map((s, index) => ({ params: { slug: s.slug }, props: { index } }));
+}
+
+const { index } = Astro.props as { index: number };
+const s = sessions[index];
+const prev = sessions[index - 1];
+const next = sessions[index + 1];
+
+const now = Date.now();
+const state = sessionState(now, s.startUtc.getTime(), s.endUtc.getTime());
+const isNext = nextSessionIndex(now, sessions.map((x) => ({ end: x.endUtc.getTime() }))) === index;
+
+const TYPE: Record<string, string> = { slides: 'Slides', recording: 'Recording', code: 'Code', reading: 'Reading', workshop: 'Workshop', link: 'Link' };
+const ACCESS: Record<string, string> = { stanford: 'Stanford login required', course: 'Course access required' };
+---
+<Base title={`Week ${s.week}: ${s.title}`} description={`${formatDate(s.date, 'full')}, ${s.timeLabel}. ${s.summary}`}>
+  <PageHeader title={s.title} lead={s.summary}>
+    <p slot="crumbs" class="label crumbs">
+      <a href={url('/sessions/')}>Sessions</a><span aria-hidden="true">/</span><span>Week {s.week} · {offering.term}</span>
+    </p>
+    <dl slot="side" class="sidefacts" data-session={s.slug} data-time-state={state} data-next={String(isNext)}>
+      <div>
+        <dt class="label">Date</dt>
+        <dd><time datetime={s.date}>{formatDate(s.date, 'full')}</time></dd>
+      </div>
+      <div>
+        <dt class="label">Time</dt>
+        <dd>{s.timeLabel}</dd>
+      </div>
+      <div>
+        <dt class="label">Classroom</dt>
+        <dd>{s.room ?? 'To be announced'}</dd>
+      </div>
+      <div>
+        <dt class="label">Status</dt>
+        <dd>
+          <span data-state-label>{sessionStateLabel(state, isNext)}</span>
+          <div class="tags">
+            <Tag kind={s.dateStatus} label={s.dateStatus === 'confirmed' ? 'Date confirmed' : 'Date to be confirmed'} />
+            <Tag kind={s.contentStatus} label={s.statusLabel} />
+          </div>
+        </dd>
+      </div>
+    </dl>
+  </PageHeader>
+
+  <Band label={`Week ${s.weekLabel}`}>
+    <div class="sections">
+      {s.description && (
+        <section class="section">
+          <div class="section__head"><h2>Overview</h2></div>
+          <div class="prose"><p>{s.description}</p></div>
+        </section>
+      )}
+
+      <section class="section">
+        <div class="section__head"><h2>Learning objectives</h2></div>
+        {s.objectives.length ? (
+          <div class="prose"><ul>{s.objectives.map((o) => <li>{o}</li>)}</ul></div>
+        ) : (
+          <p class="empty">Learning objectives will be posted with the confirmed agenda.</p>
+        )}
+      </section>
+
+      <section class="section">
+        <div class="section__head"><h2>Agenda</h2></div>
+        {s.agenda.length ? (
+          <ul class="agenda">{s.agenda.map((a) => <li><span class="label">{a.time ?? ''}</span><span>{a.item}</span></li>)}</ul>
+        ) : (
+          <p class="empty">Agenda forthcoming.</p>
+        )}
+      </section>
+
+      {(s.speakers.length > 0 || s.guest === 'tba') && (
+        <section class="section">
+          <div class="section__head"><h2>{s.speakers.length > 1 ? 'Speakers' : 'Speaker'}</h2></div>
+          {s.speakers.length ? (
+            <ul class="reslist">
+              {s.speakers.map((sp) => (
+                <li>
+                  <strong>{sp.url ? <a class="link" href={sp.url} rel="noopener">{sp.name}</a> : sp.name}</strong>
+                  {sp.affiliation && <span class="muted"> · {sp.affiliation}</span>}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p class="empty">Speaker to be announced.</p>
+          )}
+        </section>
+      )}
+
+      <section class="section">
+        <div class="section__head"><h2>Preparation</h2></div>
+        {s.preparation.length ? (
+          <div class="prose"><ul>{s.preparation.map((p) => <li>{p}</li>)}</ul></div>
+        ) : (
+          <p class="empty">No preparation or readings have been posted for this session yet.</p>
+        )}
+      </section>
+
+      <section class="section">
+        <div class="section__head"><h2>Materials</h2></div>
+        {s.resources.length ? (
+          <ul class="reslist">
+            {s.resources.map((r) => (
+              <li>
+                <span class="label">{TYPE[r.type]}</span>
+                {r.url ? <a class="link" href={r.url} rel="noopener">{r.label}</a> : <span>{r.label} — forthcoming</span>}
+                {ACCESS[r.access] && <span class="small muted"> ({ACCESS[r.access]})</span>}
+                {r.description && <p class="small muted">{r.description}</p>}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="empty">Materials forthcoming.</p>
+        )}
+      </section>
+
+      <section class="section">
+        <div class="section__head"><h2>Assignments and deliverables</h2></div>
+        {s.deliverables.length ? (
+          <ul class="reslist">
+            {s.deliverables.map((d) => (
+              <li>
+                <strong>{d.title}</strong>
+                <p class="small">
+                  {d.due ? `Due ${formatLocalDateTime(d.due, offering.timeZoneLabel)}` : 'Due date not yet posted'}
+                  {d.submit && ` · Submit via ${d.submit}`}
+                  {d.access && ` (${d.access})`}
+                </p>
+                {d.note && <p class="small muted">{d.note}</p>}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="empty">No assignments or deliverables have been posted for this session.</p>
+        )}
+      </section>
+    </div>
+    <p class="backlink"><a class="more" href={url('/sessions/')}><span class="arrow" aria-hidden="true">←</span> Back to the schedule</a></p>
+  </Band>
+
+  <nav class="band" aria-label="Previous and next session">
+    <div class="frame pager">
+      {prev ? (
+        <a href={prev.href}><span class="label">← Previous · Week {prev.week}</span><strong>{prev.title}</strong></a>
+      ) : (
+        <span class="muted"><span class="label">First session</span></span>
+      )}
+      {next ? (
+        <a class="next" href={next.href}><span class="label">Next · Week {next.week} →</span><strong>{next.title}</strong></a>
+      ) : (
+        <span class="next muted"><span class="label">Last session</span></span>
+      )}
+    </div>
+  </nav>
+</Base>

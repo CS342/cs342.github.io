@@ -1,0 +1,42 @@
+---
+// Compact application status (tag + one line). An open route also carries its
+// closed wording so the browser can switch once the deadline passes.
+import Tag from './Tag.astro';
+import type { Application } from '../lib/content';
+import { effectiveApplicationStatus } from '../lib/state';
+import { applicationView } from '../lib/appview';
+
+interface Props {
+  app: Application;
+}
+const { app } = Astro.props;
+const status = effectiveApplicationStatus({ status: app.status, formUrl: app.formUrl, closes: app.closesUtc?.getTime() }, Date.now());
+const view = applicationView(app, status);
+const kind = status === 'opening-soon' ? 'soon' : status;
+const switchable = app.status === 'open' && !!app.formUrl && !!app.closesUtc;
+---
+{switchable ? (
+  <div class="appstatus" data-app-closes={app.closesUtc!.toISOString()}>
+    <div data-app-variant="open" hidden={status !== 'open'}>
+      <Tag kind="open" label="Open" />
+      <p class="small">{applicationView(app, 'open').detail}</p>
+    </div>
+    <div data-app-variant="closed" hidden={status === 'open'}>
+      <Tag kind="closed" label="Closed" />
+    </div>
+  </div>
+) : (
+  <div class="appstatus">
+    <Tag kind={kind} label={view.tag} />
+    {view.detail && <p class="small">{view.detail}</p>}
+  </div>
+)}
+
+<style>
+  .appstatus,
+  .appstatus > div {
+    display: grid;
+    gap: 0.4rem;
+    justify-items: start;
+  }
+</style>

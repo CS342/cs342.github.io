@@ -1,0 +1,10 @@
+---
+import SponsorRoutePage from '../../components/SponsorRoutePage.astro';
+import { courseCode, offering } from '../../lib/content';
+---
+<SponsorRoutePage
+  route="academic"
+  title="Academic Sponsors"
+  crumb="Academic"
+  description={`Requirements, responsibilities, and the proposal form for academic and research partners of ${courseCode}: ${offering.title}, ${offering.term}.`}
+/>

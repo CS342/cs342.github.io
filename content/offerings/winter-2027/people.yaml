@@ -1,0 +1,63 @@
+# Faculty and team for this offering.
+#
+# group     instructors | operations | coaches
+# status    confirmed | draft   (draft = carried forward from 2025–26, not yet confirmed for 2027)
+# bio       short biography (optional)
+# headshot  file name in public/images/people/ (optional); headshotAlt is required when set
+#
+# The roster below comes from the 2025–26 syllabus. Confirm the 2027 roster,
+# titles, biographies and photos before launch.
+
+- name: "Oliver Aalami"
+  credentials: "MD"
+  group: instructors
+  role: "Instructor"
+  profileUrl: "https://profiles.stanford.edu/oliver-aalami"
+  profileLabel: "Stanford profile"
+  status: draft
+
+- name: "Carlos Guestrin"
+  credentials: "PhD"
+  group: instructors
+  role: "Instructor"
+  profileUrl: "https://guestrin.su.domains/"
+  profileLabel: "Faculty website"
+  status: draft
+
+- name: "Santiago Gutierrez"
+  group: instructors
+  role: "Instructor"
+  profileUrl: "https://www.linkedin.com/in/gutierrezsanti/"
+  profileLabel: "Professional profile"
+  status: draft
+
+- name: "Vishnu Ravi"
+  credentials: "MD"
+  group: instructors
+  role: "Instructor"
+  profileUrl: "https://profiles.stanford.edu/vishnu-ravi?tab=bio"
+  profileLabel: "Stanford profile"
+  status: draft
+
+- name: "Paul Schmiedmayer"
+  credentials: "PhD"
+  group: instructors
+  role: "Instructor"
+  profileUrl: "https://profiles.stanford.edu/schmiedmayer"
+  profileLabel: "Stanford profile"
+  status: draft
+
+- name: "Aydin Zahedivash"
+  credentials: "MD, MBA"
+  group: instructors
+  role: "Instructor"
+  profileUrl: "https://profiles.stanford.edu/aydin-zahedivash"
+  profileLabel: "Stanford profile"
+  status: draft
+
+- name: "Meghana Nerurkar"
+  group: operations
+  role: "Course manager"
+  profileUrl: "https://profiles.stanford.edu/meghana-nerurkar"
+  profileLabel: "Stanford profile"
+  status: draft

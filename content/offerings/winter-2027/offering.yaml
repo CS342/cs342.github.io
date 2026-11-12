@@ -1,0 +1,57 @@
+# Course offering — the single source for dates, times, room, units, contacts and
+# course-system links. Every page reads these values; change them here only.
+#
+# status values used throughout the content files:
+#   confirmed  approved for this offering
+#   draft      proposed or carried forward from a previous year; not yet approved
+#   pending    not yet known ("to be announced")
+
+id: winter-2027
+title: "Building for Digital Health"
+numbers: ["CS 342", "MED 253"]
+term: "Winter 2027"
+academicYear: "2026–2027"
+previousYear: "2025–26"
+description: "A project-based Stanford Biodesign course in which student teams build digital health applications with academic and industry mentors."
+
+# All date and time calculations use this time zone.
+timeZone: "America/Los_Angeles"
+timeZoneLabel: "Pacific"
+
+# Quarter boundaries (kept distinct from the Wednesday class meetings).
+quarter:
+  instructionBegins: "2027-01-04"
+  classesEnd: "2027-03-12"
+
+# Class meetings. Individual session dates are in sessions.yaml.
+meeting:
+  day: "Wednesday"
+  start: "15:30"
+  end: "18:20"
+
+# Classroom. Leave name empty until the room is confirmed.
+room:
+  name:            # e.g. "L107, Littlefield Center"
+  mapUrl:          # link to a map or location page
+  status: pending
+
+units:
+  value: "3–4"
+  status: draft
+  note: "2025–26 value; to be confirmed"
+
+# Course-system links. Leave empty until the 2027 link exists.
+canvasUrl:
+
+# Contacts. Student-facing and sponsor-facing contacts are maintained separately.
+contacts:
+  students:
+    name: "Meghana Nerurkar"
+    role: "Course manager"
+    email: "mnerur@stanford.edu"
+    status: draft
+  sponsors:
+    name: "Biodesign Digital Health team"
+    role: "Project proposals"
+    email: "speziteam@stanford.edu"
+    status: draft

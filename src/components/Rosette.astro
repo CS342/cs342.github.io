@@ -1,0 +1,12 @@
+---
+// Eight overlapping circles — the line rosette from the deck's title slide.
+const R = 55;
+const D = 62;
+const circles = Array.from({ length: 8 }, (_, i) => {
+  const a = (Math.PI / 4) * i - Math.PI / 2;
+  return { cx: +(Math.cos(a) * D).toFixed(2), cy: +(Math.sin(a) * D).toFixed(2) };
+});
+---
+<svg class="rosette" viewBox="-122 -122 244 244" aria-hidden="true" focusable="false">
+  {circles.map((c) => <circle cx={c.cx} cy={c.cy} r={R} />)}
+</svg>

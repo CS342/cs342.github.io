@@ -1,0 +1,170 @@
+{
+  "source": {
+    "url": "https://stanfordbdhg.notion.site/CS342-MED253-Building-for-Digital-Health-ea1a66dfc9b44c90b6908de0d083d4e1",
+    "retrieved": "2026-11-12",
+    "note": "Verbatim rich text captured from the Notion syllabus. Wording changes need course-team approval; see README."
+  },
+  "introduction": [
+    [
+      {
+        "text": "As our world becomes more and more digitized, patients and their devices are generating streams of valuable data that can provide meaningful clinical insights. This digital health revolution provides great opportunities to design and validate new digital health concepts. Many groups within Stanford Medicine have promising ideas that are ripe for development, however, they lack the software engineering and healthcare compliance know-how to take them forward."
+      }
+    ],
+    [
+      {
+        "text": "Building for Digital Health",
+        "bold": true
+      },
+      {
+        "text": " is a Biodesign course sponsored by the Stanford School of Medicine (SoM) and Stanford’s Computer Science (CS) department. Its goal is to provide students with the opportunity to apply their skills to real-world digital health projects, while enabling academic and industry mentors to collaborate with these talented individuals to help bring ideas to reality. Both audiences will learn a repeatable approach for developing new digital health technologies and preparing to launch them in the market."
+      }
+    ],
+    [
+      {
+        "text": "Over the course of ten weeks, students and mentors will work together to tackle a project and launch an app-enabled MVP solution. Every week, students will learn about digital health software development, HealthIT policy, hardware integration, interacting with wearables, health data privacy and security, and more. In the final week of class, teams will present their final project to a panel of digital health experts."
+      }
+    ]
+  ],
+  "goals": {
+    "heading": [
+      {
+        "text": "Goals of the Course",
+        "bold": true
+      }
+    ],
+    "items": [
+      [
+        {
+          "text": "Gain exposure to unmet needs in the healthcare field and learn to design and build secure digital solutions to address them."
+        }
+      ],
+      [
+        {
+          "text": "Get experience working with technical and multidisciplinary teams with the help of external mentors and industry experts who can help guide career paths in health tech innovation."
+        }
+      ],
+      [
+        {
+          "text": "Use AI tools to accelarate your development process"
+        }
+      ]
+    ]
+  },
+  "topics": {
+    "heading": [
+      {
+        "text": "Topics Covered"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "subheading",
+        "runs": [
+          {
+            "text": "Building for Digital Health in the Age of AI Coding",
+            "bold": true
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "runs": [
+          {
+            "text": "Welcome to CS342/MED253 - where we're pioneering the future of digital health development through vibe coding. This year marks a transformative shift: for the first time, you'll learn to prototype healthcare applications with the help of AI coding agents, dramatically accelerating the path from clinical need to working prototype."
+          }
+        ]
+      },
+      {
+        "type": "subheading",
+        "runs": [
+          {
+            "text": "The Vibe Coding Revolution",
+            "bold": true
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "runs": [
+          {
+            "text": "Digital health innovation shouldn't take months - it should take hours. Working alongside AI assistants like GitHub Copilot, Cursor, and Claude Code, you'll rapidly prototype cross-platform mobile applications that address real clinical needs. We're embracing a new paradigm where developers and AI agents work in concert, turning clinical insights into functional software at unprecedented speed. This isn't about replacing traditional software engineering - it's about amplifying your ability to innovate."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "runs": [
+          {
+            "text": "SpeziVibe, our new cross-platform built for AI-assisted development, allows you to create cross-platform iOS and Android applications using React Native and Expo."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "runs": [
+          {
+            "text": "Paths offer opportunity to integrate with open-source EHR systems (MedPlum) or Google Cloud, support HIPAA-compliant architectures, and embrace the same vibe coding philosophy: move fast, iterate intelligently, and let AI handle the boilerplate while you focus on solving healthcare's hardest problems."
+          }
+        ]
+      },
+      {
+        "type": "subheading",
+        "runs": [
+          {
+            "text": "Why This Matters Now",
+            "bold": true
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "runs": [
+          {
+            "text": "Healthcare desperately needs software innovation, but traditional development cycles are too slow for the pace of clinical discovery. By mastering vibe coding for digital health, you'll be equipped to rapidly validate clinical hypotheses, test interventions with real users, and deploy solutions that make a difference - all while maintaining the safety, privacy, and regulatory standards healthcare demands."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "runs": [
+          {
+            "text": "Let's build the future of medicine, one vibe at a time."
+          }
+        ]
+      },
+      {
+        "type": "subheading",
+        "runs": [
+          {
+            "text": "Instant Preview and Cross-Platform Deployment",
+            "bold": true
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "runs": [
+          {
+            "text": "You'll experience the speed of modern React Native development through Expo's development workflow. During active development, simply scan a QR code with the Expo Go app on your iOS or Android device to instantly preview your application - changes appear in real-time as you code, with hot reloading that keeps your development state intact. "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "runs": [
+          {
+            "text": "This enables rapid iteration with AI coding agents, allowing you to see clinical workflows come to life within seconds. For production releases, you'll use Expo Application Services (EAS) to build standalone apps and deploy to TestFlight for iOS beta testing and Google Play Console for Android distribution. "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "runs": [
+          {
+            "text": "Our MedPlum-based backend provides your FHIR-compliant infrastructure for patient data management, secure authentication, and HIPAA-compliant cloud storage."
+          }
+        ]
+      }
+    ]
+  }
+}

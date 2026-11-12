@@ -1,0 +1,134 @@
+# Syllabus sections, in page order.
+#
+# Each section:
+#   id          stable anchor (/syllabus/#<id>)
+#   title       heading
+#   status      confirmed | draft | pending   (shown as a tag next to the heading)
+#   statusNote  short public wording for the tag
+#   body        list of blocks:
+#     - p: "Paragraph. **Bold** and [links](https://…) are supported; internal links start with /."
+#     - sub: "Sub-heading"
+#     - list: ["item", "item"]
+#     - olist: ["step", "step"]
+#     - pending: "A clearly marked 'not yet published' notice."
+#     - note: "A boxed note."
+#     - copy: introduction | goals     (inserts the preserved course copy)
+#     - contact: students | sponsors   (inserts the contact from offering.yaml)
+#
+# Placeholders filled from offering.yaml / sessions.yaml so dates are never retyped:
+#   {term} {academicYear} {previousYear} {meetingPattern} {firstClass} {lastClass}
+#   {meetingCount} {quarterStart} {quarterEnd} {sessionDate:week-5}
+#
+# Most policy text below is carried forward from the 2025–26 syllabus and is marked
+# draft until the course team approves it for Winter 2027.
+
+lastReviewed: "2026-11-12"
+
+sections:
+  - id: description
+    title: "Course description and goals"
+    status: confirmed
+    statusNote: "Course description"
+    body:
+      - copy: introduction
+      - sub: "Goals of the Course"
+      - copy: goals
+      - p: "The technologies and approach used this year are described in [Topics Covered](/#topics)."
+
+  - id: eligibility
+    title: "Eligibility, prerequisites, units, and grading options"
+    status: draft
+    statusNote: "Carried forward from {previousYear} · to be confirmed"
+    body:
+      - p: "Eligibility and the enrollment process for {term} will be published with the [student application](/apply/)."
+      - sub: "Prerequisites"
+      - p: "Teams will be coding throughout the quarter. We require that you have taken CS106A/B or equivalent. We highly recommend some experience with mobile platforms (CS193P/A, CS47), OR web platforms (CS142)."
+      - sub: "Units"
+      - p: "3–4 units."
+      - sub: "Grading options"
+      - p: "Students may elect to attend the course for CR/NC or for a Letter Grade."
+
+  - id: format
+    title: "Weekly format and work outside class"
+    status: draft
+    statusNote: "Schedule confirmed · workload to be confirmed"
+    body:
+      - p: "The class meets {meetingPattern}, for {meetingCount} sessions from {firstClass} to {lastClass}. Each session and its materials are listed on the [Sessions](/sessions/) page."
+      - sub: "Amount of work expected"
+      - p: "Teams can expect up to 8-10 hours of work each week beyond classroom hours. A majority of the effort is spent researching needs, meeting need coaches and mentors, interviewing stakeholders, and coding solutions as a team."
+
+  - id: projects
+    title: "Projects, teams, mentors, and participation"
+    status: draft
+    statusNote: "Carried forward from {previousYear} · to be confirmed"
+    body:
+      - p: "In addition to attending classes, completing readings, and participating actively in the classroom environment, students are required to complete a class project exploring a need in digital mobile health."
+      - p: "Projects are chosen in advance from a list of need areas, sourced by faculty & industry partners. Projects are pitched in the first session, and students work on them in teams for the rest of the quarter."
+      - p: "Each team works with a project mentor and the teaching team throughout the quarter. Project teams must share presentation responsibilities."
+      - pending: "Team-formation steps and the mentor-meeting schedule for {term} will be posted here."
+
+  - id: deliverables
+    title: "Assignments, midterm, final presentation, and handoff"
+    status: draft
+    statusNote: "Carried forward from {previousYear} · to be confirmed"
+    body:
+      - p: "Teams will complete a midterm and final presentation, discussing progress and functionality. The final deliverable will be a research-ready mobile application."
+      - list:
+          - "**Midterm presentations** — [Week 5](/sessions/week-5/), {sessionDate:week-5}. All team members must be present."
+          - "**Final presentations** — [Week 10](/sessions/week-10/), {sessionDate:week-10}. All team members must be present."
+      - p: "Assignment deadlines are posted with each session once they are confirmed. A deadline that is not listed has not been set."
+      - pending: "Assignment details and project handoff requirements for {term} will be posted here."
+
+  - id: assessment
+    title: "Assessment weights and rubrics"
+    status: pending
+    statusNote: "To be announced"
+    body:
+      - pending: "Assessment weights and rubrics for {term} are being finalized. One approved grading model will be published here and used consistently in Canvas and course materials."
+
+  - id: attendance
+    title: "Attendance, excused absences, and make-up work"
+    status: draft
+    statusNote: "Carried forward from {previousYear} · to be confirmed"
+    body:
+      - p: "In person attendance is required."
+      - p: "No more than one unexcused absence is permitted. A second absence may be permitted with written justification by the student and fulfillment of a make-up assignment. Two or more unexcused absences will lead to a No CR grade."
+
+  - id: ai-and-integrity
+    title: "AI tools, attribution, collaboration, and academic integrity"
+    status: pending
+    statusNote: "Course policy to be announced"
+    body:
+      - p: "AI coding tools are part of how this course is taught; see [Topics Covered](/#topics). Stanford’s [Honor Code](https://communitystandards.stanford.edu/policies-guidance/honor-code) applies to all work in the course."
+      - pending: "The course policy on responsible use of AI tools, attribution, and collaboration for {term} will be posted here."
+
+  - id: training
+    title: "Required training and data access"
+    status: draft
+    statusNote: "Carried forward from {previousYear} · to be confirmed"
+    body:
+      - p: "Health research requires adherence to strict security and privacy protocols, and Stanford requires researchers working in this area to obtain specific certifications. Specifically, a Stanford HIPAA certificate is required, and is obtained through the [STARS training system](https://starsexpress.stanford.edu/index.html?ref=LM_SS_LEARNING.LM_BROWSE_LEARNER.GBL&type=COURSE&code=PRIV-2022) (Stanford login required). This certification will enable students to work on other IRB-approved research, and is a requirement for most research within the School of Medicine."
+      - pending: "Guidance for project-specific data access will be provided to each team with its project."
+
+  - id: intellectual-property
+    title: "Intellectual property and publication"
+    status: draft
+    statusNote: "Carried forward from {previousYear} · to be confirmed"
+    body:
+      - p: "Code and IP created is governed by [Stanford’s standard IP procedures](https://doresearch.stanford.edu/research-scholarship/intellectual-property), and will be used to inform University research."
+      - pending: "Project and publication expectations for {term} will be posted here in approved institutional wording."
+
+  - id: accessibility
+    title: "Accessibility and accommodations"
+    status: draft
+    statusNote: "Carried forward from {previousYear} · to be confirmed"
+    body:
+      - p: "Students who may need academic accommodation based on the impact of a disability must initiate the request with the Office of Accessible Education (OAE). Professional staff will evaluate the request with required documentation, recommend reasonable accommodations, and prepare an Accommodation Letter for faculty dated in the current quarter in which the request is made. Students should contact the OAE as soon as possible since timely notice is needed to coordinate accommodations. The OAE is located at 563 Salvatierra Walk (phone: 723-1066, URL: [oae.stanford.edu](https://oae.stanford.edu/))."
+
+  - id: contact
+    title: "Contact, communication, and office hours"
+    status: draft
+    statusNote: "Contact to be confirmed"
+    body:
+      - contact: students
+      - pending: "The {term} Canvas site, communication channels, office hours, and response-time expectations will be posted here before the quarter begins."
