@@ -18,6 +18,7 @@ const initials = person.name.split(/\s+/).map((part) => part[0]).join('').slice(
   </div>
   <h3>{person.name}{person.credentials && <>, <span>{person.credentials}</span></>}</h3>
   <p class="label">{person.role}</p>
+  {person.title && <p class="person__title">{person.title}</p>}
   {person.bio && <p class="person__bio">{person.bio}</p>}
   {person.profileUrl && (
     <p class="person__link">

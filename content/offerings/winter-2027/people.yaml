@@ -1,17 +1,22 @@
 # Faculty and team for this offering.
 #
 # group     instructors | operations | coaches
-# status    confirmed | draft   (draft = carried forward from 2025–26, not yet confirmed for 2027)
+# role      the person's role in this course (e.g. "Instructor")
+# title     the person's own title, as published by their program (optional)
+# status    confirmed | draft   (draft = not yet confirmed for 2027)
 # bio       short biography (optional)
 # headshot  file name in public/images/people/ (optional); headshotAlt is required when set
 #
-# The roster below comes from the 2025–26 syllabus. Confirm the 2027 roster,
-# titles, biographies and photos before launch.
+# Titles follow the Biodesign Digital Health & AI leadership listing:
+# https://med.stanford.edu/biodesign/programs/digital-health-and-ai.html
+# People who are not on that listing keep their course role only.
+# Confirm the 2027 roster, biographies and photos before launch.
 
 - name: "Oliver Aalami"
   credentials: "MD"
   group: instructors
   role: "Instructor"
+  title: "Director, Digital Health & AI"
   profileUrl: "https://profiles.stanford.edu/oliver-aalami"
   profileLabel: "Stanford profile"
   status: draft
@@ -24,26 +29,12 @@
   profileLabel: "Faculty website"
   status: draft
 
-- name: "Santiago Gutierrez"
-  group: instructors
-  role: "Instructor"
-  profileUrl: "https://www.linkedin.com/in/gutierrezsanti/"
-  profileLabel: "Professional profile"
-  status: draft
-
 - name: "Vishnu Ravi"
   credentials: "MD"
   group: instructors
   role: "Instructor"
+  title: "Assistant Director, Digital Health & AI"
   profileUrl: "https://profiles.stanford.edu/vishnu-ravi?tab=bio"
-  profileLabel: "Stanford profile"
-  status: draft
-
-- name: "Paul Schmiedmayer"
-  credentials: "PhD"
-  group: instructors
-  role: "Instructor"
-  profileUrl: "https://profiles.stanford.edu/schmiedmayer"
   profileLabel: "Stanford profile"
   status: draft
 
@@ -51,6 +42,7 @@
   credentials: "MD, MBA"
   group: instructors
   role: "Instructor"
+  title: "Assistant Director, Digital Health & AI"
   profileUrl: "https://profiles.stanford.edu/aydin-zahedivash"
   profileLabel: "Stanford profile"
   status: draft

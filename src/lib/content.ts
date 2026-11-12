@@ -92,6 +92,7 @@ const PersonSchema = z.object({
   credentials: optional,
   group: z.enum(['instructors', 'operations', 'coaches']),
   role: text,
+  title: optional,
   profileUrl: optional,
   profileLabel: optional,
   bio: optional,

@@ -58,7 +58,7 @@ file and the field instead of publishing a broken page.
 | --- | --- |
 | Quarter dates, meeting time, time zone, room, units, Canvas link, contacts | `content/offerings/winter-2027/offering.yaml` |
 | A session's title, summary, agenda, speakers, materials, deliverables, status | `content/offerings/winter-2027/sessions.yaml` |
-| Faculty and team (names, roles, bios, photos, profile links) | `content/offerings/winter-2027/people.yaml` |
+| Faculty and team (names, roles, titles, bios, photos, profile links) | `content/offerings/winter-2027/people.yaml` |
 | Application status, form links, opening and closing dates | `content/offerings/winter-2027/applications.yaml` |
 | Syllabus sections and policies | `content/offerings/winter-2027/syllabus.yaml` |
 | "How the course works", student application page, sponsor pages | `content/offerings/winter-2027/pages.yaml` |

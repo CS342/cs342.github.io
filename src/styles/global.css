@@ -417,6 +417,7 @@ a:hover { text-decoration-thickness: 2px; }
 .person__photo { width: 5rem; height: 5rem; border-radius: 50%; object-fit: cover; }
 .person h3 { letter-spacing: -0.025em; }
 .person h3 span { font-weight: 500; letter-spacing: -0.01em; white-space: nowrap; }
+.person__title { font-size: var(--fs-body-sm); line-height: 1.35; font-weight: 600; }
 .person__bio { font-size: var(--fs-body-sm); line-height: 1.5; color: var(--ink-2); }
 .person__link { margin-top: auto; padding-top: 0.75rem; font-size: var(--fs-body-sm); font-weight: 600; }
 .namelist { list-style: none; margin: 0; padding: 0; }

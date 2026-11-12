@@ -177,7 +177,7 @@ const students = offering.contacts.students;
   <Band id="team" label="People">
     <h2 class="band__head">Faculty &amp; team</h2>
     <ul class="namelist">
-      {instructors.map((p) => <li>{p.name}{p.credentials ? `, ${p.credentials}` : ''} <span>{p.role}</span></li>)}
+      {instructors.map((p) => <li>{p.name}{p.credentials ? `, ${p.credentials}` : ''} <span>{p.title ?? p.role}</span></li>)}
     </ul>
     <p class="backlink"><a class="more" href={url('/faculty/')}>Meet the full team <span class="arrow" aria-hidden="true">→</span></a></p>
     <div slot="side" class="stack">
