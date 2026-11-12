@@ -29,14 +29,14 @@ export type ApplicationStatus = 'not-announced' | 'opening-soon' | 'open' | 'clo
 
 /**
  * The status a visitor should see. An "open" route never appears open without a
- * working form link, and never after its deadline has passed.
+ * working form link or submission address, and never after its deadline has passed.
  */
 export function effectiveApplicationStatus(
-  app: { status: ApplicationStatus; formUrl?: string | null; closes?: number | null },
+  app: { status: ApplicationStatus; submitHref?: string | null; closes?: number | null },
   now: number,
 ): ApplicationStatus {
   if (app.status !== 'open') return app.status;
-  if (!app.formUrl) return 'not-announced';
+  if (!app.submitHref) return 'not-announced';
   if (app.closes != null && now >= app.closes) return 'closed';
   return 'open';
 }

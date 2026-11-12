@@ -10,10 +10,10 @@ interface Props {
   app: Application;
 }
 const { app } = Astro.props;
-const status = effectiveApplicationStatus({ status: app.status, formUrl: app.formUrl, closes: app.closesUtc?.getTime() }, Date.now());
+const status = effectiveApplicationStatus({ status: app.status, submitHref: app.submitHref, closes: app.closesUtc?.getTime() }, Date.now());
 const view = applicationView(app, status);
 const kind = status === 'opening-soon' ? 'soon' : status;
-const switchable = app.status === 'open' && !!app.formUrl && !!app.closesUtc;
+const switchable = app.status === 'open' && !!app.submitHref && !!app.closesUtc;
 ---
 {switchable ? (
   <div class="appstatus" data-app-closes={app.closesUtc!.toISOString()}>

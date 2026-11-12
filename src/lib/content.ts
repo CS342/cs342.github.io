@@ -106,6 +106,7 @@ const ApplicationSchema = z.object({
   action: text,
   status: z.enum(['not-announced', 'opening-soon', 'open', 'closed']),
   formUrl: z.url().nullish(),
+  submitEmail: z.email().nullish(),
   opensAt: LocalDateTime.nullish(),
   closesAt: LocalDateTime.nullish(),
   signInNote: optional,
@@ -256,14 +257,20 @@ export const routes: Record<RouteKey, { href: string; kicker: string; title: str
 
 function deriveApplication(key: RouteKey) {
   const app = rawApplications[key];
-  if (app.status === 'open' && !app.formUrl)
-    console.warn(`[content] applications.yaml: "${key}" is open but has no formUrl — showing "details forthcoming".`);
+  // A route takes submissions through a form or by email; the form wins if both are set.
+  const submitKind: 'form' | 'email' | null = app.formUrl ? 'form' : app.submitEmail ? 'email' : null;
+  const subject = `${app.name}: ${courseCode}, ${offering.term}`;
+  const submitHref = app.formUrl ?? (app.submitEmail ? `mailto:${app.submitEmail}?subject=${encodeURIComponent(subject)}` : null);
+  if (app.status === 'open' && !submitHref)
+    console.warn(`[content] applications.yaml: "${key}" is open but has no formUrl or submitEmail — showing "details forthcoming".`);
   if (app.status === 'opening-soon' && !app.opensAt)
     console.warn(`[content] applications.yaml: "${key}" is opening-soon but has no opensAt date.`);
   const toUtc = (local?: string | null) => (local ? zonedTimeToUtc(local.slice(0, 10), local.slice(11), tz) : null);
   return {
     ...app,
     key,
+    submitKind,
+    submitHref,
     opensUtc: toUtc(app.opensAt),
     closesUtc: toUtc(app.closesAt),
     opensLabel: app.opensAt ? formatLocalDateTime(app.opensAt, zone) : null,

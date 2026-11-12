@@ -6,7 +6,7 @@ students (syllabus, sessions, materials), and routes student applicants and proj
 right application form.
 
 The site is a static [Astro](https://astro.build) build deployed to GitHub Pages. There is no server,
-database, account system or form backend: applications are Google Forms, and course systems (Canvas
+database, account system or form backend: applications are Google Forms or email, and course systems (Canvas
 and so on) are linked.
 
 > **Status: in review.** `content/site.yaml` has `launchStatus: review`, which shows a banner on every
@@ -86,18 +86,21 @@ out from the clock.
 ### Applications
 
 Each of the three routes (student, academic, industry) has its own record in `applications.yaml` with
-a status, a form link, opening and closing times and a contact.
+a status, a form link or a submission email address, opening and closing times and a contact.
 
 | Status | What visitors see |
 | --- | --- |
 | `not-announced` | "Details forthcoming"; no button |
 | `opening-soon` | The opening date; no button |
-| `open` | The deadline and a button to the form |
+| `open` | The deadline and a button to the form, or an "Email your proposal" link when the route sets `submitEmail` |
 | `closed` | The closed message; no button |
 
-Two safeguards are built in: a route marked `open` with no `formUrl` is shown as "details
-forthcoming", and an open route switches to closed by itself once `closesAt` has passed. Use the
-form's **published respondent link**, never the editing link or the response sheet.
+Two safeguards are built in: a route marked `open` with neither a `formUrl` nor a `submitEmail` is
+shown as "details forthcoming", and an open route switches to closed by itself once `closesAt` has
+passed. Use the form's **published respondent link**, never the editing link or the response sheet.
+
+The academic and industry routes take proposals by email (`submitEmail`). To move a route to a form
+later, add its `formUrl`; the form then replaces the email link.
 
 ### Dates and time-based states
 
@@ -162,9 +165,9 @@ until it is settled.
 | 2027 roster, titles, biographies, approved photos | `people.yaml`, `public/images/people/` |
 | Session topics, guests, preparation, materials, deadlines | `sessions.yaml` |
 | Student application: questions, eligibility, dates, form owner, published link | `applications.yaml` → `student`; `pages.yaml` → `apply` |
-| Academic proposals: eligible institutions, dates, fee, terms, published link | `applications.yaml` → `academic`; `pages.yaml` → `academic` |
-| Industry proposals: dates, sponsorship terms, agreement process, published link | `applications.yaml` → `industry`; `pages.yaml` → `industry` |
-| Student and sponsor contact addresses (currently the 2025–26 contacts) | `offering.yaml` → `contacts` |
+| Academic proposals (open, by email): eligible institutions, deadline, fee, terms | `applications.yaml` → `academic`; `pages.yaml` → `academic` |
+| Industry proposals (open, by email): deadline, sponsorship terms, agreement process | `applications.yaml` → `industry`; `pages.yaml` → `industry` |
+| Student contact address (currently the 2025–26 contact) | `offering.yaml` → `contacts` |
 | Canvas link for Winter 2027 | `offering.yaml` → `canvasUrl` |
 | Branding, institutional footer wording, domain | `site.yaml`; `public/images/` |
 | Go live | `site.yaml` → `launchStatus: live` |
