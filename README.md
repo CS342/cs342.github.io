@@ -9,8 +9,8 @@ The site is a static [Astro](https://astro.build) build deployed to GitHub Pages
 database, account system or form backend: applications are Google Forms or email, and course systems (Canvas
 and so on) are linked.
 
-> **Status: in review.** `content/site.yaml` has `launchStatus: review`, which shows a banner on every
-> page and asks search engines not to index the site. See [Before launch](#before-launch).
+> **Status: live.** `content/site.yaml` has `launchStatus: live`. Set it back to `review` to show a
+> preview banner on every page and ask search engines not to index the site.
 
 ## Pages
 

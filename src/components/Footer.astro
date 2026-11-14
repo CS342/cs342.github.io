@@ -1,6 +1,6 @@
 ---
 import { site, offering, courseCode } from '../lib/content';
-import { url } from '../lib/paths';
+import { url, isExternal } from '../lib/paths';
 
 const students = offering.contacts.students;
 const sponsors = offering.contacts.sponsors;
@@ -39,7 +39,7 @@ const pages = [
       <div class="footer__cell">
         <h2>Earlier offerings</h2>
         <ul>
-          {site.archive.map((item) => <li><a href={item.url} rel="noopener">{item.label} <span class="visually-hidden">course site (archive)</span></a></li>)}
+          {site.archive.map((item) => <li><a href={isExternal(item.url) ? item.url : url(item.url)} rel="noopener">{item.label} <span class="visually-hidden">course site (archive)</span></a></li>)}
         </ul>
         <p class="small muted">Archived sites describe past years and do not apply to {offering.term}.</p>
       </div>

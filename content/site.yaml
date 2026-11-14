@@ -7,7 +7,7 @@ currentOffering: winter-2027
 
 # review = show the review banner and ask search engines not to index the site.
 # live   = public launch (banner removed, indexing allowed).
-launchStatus: review
+launchStatus: live
 reviewNotice: "Preview — this site is under course-team review. Details may change before launch."
 
 # Program affiliations shown in the footer.
@@ -30,6 +30,7 @@ address:
 copyright: "© Stanford University"
 
 # Prior-year resources (clearly labelled as archives in the footer).
+# Paths starting with "/" are archived sites hosted here, in public/<year>/.
 archive:
   - label: "Winter 2025–26"
     url: "https://stanfordbdhg.notion.site/CS342-MED253-Building-for-Digital-Health-ea1a66dfc9b44c90b6908de0d083d4e1"
@@ -38,10 +39,10 @@ archive:
   - label: "Winter 2023–24"
     url: "https://stanfordbdhg.notion.site/115008f9653881e3b42ddf7dfbf5a156"
   - label: "Winter 2022–23"
-    url: "https://cs342.stanford.edu/2022"
+    url: "/2022/"
   - label: "Winter 2021–22"
-    url: "https://cs342.stanford.edu/2021"
+    url: "/2021/"
   - label: "Winter 2020–21"
-    url: "https://cs342.stanford.edu/2020"
+    url: "/2020/"
   - label: "Winter 2019–20"
-    url: "https://cs342.stanford.edu/2019"
+    url: "/2019/"
