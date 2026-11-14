@@ -93,6 +93,7 @@ const PersonSchema = z.object({
   group: z.enum(['instructors', 'operations', 'coaches']),
   role: text,
   title: optional,
+  academicTitles: z.array(text).nullish(),
   profileUrl: optional,
   profileLabel: optional,
   bio: optional,

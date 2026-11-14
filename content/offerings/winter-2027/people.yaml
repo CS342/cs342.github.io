@@ -3,6 +3,7 @@
 # group     instructors | operations | coaches
 # role      the person's role in this course (e.g. "Instructor")
 # title     the person's own title, as published by their program (optional)
+# academicTitles  list of Stanford academic appointments, one per line (optional)
 # status    confirmed | draft   (draft = not yet confirmed for 2027)
 # bio       short biography (optional)
 # headshot  file name in public/images/people/ (optional); headshotAlt is required when set
@@ -18,6 +19,8 @@
   group: instructors
   role: "Instructor"
   title: "Director, Digital Health & AI"
+  academicTitles:
+    - "Adjunct Professor of Bioengineering and Medicine"
   profileUrl: "https://profiles.stanford.edu/oliver-aalami"
   profileLabel: "Stanford profile"
   headshot: "oliver-aalami.jpg"
@@ -28,6 +31,9 @@
   credentials: "PhD"
   group: instructors
   role: "Instructor"
+  academicTitles:
+    - "Professor of Computer Science"
+    - "Director, Stanford AI Lab (SAIL)"
   profileUrl: "https://guestrin.su.domains/"
   profileLabel: "Faculty website"
   headshot: "carlos-guestrin.jpg"
@@ -39,6 +45,8 @@
   group: instructors
   role: "Instructor"
   title: "Assistant Director, Digital Health & AI"
+  academicTitles:
+    - "Clinical Assistant Professor of Medicine"
   profileUrl: "https://profiles.stanford.edu/vishnu-ravi?tab=bio"
   profileLabel: "Stanford profile"
   headshot: "vishnu-ravi.jpg"
@@ -50,6 +58,8 @@
   group: instructors
   role: "Instructor"
   title: "Assistant Director, Digital Health & AI"
+  academicTitles:
+    - "Adjunct Clinical Assistant Professor of Clinical Informatics and Pediatrics"
   profileUrl: "https://profiles.stanford.edu/aydin-zahedivash"
   profileLabel: "Stanford profile"
   headshot: "aydin-zahedivash.jpg"
