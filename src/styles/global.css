@@ -423,6 +423,9 @@ a:hover { text-decoration-thickness: 2px; }
 .teamlist__photo { flex: none; width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover; }
 .teamlist__who { min-width: 0; }
 .teamlist__who strong { display: block; font-weight: 600; letter-spacing: -0.01em; }
+.teamlist__who a, .person__name { color: inherit; text-decoration: none; }
+.teamlist__who a:hover, .person__name:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+.teamlist__who a:focus-visible, .person__name:focus-visible { text-decoration: underline; }
 .teamlist__title { display: block; margin-top: 0.15rem; font-size: var(--fs-body-sm); line-height: 1.4; color: var(--ink-2); }
 .namelist { list-style: none; margin: 0; padding: 0; }
 .namelist li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1rem; padding: 0.7rem 0; border-top: 1px solid var(--rule-soft); font-weight: 600; }

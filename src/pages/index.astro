@@ -181,7 +181,7 @@ const students = offering.contacts.students;
         <li>
           {p.headshot && <img class="teamlist__photo" src={url(`/images/people/${p.headshot}`)} alt="" width="112" height="112" loading="lazy" />}
           <div class="teamlist__who">
-            <strong>{p.name}{p.credentials ? `, ${p.credentials}` : ''}</strong>
+            <strong>{p.profileUrl ? <a href={p.profileUrl} rel="noopener">{p.name}</a> : p.name}{p.credentials ? `, ${p.credentials}` : ''}</strong>
             {[p.title ?? (p.academicTitles?.length ? null : p.role), ...(p.academicTitles ?? [])].filter(Boolean).map((t) => <small class="teamlist__title">{t}</small>)}
           </div>
         </li>
