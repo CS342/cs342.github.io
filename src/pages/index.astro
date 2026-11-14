@@ -176,12 +176,13 @@ const students = offering.contacts.students;
 
   <Band id="team" label="People">
     <h2 class="band__head">Faculty &amp; team</h2>
-    <ul class="namelist">
+    <ul class="teamlist">
       {instructors.map((p) => (
         <li>
-          <div class="namelist__who">
-            {p.name}{p.credentials ? `, ${p.credentials}` : ''}
-            {[p.title ?? (p.academicTitles?.length ? null : p.role), ...(p.academicTitles ?? [])].filter(Boolean).map((t) => <small class="namelist__title">{t}</small>)}
+          {p.headshot && <img class="teamlist__photo" src={url(`/images/people/${p.headshot}`)} alt="" width="112" height="112" loading="lazy" />}
+          <div class="teamlist__who">
+            <strong>{p.name}{p.credentials ? `, ${p.credentials}` : ''}</strong>
+            {[p.title ?? (p.academicTitles?.length ? null : p.role), ...(p.academicTitles ?? [])].filter(Boolean).map((t) => <small class="teamlist__title">{t}</small>)}
           </div>
         </li>
       ))}

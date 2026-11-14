@@ -418,12 +418,16 @@ a:hover { text-decoration-thickness: 2px; }
 .person__academic li + li { margin-top: 0.25rem; }
 .person__bio { font-size: var(--fs-body-sm); line-height: 1.5; color: var(--ink-2); }
 .person__link { margin-top: auto; padding-top: 0.75rem; font-size: var(--fs-body-sm); font-weight: 600; }
+.teamlist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); column-gap: 2rem; border-top: 1px solid var(--ink); }
+.teamlist li { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--rule-soft); }
+.teamlist__photo { flex: none; width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover; }
+.teamlist__who { min-width: 0; }
+.teamlist__who strong { display: block; font-weight: 600; letter-spacing: -0.01em; }
+.teamlist__title { display: block; margin-top: 0.15rem; font-size: var(--fs-body-sm); line-height: 1.4; color: var(--ink-2); }
 .namelist { list-style: none; margin: 0; padding: 0; }
 .namelist li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1rem; padding: 0.7rem 0; border-top: 1px solid var(--rule-soft); font-weight: 600; }
 .namelist li:first-child { border-top: 1px solid var(--ink); }
 .namelist li span { font-weight: 400; color: var(--ink-2); }
-.namelist__who { flex: 1 1 auto; min-width: 0; }
-.namelist__title { display: block; margin-top: 0.15rem; font-size: var(--fs-body-sm); font-weight: 400; line-height: 1.4; color: var(--ink-2); }
 
 /* ---------- sessions: list ---------- */
 .toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding: 1rem var(--pad-x); }
