@@ -16,7 +16,13 @@ const initials = person.name.split(/\s+/).map((part) => part[0]).join('').slice(
       <span class="ring ring--sm" aria-hidden="true">{initials}</span>
     )}
   </div>
-  <h3>{person.profileUrl ? <a class="person__name" href={person.profileUrl} rel="noopener">{person.name}</a> : person.name}{person.credentials && <>, <span>{person.credentials}</span></>}</h3>
+  <h3>
+    {person.profileUrl ? (
+      <a class="person__name" href={person.profileUrl} rel="noopener">{person.name}{person.credentials && <>, <span>{person.credentials}</span></>}</a>
+    ) : (
+      <>{person.name}{person.credentials && <>, <span>{person.credentials}</span></>}</>
+    )}
+  </h3>
   <p class="label">{person.role}</p>
   {person.title && <p class="person__title">{person.title}</p>}
   {person.academicTitles && person.academicTitles.length > 0 && (
