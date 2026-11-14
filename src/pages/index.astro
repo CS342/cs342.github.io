@@ -181,9 +181,8 @@ const students = offering.contacts.students;
         <li>
           <div class="namelist__who">
             {p.name}{p.credentials ? `, ${p.credentials}` : ''}
-            {p.academicTitles && p.academicTitles.length > 0 && <small class="namelist__academic">{p.academicTitles.join(' · ')}</small>}
+            {[p.title ?? (p.academicTitles?.length ? null : p.role), ...(p.academicTitles ?? [])].filter(Boolean).map((t) => <small class="namelist__title">{t}</small>)}
           </div>
-          <span>{p.title ?? p.role}</span>
         </li>
       ))}
     </ul>

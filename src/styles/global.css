@@ -422,9 +422,8 @@ a:hover { text-decoration-thickness: 2px; }
 .namelist li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1rem; padding: 0.7rem 0; border-top: 1px solid var(--rule-soft); font-weight: 600; }
 .namelist li:first-child { border-top: 1px solid var(--ink); }
 .namelist li span { font-weight: 400; color: var(--ink-2); }
-.namelist__who { flex: 1 1 16rem; min-width: 0; }
-.namelist li > span { flex: 0 0 auto; text-align: right; }
-.namelist__academic { display: block; margin-top: 0.15rem; font-size: var(--fs-body-sm); font-weight: 400; line-height: 1.4; color: var(--ink-2); }
+.namelist__who { flex: 1 1 auto; min-width: 0; }
+.namelist__title { display: block; margin-top: 0.15rem; font-size: var(--fs-body-sm); font-weight: 400; line-height: 1.4; color: var(--ink-2); }
 
 /* ---------- sessions: list ---------- */
 .toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding: 1rem var(--pad-x); }
