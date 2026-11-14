@@ -10,6 +10,7 @@
 # Titles follow the Biodesign Digital Health & AI leadership listing:
 # https://med.stanford.edu/biodesign/programs/digital-health-and-ai.html
 # People who are not on that listing keep their course role only.
+# Headshots come from each person's Stanford Profiles page (Carlos Guestrin: his faculty website).
 # Confirm the 2027 roster, biographies and photos before launch.
 
 - name: "Oliver Aalami"
@@ -19,6 +20,8 @@
   title: "Director, Digital Health & AI"
   profileUrl: "https://profiles.stanford.edu/oliver-aalami"
   profileLabel: "Stanford profile"
+  headshot: "oliver-aalami.jpg"
+  headshotAlt: "Portrait of Oliver Aalami"
   status: draft
 
 - name: "Carlos Guestrin"
@@ -27,6 +30,8 @@
   role: "Instructor"
   profileUrl: "https://guestrin.su.domains/"
   profileLabel: "Faculty website"
+  headshot: "carlos-guestrin.jpg"
+  headshotAlt: "Portrait of Carlos Guestrin"
   status: draft
 
 - name: "Vishnu Ravi"
@@ -36,6 +41,8 @@
   title: "Assistant Director, Digital Health & AI"
   profileUrl: "https://profiles.stanford.edu/vishnu-ravi?tab=bio"
   profileLabel: "Stanford profile"
+  headshot: "vishnu-ravi.jpg"
+  headshotAlt: "Portrait of Vishnu Ravi"
   status: draft
 
 - name: "Aydin Zahedivash"
@@ -45,6 +52,8 @@
   title: "Assistant Director, Digital Health & AI"
   profileUrl: "https://profiles.stanford.edu/aydin-zahedivash"
   profileLabel: "Stanford profile"
+  headshot: "aydin-zahedivash.jpg"
+  headshotAlt: "Portrait of Aydin Zahedivash"
   status: draft
 
 - name: "Meghana Nerurkar"
@@ -52,4 +61,6 @@
   role: "Course manager"
   profileUrl: "https://profiles.stanford.edu/meghana-nerurkar"
   profileLabel: "Stanford profile"
+  headshot: "meghana-nerurkar.jpg"
+  headshotAlt: "Portrait of Meghana Nerurkar"
   status: draft
