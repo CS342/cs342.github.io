@@ -1,0 +1,22 @@
+---
+// One horizontal band of the ruled sheet: rail (rotated label) | main | optional side.
+interface Props {
+  id?: string;
+  label?: string;
+  flush?: boolean;
+  sideFlush?: boolean;
+  sideFirst?: boolean;
+  class?: string;
+}
+const { id, label, flush = false, sideFlush = false, sideFirst = false, class: className } = Astro.props;
+const hasSide = Astro.slots.has('side');
+---
+<section class:list={['band', className]} id={id}>
+  <div class:list={['frame', 'band__grid', hasSide && 'band__grid--side']}>
+    <div class="rail" aria-hidden="true">{label && <span class="rail__label">{label}</span>}</div>
+    <div class:list={['band__main', flush && 'band__main--flush']}><slot /></div>
+    {hasSide && (
+      <div class:list={['band__side', sideFlush && 'band__side--flush', sideFirst && 'band__side--first']}><slot name="side" /></div>
+    )}
+  </div>
+</section>

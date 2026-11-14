@@ -1,0 +1,25 @@
+---
+// Renders the block list used in content files (see content/…/syllabus.yaml).
+import { renderInline, renderRuns } from '../lib/richtext';
+import { tokens, courseCopy, offering, type Block } from '../lib/content';
+
+interface Props {
+  blocks: Block[];
+}
+const { blocks } = Astro.props;
+const t = (s: string) => renderInline(s, tokens);
+---
+{blocks.map((b) => {
+  if ('p' in b) return <p set:html={t(b.p)} />;
+  if ('sub' in b) return <h3 set:html={t(b.sub)} />;
+  if ('list' in b) return <ul>{b.list.map((item) => <li set:html={t(item)} />)}</ul>;
+  if ('olist' in b) return <ol>{b.olist.map((item) => <li set:html={t(item)} />)}</ol>;
+  if ('pending' in b) return <p class="notice notice--pending"><span class="label">Not yet published</span><Fragment set:html={t(b.pending)} /></p>;
+  if ('note' in b) return <p class="notice" set:html={t(b.note)} />;
+  if ('copy' in b && b.copy === 'introduction') return courseCopy.introduction.map((runs) => <p set:html={renderRuns(runs)} />);
+  if ('copy' in b) return <ul>{courseCopy.goals.items.map((runs) => <li set:html={renderRuns(runs)} />)}</ul>;
+  if ('contact' in b) {
+    const c = offering.contacts[b.contact];
+    return <p><strong>{c.name}</strong>{c.role ? `, ${c.role}` : ''} — <a href={`mailto:${c.email}`}>{c.email}</a></p>;
+  }
+})}

@@ -1,0 +1,199 @@
+# Page copy that is not course data: Home ("How the course works", projects),
+# the student application page, and the sponsor pages.
+#
+# Section bodies use the same blocks and placeholders as syllabus.yaml.
+# Placeholders also include {course} ("CS 342 / MED 253: Building for Digital
+# Health") and {quarterRange} ("January 4–March 12, 2027").
+#
+# The "proposal" block is the Winter 2027 call for proposals from the course
+# team. The other sponsor and application text is drafted from the 2025–26
+# request for proposals and is marked draft until approved for Winter 2027.
+# Fees, agreements and eligibility are deliberately left as "pending" — publish
+# approved terms only.
+
+home:
+  process:
+    title: "How the course works"
+    steps:
+      - title: "Project selection"
+        text: "Academic and industry partners propose projects, and the course team selects those that fit a ten-week build."
+      - title: "Team formation"
+        text: "Projects are pitched in the first session and students form teams around them."
+      - title: "Building and mentoring"
+        text: "Teams build iteratively, week by week, with guidance from project mentors and the teaching team."
+      - title: "Midterm"
+        text: "Midway through the quarter, teams present their progress and working functionality."
+      - title: "Final demonstration"
+        text: "In the last session, teams present their final project to a panel of digital health experts."
+    after: "Handoff to the project sponsor"
+    prototype:
+      title: "An educational prototype"
+      text: "In ten weeks, a team builds a working minimum viable product (MVP) around a few core capabilities. It is built by students, for learning, with real mentors and a real need."
+    product:
+      title: "Not a finished, supported product"
+      text: "A prototype usually needs further development, validation, and operational support before it can be deployed. That work, and any maintenance after the quarter, rests with the project’s sponsor."
+  projects:
+    status: pending
+    text: "Winter 2027 projects will be announced here once they are selected."
+
+apply:
+  lead: "For students who want to build real-world digital health software in a team, with academic and industry mentors."
+  sections:
+    - id: who
+      label: "Who"
+      title: "Who should apply"
+      status: draft
+      statusNote: "Eligibility to be confirmed"
+      body:
+        - p: "The course gives students the opportunity to apply their skills to real-world digital health projects, working in technical and multidisciplinary teams with the help of external mentors and industry experts."
+        - pending: "Eligibility for {term} — including Stanford affiliation, programs, and year of study — will be published with the application."
+    - id: preparation
+      label: "Preparation"
+      title: "Expected preparation"
+      status: draft
+      statusNote: "Carried forward from {previousYear} · to be confirmed"
+      body:
+        - p: "Teams will be coding throughout the quarter. We require that you have taken CS106A/B or equivalent. We highly recommend some experience with mobile platforms (CS193P/A, CS47), OR web platforms (CS142)."
+    - id: commitment
+      label: "Commitment"
+      title: "Time commitment and attendance"
+      status: draft
+      statusNote: "Schedule confirmed · workload and attendance to be confirmed"
+      body:
+        - p: "The class meets {meetingPattern}, for {meetingCount} sessions from {firstClass} to {lastClass}."
+        - p: "Teams can expect up to 8-10 hours of work each week beyond classroom hours."
+        - p: "In person attendance is required. No more than one unexcused absence is permitted. See the [syllabus](/syllabus/#attendance) for details."
+    - id: process
+      label: "Process"
+      title: "Dates and selection"
+      status: pending
+      statusNote: "To be announced"
+      body:
+        - pending: "The opening date, the deadline, the selection process, and when applicants can expect a decision will be posted here."
+    - id: enrollment
+      label: "Enrollment"
+      title: "Applying and enrolling"
+      status: pending
+      statusNote: "To be announced"
+      body:
+        - pending: "Whether an application is required before enrolling, and how selected students receive enrollment instructions, will be explained here when application details are published."
+
+# What a project proposal must contain: the Winter 2027 call for proposals as
+# supplied by the course team. It is shown on Propose a Project and on both route
+# pages, so edit it here once. submitNote is the short reminder next to the
+# submission panel at the foot of the academic and industry pages.
+proposal:
+  section:
+    id: proposal
+    label: "Proposal"
+    title: "What to include in your proposal"
+    status: confirmed
+    statusNote: "Confirmed for {term}"
+    body:
+      - p: "Proposals should be approximately 1–2 pages long and should include:"
+      - list:
+          - "**Problem and intended users:** Describe the health need, who experiences it, and the outcome you hope to achieve."
+          - "**Focused scope:** Identify 2–3 core capabilities that a student team could realistically prototype during the quarter."
+          - "**Available resources:** Describe any existing designs, content, software, data sources, or technical infrastructure students could use."
+          - "**Project readiness:** Identify technical dependencies, access requirements, and any approvals needed before work can begin."
+          - "**Dedicated mentor:** Name a mentor who can meet with students weekly, provide feedback, and help make timely decisions."
+          - "**Continuation plan:** Explain who will take ownership of the project and support its development or maintenance after the course."
+          - "**Contact information:** Provide the organization, project lead, and preferred contact email."
+      - note: "Please include only information suitable for initial review; omit patient information, credentials, and confidential material. Submission does not guarantee project selection."
+  submitNote: "Proposals should be approximately 1–2 pages long and cover the points under [What to include in your proposal](#proposal). Submitting a proposal does not involve a payment or an agreement."
+
+sponsors:
+  lead: "We invite academic researchers, clinicians, and industry partners to propose projects for {course}, {term}. Student teams will work with project mentors to develop a focused digital health prototype during the ten-week course, {quarterRange}."
+  sections:
+    - id: scope
+      label: "Scope"
+      title: "What a team builds"
+      status: draft
+      statusNote: "Draft · to be confirmed"
+      body:
+        - p: "A team builds a focused minimum viable product (MVP) within the ten-week quarter. An MVP in this course is typically either a mobile or a web application built around two or three core capabilities that the project cannot do without."
+        - p: "The result is an educational prototype, not a finished, supported product. It usually needs further development, validation, and operational support before it can be deployed."
+    - id: selection
+      label: "Selection"
+      title: "How projects are selected"
+      status: draft
+      statusNote: "Draft · criteria and dates to be confirmed"
+      body:
+        - olist:
+            - "**Propose.** Submit a proposal through the academic or the industry route."
+            - "**Review.** The course team reviews proposals for fit, feasibility, and readiness."
+            - "**Pitch.** Selected projects are pitched to students in the [first session](/sessions/week-1/)."
+            - "**Match.** Students form teams around the projects, and building begins."
+        - pending: "Review criteria and the selection timeline for {term} will be posted here."
+    - id: after
+      label: "After"
+      title: "Handoff and work after the quarter"
+      status: draft
+      statusNote: "Draft · to be confirmed"
+      body:
+        - p: "At the end of the quarter the team hands its work off to the project sponsor. The sponsor keeps ownership of the project’s direction: continued development, deployment, hosting, and maintenance are the sponsor’s responsibility, which is why every proposal includes a continuation plan."
+    - id: terms
+      label: "Terms"
+      title: "Costs and terms"
+      status: pending
+      statusNote: "To be announced"
+      body:
+        - pending: "Participation costs and terms for {term} have not been published. Approved terms will appear on the academic and industry pages."
+        - p: "Submitting a proposal does not involve a payment or an agreement."
+
+academic:
+  lead: "We invite academic researchers and clinicians to propose projects for {term}. A student team will work with your project mentor to develop a focused digital health prototype during the ten-week course, {quarterRange}."
+  sections:
+    - id: eligibility
+      label: "Eligibility"
+      title: "Who can propose"
+      status: draft
+      statusNote: "Draft · eligibility to be confirmed"
+      body:
+        - p: "The academic route is for academic researchers and clinicians. In previous years, academic projects were led by Stanford faculty with the authority and initiative to act as principal investigator for the project."
+        - pending: "Whether research partners at other institutions may propose projects for {term} will be confirmed here."
+    - id: approvals
+      label: "Approvals"
+      title: "Approvals and data"
+      status: draft
+      statusNote: "Draft · expectations to be confirmed"
+      body:
+        - p: "Projects that involve research participants or protected data need their own approvals, such as IRB review and a data risk assessment. These remain the responsibility of the project lead. Identify them in your proposal under project readiness."
+        - pending: "Project-specific approval expectations for {term} will be posted here."
+    - id: costs
+      label: "Costs"
+      title: "Participation costs"
+      status: pending
+      statusNote: "To be announced"
+      body:
+        - pending: "Participation costs for academic projects in {term} have not been published. Approved terms will appear here."
+
+industry:
+  lead: "We invite industry partners to propose projects for {term}. A student team will work with your project mentor to develop a focused digital health prototype during the ten-week course, {quarterRange}."
+  sections:
+    - id: eligibility
+      label: "Eligibility"
+      title: "Who can propose"
+      status: draft
+      statusNote: "Draft · eligibility to be confirmed"
+      body:
+        - p: "The industry route is for companies, large or small, with a digital health idea that a student team could turn into a first prototype."
+        - pending: "Eligibility criteria for industry partners in {term} will be confirmed here."
+    - id: purpose
+      label: "Purpose"
+      title: "Purpose of the partnership"
+      status: draft
+      statusNote: "Draft · to be confirmed"
+      body:
+        - list:
+            - "**Student engagement.** Work closely with a student team for a quarter."
+            - "**Fresh perspectives.** See a longstanding challenge approached by the next generation of engineers and developers."
+            - "**A first prototype.** Take an idea to a working MVP built around two or three core capabilities."
+    - id: terms
+      label: "Terms"
+      title: "Sponsorship costs, agreements, and IP"
+      status: pending
+      statusNote: "To be announced"
+      body:
+        - pending: "Sponsorship costs for {term} have not been published. Approved terms will appear here."
+        - p: "Questions about agreements, intellectual property, or source-code arrangements are handled directly with course staff, outside this website. You can raise them in your proposal for follow-up."

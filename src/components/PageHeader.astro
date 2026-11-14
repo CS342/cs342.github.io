@@ -1,0 +1,28 @@
+---
+// Page title band: coloured bar | title | side cell (grid squares unless a "side" slot is given).
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  tone?: 'sky' | 'green' | 'navy' | 'orange' | 'ink';
+}
+const { eyebrow, title, lead, tone = 'sky' } = Astro.props;
+const hasSide = Astro.slots.has('side');
+---
+<header class={`pagehead tone-${tone}`}>
+  <div class="frame pagehead__grid">
+    <div class="pagehead__bar" aria-hidden="true"></div>
+    <div class="pagehead__main">
+      <slot name="crumbs" />
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1>{title}</h1>
+      {lead && <p class="lead">{lead}</p>}
+      <slot />
+    </div>
+    {hasSide ? (
+      <div class="pagehead__side"><slot name="side" /></div>
+    ) : (
+      <div class="pagehead__side pagehead__side--motif" aria-hidden="true"><div class="gridmotif"></div></div>
+    )}
+  </div>
+</header>

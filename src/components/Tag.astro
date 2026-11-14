@@ -1,0 +1,9 @@
+---
+// A small status tag. The label always carries the meaning; colour only supports it.
+interface Props {
+  kind: 'confirmed' | 'draft' | 'pending' | 'open' | 'soon' | 'closed' | 'not-announced';
+  label: string;
+}
+const { kind, label } = Astro.props;
+---
+<span class={`tag tag--${kind}`}>{label}</span>

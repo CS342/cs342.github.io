@@ -1,0 +1,57 @@
+---
+import { courseCode, offering } from '../lib/content';
+import { url } from '../lib/paths';
+
+const path = Astro.url.pathname;
+const items = [
+  { label: 'About', href: `${url('/')}#about` },
+  { label: 'Syllabus', href: url('/syllabus/'), section: url('/syllabus/') },
+  { label: 'Sessions', href: url('/sessions/'), section: url('/sessions/') },
+  { label: 'Faculty', href: url('/faculty/'), section: url('/faculty/') },
+  { label: 'Apply', href: url('/apply/'), section: url('/apply/'), class: 'nav__cta' },
+  { label: 'Propose a Project', href: url('/sponsors/'), section: url('/sponsors/'), class: 'nav__alt' },
+];
+---
+<header class="site-header">
+  <div class="frame header__grid">
+    <a class="header__mark" href={url('/')} aria-hidden="true" tabindex="-1"><span class="mark-ring"></span></a>
+    <a class="lockup" href={url('/')}>
+      <strong>{courseCode}</strong>
+      <span>{offering.title}</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle__icon" aria-hidden="true"></span>
+      Menu
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        {items.map((item) => (
+          <li class={item.class}>
+            <a href={item.href} aria-current={item.section && path.startsWith(item.section) ? 'page' : undefined}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const nav = document.getElementById('site-nav');
+  if (toggle && nav) {
+    const set = (open: boolean) => {
+      nav.dataset.open = String(open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+    toggle.addEventListener('click', () => set(nav.dataset.open !== 'true'));
+    nav.addEventListener('click', (event) => {
+      if ((event.target as HTMLElement).closest('a')) set(false);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && nav.dataset.open === 'true') {
+        set(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>

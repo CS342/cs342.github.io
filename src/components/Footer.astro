@@ -1,0 +1,53 @@
+---
+import { site, offering, courseCode } from '../lib/content';
+import { url } from '../lib/paths';
+
+const students = offering.contacts.students;
+const sponsors = offering.contacts.sponsors;
+const pages = [
+  { label: 'About the course', href: `${url('/')}#about` },
+  { label: 'Syllabus', href: url('/syllabus/') },
+  { label: 'Sessions', href: url('/sessions/') },
+  { label: 'Faculty & Team', href: url('/faculty/') },
+  { label: 'Apply as a Student', href: url('/apply/') },
+  { label: 'Propose a Project', href: url('/sponsors/') },
+];
+---
+<footer class="site-footer">
+  <div class="frame">
+    <div class="footer__grid">
+      <div class="footer__rail" aria-hidden="true"></div>
+      <div class="footer__cell">
+        <img class="footer__logo" src={url('/images/biodesign-logo.png')} alt="Stanford Mussallem Center for Biodesign" width="900" height="360" loading="lazy" />
+        <p>{site.affiliation.statement}</p>
+        <ul>
+          {site.affiliation.links.map((link) => <li><a href={link.url} rel="noopener">{link.label}</a></li>)}
+        </ul>
+      </div>
+      <div class="footer__cell">
+        <h2>{courseCode}</h2>
+        <ul>
+          {pages.map((page) => <li><a href={page.href}>{page.label}</a></li>)}
+        </ul>
+      </div>
+      <div class="footer__cell">
+        <h2>Contact</h2>
+        <p>Students<br /><a href={`mailto:${students.email}`}>{students.email}</a></p>
+        <p>Project sponsors<br /><a href={`mailto:${sponsors.email}`}>{sponsors.email}</a></p>
+        <address>{site.address.map((line, i) => <>{i > 0 && <br />}{line}</>)}</address>
+      </div>
+      <div class="footer__cell">
+        <h2>Earlier offerings</h2>
+        <ul>
+          {site.archive.map((item) => <li><a href={item.url} rel="noopener">{item.label} <span class="visually-hidden">course site (archive)</span></a></li>)}
+        </ul>
+        <p class="small muted">Archived sites describe past years and do not apply to {offering.term}.</p>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>{site.copyright} · {offering.term}, academic year {offering.academicYear}</span>
+      <a href={`${url('/syllabus/')}#accessibility`}>Accessibility and accommodations</a>
+    </div>
+    <div class="gridmotif footer__motif" aria-hidden="true"></div>
+  </div>
+</footer>

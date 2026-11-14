@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import Band from '../components/Band.astro';
+import PageHeader from '../components/PageHeader.astro';
+import PersonCard from '../components/PersonCard.astro';
+import { courseCode, offering, people } from '../lib/content';
+import { url } from '../lib/paths';
+
+const instructors = people.filter((p) => p.group === 'instructors');
+const operations = people.filter((p) => p.group === 'operations');
+const coaches = people.filter((p) => p.group === 'coaches');
+const rosterDraft = people.some((p) => p.status !== 'confirmed');
+---
+<Base title="Faculty & Team" description={`Instructors and course team for ${courseCode}: ${offering.title}, ${offering.term}.`}>
+  <PageHeader eyebrow={`${offering.term} · ${courseCode}`} title="Faculty & Team" lead={`The instructors and course team for ${offering.title}.`}>
+    {rosterDraft && (
+      <p class="notice notice--pending" style="margin-top: 1.75rem">
+        <span class="label">Under review</span>
+        This roster is carried forward from {offering.previousYear} and is being confirmed for {offering.term}.
+      </p>
+    )}
+  </PageHeader>
+
+  <Band label="Instructors">
+    <h2 class="band__head">Instructors</h2>
+    <ul class="people">
+      {instructors.map((person) => <PersonCard person={person} />)}
+    </ul>
+  </Band>
+
+  <Band label="Operations">
+    <h2 class="band__head">Course operations</h2>
+    <ul class="people">
+      {operations.map((person) => <PersonCard person={person} />)}
+    </ul>
+  </Band>
+
+  <Band label="Coaches">
+    <h2 class="band__head">Project coaches and teaching assistants</h2>
+    {coaches.length ? (
+      <ul class="people">
+        {coaches.map((person) => <PersonCard person={person} />)}
+      </ul>
+    ) : (
+      <p class="empty">Project coaches and teaching assistants will be listed here once they are confirmed.</p>
+    )}
+    <p class="backlink">Guest speakers are listed with the <a class="link" href={url('/sessions/')}>session</a> they join.</p>
+  </Band>
+</Base>

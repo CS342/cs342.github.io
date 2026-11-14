@@ -1,0 +1,66 @@
+---
+// Month-grid calendar. Uses the same session records as the list.
+import { sessions, offering } from '../lib/content';
+import { nextSessionIndex, sessionState } from '../lib/state';
+import { formatDate, monthGrids } from '../lib/time';
+
+const now = Date.now();
+const nextIndex = nextSessionIndex(now, sessions.map((s) => ({ end: s.endUtc.getTime() })));
+const months = monthGrids(offering.quarter.instructionBegins, offering.quarter.classesEnd);
+const byDate = new Map(sessions.map((s, i) => [s.date, { s, i }]));
+const edges: Record<string, { short: string; long: string }> = {
+  [offering.quarter.instructionBegins]: { short: 'Start', long: 'Instruction begins' },
+  [offering.quarter.classesEnd]: { short: 'End', long: 'Classes end' },
+};
+const DAYS = [['Sun', 'Sunday'], ['Mon', 'Monday'], ['Tue', 'Tuesday'], ['Wed', 'Wednesday'], ['Thu', 'Thursday'], ['Fri', 'Friday'], ['Sat', 'Saturday']];
+---
+<div class="cals">
+  {months.map((month) => (
+    <table class="cal">
+      <caption>{month.label}</caption>
+      <thead>
+        <tr>{DAYS.map(([abbr, full]) => <th scope="col" abbr={full}>{abbr}</th>)}</tr>
+      </thead>
+      <tbody>
+        {month.weeks.map((week) => (
+          <tr>
+            {week.map((day) => {
+              if (!day) return <td class="cal__blank"></td>;
+              const n = Number(day.slice(8));
+              const hit = byDate.get(day);
+              if (hit) {
+                const { s, i } = hit;
+                return (
+                  <td data-day={day} data-session={s.slug} data-time-state={sessionState(now, s.startUtc.getTime(), s.endUtc.getTime())} data-next={String(i === nextIndex)}>
+                    <a class="cal__day" href={s.href} aria-label={`Week ${s.week}: ${s.title}. ${formatDate(day, 'full')}, ${s.timeLabel}`}>
+                      <span>{n}</span>
+                      <b><small>Wk</small>{s.week}</b>
+                    </a>
+                  </td>
+                );
+              }
+              const edge = edges[day];
+              if (edge) {
+                return (
+                  <td data-day={day}>
+                    <span class="cal__day cal__day--edge" title={edge.long}>
+                      <span>{n}</span>
+                      <small aria-hidden="true">{edge.short}</small>
+                      <span class="visually-hidden">{edge.long}</span>
+                    </span>
+                  </td>
+                );
+              }
+              return <td data-day={day}><span class="cal__day"><span>{n}</span></span></td>;
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  ))}
+</div>
+<ul class="legend">
+  <li><i style="background: var(--green); border-color: var(--green)"></i> Class session (select a date for details)</li>
+  <li><i style="box-shadow: inset 0 0 0 3px var(--green)"></i> Completed session</li>
+  <li><i style="background: var(--sky-tint)"></i> Quarter start and end: instruction begins {formatDate(offering.quarter.instructionBegins, 'monthDay')}; classes end {formatDate(offering.quarter.classesEnd, 'monthDay')}</li>
+</ul>

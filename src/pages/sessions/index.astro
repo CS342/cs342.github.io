@@ -1,0 +1,66 @@
+---
+import Base from '../../layouts/Base.astro';
+import Band from '../../components/Band.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import NextSession from '../../components/NextSession.astro';
+import SessionList from '../../components/SessionList.astro';
+import SessionCalendar from '../../components/SessionCalendar.astro';
+import { courseCode, meetingPattern, offering, quarter, sessions } from '../../lib/content';
+import { offeringState } from '../../lib/state';
+import { formatDate } from '../../lib/time';
+
+const allDatesConfirmed = sessions.every((s) => s.dateStatus === 'confirmed');
+const state = offeringState(Date.now(), quarter.startUtc.getTime(), quarter.endUtc.getTime());
+const stateLabel = state === 'before' ? `Begins ${formatDate(offering.quarter.instructionBegins, 'long')}` : state === 'during' ? 'In progress' : 'Completed';
+---
+<Base title="Sessions" description={`All ${sessions.length} class sessions for ${courseCode}, ${offering.term}: ${meetingPattern}.`}>
+  <PageHeader eyebrow={`${offering.term} · Schedule`} title="Sessions" lead={`${sessions.length} class meetings. ${meetingPattern}.`}>
+    <NextSession slot="side" level="h2" />
+  </PageHeader>
+
+  <div class="band">
+    <div class="frame toolbar">
+      <p class="small">
+        <strong>{offering.term}:</strong> <span data-offering-state={state}>{stateLabel}</span>.
+        {allDatesConfirmed ? `All ${sessions.length} session dates are confirmed.` : 'Unconfirmed dates are marked.'}
+        Topics, agendas, and guests are marked until they are confirmed.
+      </p>
+      <div class="segmented" role="group" aria-label="Schedule view">
+        <button type="button" data-view="list" aria-pressed="true">List</button>
+        <button type="button" data-view="calendar" aria-pressed="false">Calendar</button>
+      </div>
+    </div>
+  </div>
+
+  <div data-view-panel="list" data-active="true">
+    <Band label="List" flush>
+      <h2 class="visually-hidden">Session list</h2>
+      <SessionList />
+    </Band>
+  </div>
+
+  <div data-view-panel="calendar" data-active="false">
+    <Band label="Calendar">
+      <h2 class="visually-hidden">Session calendar</h2>
+      <SessionCalendar />
+    </Band>
+  </div>
+</Base>
+
+<script>
+  // List / calendar toggle. Both views are built from the same session records and
+  // link to the same session pages; the choice is kept in the URL (?view=calendar).
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-view]');
+  const panels = document.querySelectorAll<HTMLElement>('[data-view-panel]');
+  const show = (view: string, updateUrl: boolean) => {
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === view)));
+    panels.forEach((p) => (p.dataset.active = String(p.dataset.viewPanel === view)));
+    if (!updateUrl) return;
+    const here = new URL(location.href);
+    if (view === 'list') here.searchParams.delete('view');
+    else here.searchParams.set('view', view);
+    history.replaceState(null, '', here);
+  };
+  buttons.forEach((b) => b.addEventListener('click', () => show(b.dataset.view!, true)));
+  show(new URLSearchParams(location.search).get('view') === 'calendar' ? 'calendar' : 'list', false);
+</script>

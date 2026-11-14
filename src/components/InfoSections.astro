@@ -1,0 +1,22 @@
+---
+// Renders a list of content sections as ruled bands: rail label | heading, status tag, body.
+import Band from './Band.astro';
+import Blocks from './Blocks.astro';
+import Tag from './Tag.astro';
+import { tokens, type Section } from '../lib/content';
+import { fillTokens } from '../lib/richtext';
+
+interface Props {
+  sections: Section[];
+}
+const { sections } = Astro.props;
+---
+{sections.map((section) => (
+  <Band id={section.id} label={section.label ?? undefined}>
+    <div class="section__head">
+      <h2>{section.title}</h2>
+      <div><Tag kind={section.status} label={fillTokens(section.statusNote, tokens)} /></div>
+    </div>
+    <div class="prose"><Blocks blocks={section.body} /></div>
+  </Band>
+))}

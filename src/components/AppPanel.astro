@@ -1,0 +1,80 @@
+---
+// Full application panel: status headline, dates, and the submit button — shown only
+// when the route is open and has a published form link or a submission address
+// (submitEmail). An open route also renders
+// its closed state so the browser can switch to it once the deadline passes.
+import type { Application } from '../lib/content';
+import { effectiveApplicationStatus, type ApplicationStatus } from '../lib/state';
+import { applicationView } from '../lib/appview';
+
+interface Props {
+  app: Application;
+  tone: string;
+  boxed?: boolean;
+}
+const { app, tone, boxed = false } = Astro.props;
+const status = effectiveApplicationStatus({ status: app.status, submitHref: app.submitHref, closes: app.closesUtc?.getTime() }, Date.now());
+const switchable = app.status === 'open' && !!app.submitHref && !!app.closesUtc;
+const variants: ApplicationStatus[] = switchable ? ['open', 'closed'] : [status];
+const byEmail = app.submitKind === 'email';
+const noun = app.key === 'student' ? 'application' : 'proposal';
+---
+<div class:list={['panel', `tone-${tone}`, boxed && 'panel--boxed']} data-app-closes={switchable ? app.closesUtc!.toISOString() : undefined}>
+  {variants.map((variant) => {
+    const view = applicationView(app, variant);
+    return (
+      <div class="panel__variant" data-app-variant={switchable ? variant : undefined} hidden={switchable && variant !== status}>
+        <div class="panel__head">
+          <p class="label">{app.name}</p>
+          <p class="panel__status">{view.headline}</p>
+        </div>
+        <div class="panel__body">
+          {variant === 'open' && (
+            <dl class="panel__facts">
+              <div>
+                <dt class="label">Deadline</dt>
+                <dd>{app.closesLabel ?? 'To be announced'}</dd>
+              </div>
+            </dl>
+          )}
+          {variant === 'open' && byEmail && (
+            <a class="btn" href={app.submitHref}>
+              Email your {noun} <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          )}
+          {variant === 'open' && byEmail && (
+            <p class="small">
+              Opens your email app. The address is <a class="link" href={app.submitHref}>{app.submitEmail}</a>.
+            </p>
+          )}
+          {variant === 'open' && !byEmail && (
+            <a class="btn" href={app.submitHref} target="_blank" rel="noopener">
+              {app.action} <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          )}
+          {variant === 'open' && !byEmail && <p class="small">Opens Google Forms in a new tab.{app.signInNote ? ` ${app.signInNote}` : ''}</p>}
+          {variant === 'opening-soon' && <p>{byEmail ? 'The address will be posted here when it opens.' : 'The form will be linked here when it opens.'}</p>}
+          {variant === 'closed' ? <p>{app.closedMessage}</p> : <p>{app.process}</p>}
+          <p class="small">
+            {variant === 'open' && byEmail && app.submitEmail === app.contact.email ? (
+              'Questions go to the same address.'
+            ) : (
+              <Fragment>Questions: <a class="link" href={`mailto:${app.contact.email}`}>{app.contact.email}</a></Fragment>
+            )}
+          </p>
+        </div>
+      </div>
+    );
+  })}
+</div>
+
+<style>
+  .panel__variant {
+    display: contents;
+  }
+  .panel--boxed {
+    height: auto;
+    max-width: 32rem;
+    border: 1px solid var(--ink);
+  }
+</style>

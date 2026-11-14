@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Band from '../components/Band.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Blocks from '../components/Blocks.astro';
+import Tag from '../components/Tag.astro';
+import { courseCode, offering, syllabus, tokens } from '../lib/content';
+import { fillTokens } from '../lib/richtext';
+import { formatDate } from '../lib/time';
+
+const hasUnconfirmed = syllabus.sections.some((s) => s.status !== 'confirmed');
+---
+<Base title="Syllabus" description={`Course expectations, requirements, assessment, and policies for ${courseCode}: ${offering.title}, ${offering.term}.`}>
+  <PageHeader eyebrow={`${offering.term} · ${courseCode}`} title="Syllabus" lead="Course expectations, requirements, assessment, and policies.">
+    <p class="actions no-print" style="margin-top: 1.75rem">
+      <button class="btn btn--ghost" type="button" data-print>Print this syllabus</button>
+    </p>
+  </PageHeader>
+
+  <Band label="Syllabus" sideFirst>
+    {hasUnconfirmed && (
+      <p class="notice notice--pending" style="margin-bottom: clamp(2rem, 4vw, 3rem)">
+        <span class="label">Under review</span>
+        Sections marked “to be confirmed” carry forward language from the {offering.previousYear} syllabus and may change before {offering.term} begins. Sections marked “to be announced” have not been published yet.
+      </p>
+    )}
+    <div class="sections">
+      {syllabus.sections.map((section, i) => (
+        <section class="section" id={section.id} aria-labelledby={`${section.id}-title`}>
+          <div class="section__head">
+            <p class="label section__num">{String(i + 1).padStart(2, '0')}</p>
+            <h2 id={`${section.id}-title`}>{section.title}</h2>
+            <div><Tag kind={section.status} label={fillTokens(section.statusNote, tokens)} /></div>
+          </div>
+          <div class="prose"><Blocks blocks={section.body} /></div>
+        </section>
+      ))}
+    </div>
+    <p class="small muted backlink">Last reviewed {formatDate(syllabus.lastReviewed, 'long')}.</p>
+
+    <nav slot="side" aria-label="On this page">
+      <details class="toc" open>
+        <summary>On this page</summary>
+        <ol>
+          {syllabus.sections.map((section) => <li><a href={`#${section.id}`}>{section.title}</a></li>)}
+        </ol>
+      </details>
+      <script is:inline>
+        // Collapse the contents menu on small screens; it stays open on wide screens and without JavaScript.
+        if (window.matchMedia('(max-width: 59.99rem)').matches) document.querySelector('details.toc').open = false;
+      </script>
+    </nav>
+  </Band>
+</Base>
+
+<script>
+  document.querySelector('[data-print]')?.addEventListener('click', () => window.print());
+  // Following a contents link on a small screen closes the menu again.
+  const toc = document.querySelector<HTMLDetailsElement>('details.toc');
+  toc?.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('a') && window.matchMedia('(max-width: 59.99rem)').matches) toc.open = false;
+  });
+</script>

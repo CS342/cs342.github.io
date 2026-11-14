@@ -1,0 +1,21 @@
+{
+  "name": "cs342-site",
+  "type": "module",
+  "version": "2027.1.0",
+  "private": true,
+  "description": "Course website for CS 342 / MED 253: Building for Digital Health (Stanford Biodesign Digital Health)",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "verify:copy": "node scripts/verify-copy.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "test": "npm run build && npm run verify:copy"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "astro": "^7.4.11",
+    "yaml": "^2.9.1"
+  }
+}

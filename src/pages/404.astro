@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import Band from '../components/Band.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { offering } from '../lib/content';
+import { url } from '../lib/paths';
+
+const links = [
+  { label: 'Course home', href: url('/') },
+  { label: 'Syllabus', href: url('/syllabus/') },
+  { label: 'Sessions', href: url('/sessions/') },
+  { label: 'Faculty & Team', href: url('/faculty/') },
+  { label: 'Apply as a Student', href: url('/apply/') },
+  { label: 'Propose a Project', href: url('/sponsors/') },
+];
+---
+<Base title="Page not found" description="The page you were looking for is not on this site." noindex>
+  <PageHeader eyebrow="Error 404" title="This page has drifted off" lead={`The address may have changed with the ${offering.term} site, or the page may no longer exist.`} />
+  <Band label="Lost">
+    <div class="lost">
+      <div>
+        <h2 class="band__head">Find your way back</h2>
+        <ul class="namelist" style="max-width: 30rem">
+          {links.map((link) => <li><a href={link.href} style="text-decoration: none">{link.label}</a> <span aria-hidden="true">→</span></li>)}
+        </ul>
+        <p class="backlink small muted">
+          Looking for a previous year? Earlier offerings are linked in the footer.
+          If a link on this site brought you here, please let us know at
+          <a class="link" href={`mailto:${offering.contacts.students.email}`}>{offering.contacts.students.email}</a>.
+        </p>
+      </div>
+      <img src={url('/images/astronaut.png')} alt="" width="328" height="600" />
+    </div>
+  </Band>
+</Base>
