@@ -118,14 +118,19 @@ A banner shows that a preview is active, and the date is carried along as you na
 
 ### Preserved course copy
 
-The course team requires three sections of the Notion syllabus to appear **verbatim** on Home: the
-introduction beginning "As our world…", *Goals of the Course*, and *Topics Covered*. They are stored
-in `course-copy.json` exactly as captured from Notion (text, emphasis, order) and rendered without
-any typographic substitution. `npm run verify:copy` compares the built page with that file block by
-block and fails on any difference; the deploy workflow runs it on every publish.
+Three sections on Home are the course team's own wording and are published **exactly as written**:
+the introduction beginning "As our world…", *Goals of the Course*, and *Topics Covered*. They are
+stored in `course-copy.json` (text, emphasis, links, order) and rendered without any typographic
+substitution. `npm run verify:copy` compares the built page with that file block by block and fails
+on any difference; the deploy workflow runs it on every publish.
 
-Do not edit `course-copy.json` to fix wording. Record the suggestion (see below), get course-team
-approval, then change the file.
+The text was captured from the Notion syllabus on 2026-11-12. The course team has edited *Topics
+Covered* since then (see [Copy changes applied](#copy-changes-applied)), so `course-copy.json`, not
+Notion, is now the reference. Re-running `scripts/snapshot-course-copy.mjs` would overwrite those
+edits.
+
+Do not edit `course-copy.json` to fix wording on your own. Record the suggestion (see below), get
+course-team approval, then change the file and add the change to the list.
 
 ### Starting the next offering
 
@@ -184,10 +189,25 @@ and the single legacy proposal form.
 Before opening any application: publish the form, test a submission and its confirmation message with
 test data, confirm who owns the responses, then set the route to `open`.
 
+### Copy changes applied
+
+Requested by the course team on 2026-11-14, all in *Topics Covered*:
+
+- Opening paragraph: removed "This year marks a transformative shift: for the first time," so the
+  second sentence begins "You'll learn to prototype…".
+- "GitHub Copilot, Cursor, and Claude Code" → "GitHub Copilot, Codex, and Claude Code".
+- "SpeziVibe" links to <https://spezivibe.com/>.
+- *Why This Matters Now*: "By mastering vibe coding for digital health," → "At the end of this
+  course,"; "real users" → "users"; "deploy solutions that make a difference" → "deploy clinical
+  solutions".
+- Removed the closing line "Let's build the future of medicine, one vibe at a time."
+- Removed the section *Instant Preview and Cross-Platform Deployment* (heading and three
+  paragraphs).
+
 ### Suggested copy changes (not applied)
 
-The preserved sections are published exactly as written in Notion. These are suggestions for the
-course team, recorded here rather than applied:
+Apart from the changes above, the preserved sections are published as written in Notion. These are
+suggestions for the course team, recorded here rather than applied:
 
 - *Goals of the Course*, third goal: "accelarate" → "accelerate"; the item has no closing period,
   unlike the other two.
@@ -195,8 +215,6 @@ course team, recorded here rather than applied:
   be missing a noun after "cross-platform" (framework? template?).
 - *Topics Covered*: "Paths offer opportunity to integrate…" — "Paths" has no antecedent.
 - *Topics Covered*: "MedPlum" is written "Medplum" by the project itself.
-- *Topics Covered*: "This year marks a transformative shift: for the first time…" was written for
-  2025–26.
 - The heading *Goals of the Course* is bold in the source and *Topics Covered* is not; both are
   preserved as found.
 

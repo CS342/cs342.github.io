@@ -2,7 +2,7 @@
   "source": {
     "url": "https://stanfordbdhg.notion.site/CS342-MED253-Building-for-Digital-Health-ea1a66dfc9b44c90b6908de0d083d4e1",
     "retrieved": "2026-11-12",
-    "note": "Verbatim rich text captured from the Notion syllabus. Wording changes need course-team approval; see README."
+    "note": "Rich text captured verbatim from the Notion syllabus on 2026-11-12, then edited in Topics Covered at the course team's request on 2026-11-14 (listed in README). This file, not Notion, is now the reference; re-running the snapshot script would overwrite those edits. Wording changes need course-team approval."
   },
   "introduction": [
     [
@@ -70,7 +70,7 @@
         "type": "paragraph",
         "runs": [
           {
-            "text": "Welcome to CS342/MED253 - where we're pioneering the future of digital health development through vibe coding. This year marks a transformative shift: for the first time, you'll learn to prototype healthcare applications with the help of AI coding agents, dramatically accelerating the path from clinical need to working prototype."
+            "text": "Welcome to CS342/MED253 - where we're pioneering the future of digital health development through vibe coding. You'll learn to prototype healthcare applications with the help of AI coding agents, dramatically accelerating the path from clinical need to working prototype."
           }
         ]
       },
@@ -87,7 +87,7 @@
         "type": "paragraph",
         "runs": [
           {
-            "text": "Digital health innovation shouldn't take months - it should take hours. Working alongside AI assistants like GitHub Copilot, Cursor, and Claude Code, you'll rapidly prototype cross-platform mobile applications that address real clinical needs. We're embracing a new paradigm where developers and AI agents work in concert, turning clinical insights into functional software at unprecedented speed. This isn't about replacing traditional software engineering - it's about amplifying your ability to innovate."
+            "text": "Digital health innovation shouldn't take months - it should take hours. Working alongside AI assistants like GitHub Copilot, Codex, and Claude Code, you'll rapidly prototype cross-platform mobile applications that address real clinical needs. We're embracing a new paradigm where developers and AI agents work in concert, turning clinical insights into functional software at unprecedented speed. This isn't about replacing traditional software engineering - it's about amplifying your ability to innovate."
           }
         ]
       },
@@ -95,7 +95,11 @@
         "type": "paragraph",
         "runs": [
           {
-            "text": "SpeziVibe, our new cross-platform built for AI-assisted development, allows you to create cross-platform iOS and Android applications using React Native and Expo."
+            "text": "SpeziVibe",
+            "href": "https://spezivibe.com/"
+          },
+          {
+            "text": ", our new cross-platform built for AI-assisted development, allows you to create cross-platform iOS and Android applications using React Native and Expo."
           }
         ]
       },
@@ -120,48 +124,7 @@
         "type": "paragraph",
         "runs": [
           {
-            "text": "Healthcare desperately needs software innovation, but traditional development cycles are too slow for the pace of clinical discovery. By mastering vibe coding for digital health, you'll be equipped to rapidly validate clinical hypotheses, test interventions with real users, and deploy solutions that make a difference - all while maintaining the safety, privacy, and regulatory standards healthcare demands."
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "runs": [
-          {
-            "text": "Let's build the future of medicine, one vibe at a time."
-          }
-        ]
-      },
-      {
-        "type": "subheading",
-        "runs": [
-          {
-            "text": "Instant Preview and Cross-Platform Deployment",
-            "bold": true
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "runs": [
-          {
-            "text": "You'll experience the speed of modern React Native development through Expo's development workflow. During active development, simply scan a QR code with the Expo Go app on your iOS or Android device to instantly preview your application - changes appear in real-time as you code, with hot reloading that keeps your development state intact. "
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "runs": [
-          {
-            "text": "This enables rapid iteration with AI coding agents, allowing you to see clinical workflows come to life within seconds. For production releases, you'll use Expo Application Services (EAS) to build standalone apps and deploy to TestFlight for iOS beta testing and Google Play Console for Android distribution. "
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "runs": [
-          {
-            "text": "Our MedPlum-based backend provides your FHIR-compliant infrastructure for patient data management, secure authentication, and HIPAA-compliant cloud storage."
+            "text": "Healthcare desperately needs software innovation, but traditional development cycles are too slow for the pace of clinical discovery. At the end of this course, you'll be equipped to rapidly validate clinical hypotheses, test interventions with users, and deploy clinical solutions - all while maintaining the safety, privacy, and regulatory standards healthcare demands."
           }
         ]
       }

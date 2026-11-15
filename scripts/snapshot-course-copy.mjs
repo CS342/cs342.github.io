@@ -1,6 +1,10 @@
 // Builds the verbatim course-copy snapshot from a saved Notion `loadPageChunk` response.
 // Usage: node scripts/snapshot-course-copy.mjs <notion-chunk.json>
 // Writes content/offerings/winter-2027/course-copy.json (rendered by the site and checked by `npm run verify:copy`).
+//
+// WARNING: the course team has edited course-copy.json since the first capture (see "Copy changes
+// applied" in README.md). Running this script replaces the file with Notion's wording and discards
+// those edits; re-apply them afterwards.
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const PAGE_ID = 'ea1a66df-c9b4-4c90-b690-8de0d083d4e1';

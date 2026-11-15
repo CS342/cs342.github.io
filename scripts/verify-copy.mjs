@@ -91,6 +91,6 @@ if (failures) {
   console.error(`\nCopy check FAILED: ${failures} problem(s). Source: ${copy.source.url}`);
   process.exit(1);
 }
-console.log(`Copy check passed: ${expected.length} blocks (${words} words) match the source exactly.`);
+console.log(`Copy check passed: ${expected.length} blocks (${words} words) on the Home page match course-copy.json exactly.`);
 console.log(`  introduction: ${copy.introduction.length} paragraphs · goals: heading + ${copy.goals.items.length} items · topics: heading + ${copy.topics.blocks.filter((b) => b.type === 'subheading').length} sub-headings + ${copy.topics.blocks.filter((b) => b.type === 'paragraph').length} paragraphs`);
-console.log(`  source: ${copy.source.url} (retrieved ${copy.source.retrieved})`);
+console.log(`  first captured from: ${copy.source.url} (${copy.source.retrieved}); later course-team edits are listed in README.md`);
