@@ -26,12 +26,6 @@ home:
       - title: "Final demonstration"
         text: "In the last session, teams present their final project to a panel of digital health experts."
     after: "Handoff to the project sponsor"
-    prototype:
-      title: "An educational prototype"
-      text: "In ten weeks, a team builds a working minimum viable product (MVP) around a few core capabilities. It is built by students, for learning, with real mentors and a real need."
-    product:
-      title: "Not a finished, supported product"
-      text: "A prototype usually needs further development, validation, and operational support before it can be deployed. That work, and any maintenance after the quarter, rests with the project’s sponsor."
   projects:
     status: pending
     text: "Winter 2027 projects will be announced here once they are selected."

@@ -146,8 +146,6 @@ const PagesSchema = z.object({
       title: text,
       steps: z.array(z.object({ title: text, text })).min(2),
       after: text,
-      prototype: z.object({ title: text, text }),
-      product: z.object({ title: text, text }),
     }),
     projects: z.object({ status: Status, text }),
   }),
