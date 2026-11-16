@@ -16,11 +16,11 @@ home:
     title: "How the course works"
     steps:
       - title: "Project selection"
-        text: "Academic and industry partners propose projects, and the course team selects those that fit a ten-week build."
+        text: "Academic and industry partners propose projects. Teaching team selects projects for the course."
       - title: "Team formation"
         text: "Projects are pitched in the first session and students form teams around them."
       - title: "Building and mentoring"
-        text: "Teams build iteratively, week by week, with guidance from project mentors and the teaching team."
+        text: "Teams build iteratively, with guidance from project mentors and the teaching team."
       - title: "Midterm"
         text: "Midway through the quarter, teams present their progress and working functionality."
       - title: "Final demonstration"

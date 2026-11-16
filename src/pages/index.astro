@@ -5,9 +5,8 @@ import RouteCell from '../components/RouteCell.astro';
 import Rosette from '../components/Rosette.astro';
 import NextSession from '../components/NextSession.astro';
 import Tag from '../components/Tag.astro';
-import { courseCode, courseCopy, firstSession, lastSession, meetingPattern, offering, pages, people, quarter, sessions } from '../lib/content';
+import { courseCode, courseCopy, firstSession, lastSession, meetingPattern, offering, pages, people, sessions } from '../lib/content';
 import { renderRuns, type Run } from '../lib/richtext';
-import { offeringState } from '../lib/state';
 import { formatDate } from '../lib/time';
 import { url } from '../lib/paths';
 
@@ -22,8 +21,6 @@ for (const block of courseCopy.topics.blocks) {
 
 const stepTone = (i: number) => (i < 2 ? 'green' : i === process.steps.length - 1 ? 'navy' : 'orange');
 const instructors = people.filter((p) => p.group === 'instructors');
-const state = offeringState(Date.now(), quarter.startUtc.getTime(), quarter.endUtc.getTime());
-const stateLabel = state === 'before' ? `Begins ${formatDate(offering.quarter.instructionBegins, 'long')}` : state === 'during' ? 'In progress' : 'Completed';
 const sessionSpan = `${sessions.length} sessions, ${formatDate(firstSession.date, 'monthDay')} – ${formatDate(lastSession.date, 'long')}`;
 const students = offering.contacts.students;
 ---
@@ -141,17 +138,6 @@ const students = offering.contacts.students;
   <Band id="current" label={offering.term} sideFlush>
     <h2 class="band__head">{offering.term} at a glance</h2>
     <dl class="facts">
-      <div>
-        <dt class="label">Offering</dt>
-        <dd>{offering.term} · academic year {offering.academicYear}<span class="note" data-offering-state={state}>{stateLabel}</span></dd>
-      </div>
-      <div>
-        <dt class="label">Quarter</dt>
-        <dd>
-          Instruction begins {formatDate(offering.quarter.instructionBegins, 'full')}
-          <span class="note">Classes end {formatDate(offering.quarter.classesEnd, 'full')}</span>
-        </dd>
-      </div>
       <div>
         <dt class="label">Class meetings</dt>
         <dd>{meetingPattern}<span class="note">{sessionSpan}</span></dd>
