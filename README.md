@@ -204,6 +204,19 @@ Requested by the course team on 2026-11-14, all in *Topics Covered*:
 - Removed the section *Instant Preview and Cross-Platform Deployment* (heading and three
   paragraphs).
 
+Requested by the course team on 2026-11-16, all in *Topics Covered*:
+
+- Opening paragraph: "where we're pioneering the future of digital health development through vibe
+  coding" → "where we combine the principles of the Biodesign process, digital health, and clinical
+  informatics in an exciting hands-on course".
+- *The Vibe Coding Revolution*: removed the first sentence ("Digital health innovation shouldn't
+  take months - it should take hours.") and the last ("This isn't about replacing traditional
+  software engineering - it's about amplifying your ability to innovate.").
+- The SpeziVibe paragraph now begins "In addition to native mobile app development,".
+- "Paths offer opportunity to integrate with open-source EHR systems (MedPlum) or Google Cloud…" →
+  "Students will learn how to integrate with open-source EHR software and Stanford’s Google Cloud
+  Platform to support HIPAA-compliant design."
+
 ### Suggested copy changes (not applied)
 
 Apart from the changes above, the preserved sections are published as written in Notion. These are
@@ -213,8 +226,6 @@ suggestions for the course team, recorded here rather than applied:
   unlike the other two.
 - *Topics Covered*: "SpeziVibe, our new cross-platform built for AI-assisted development" appears to
   be missing a noun after "cross-platform" (framework? template?).
-- *Topics Covered*: "Paths offer opportunity to integrate…" — "Paths" has no antecedent.
-- *Topics Covered*: "MedPlum" is written "Medplum" by the project itself.
 - The heading *Goals of the Course* is bold in the source and *Topics Covered* is not; both are
   preserved as found.
 

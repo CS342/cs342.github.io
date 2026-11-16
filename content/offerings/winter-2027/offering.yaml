@@ -38,7 +38,7 @@ room:
 units:
   value: "3–4"
   status: draft
-  note: "2025–26 value; to be confirmed"
+  note:            # optional line shown under the units on Home
 
 # Course-system links. Leave empty until the 2027 link exists.
 canvasUrl:

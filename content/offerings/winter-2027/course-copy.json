@@ -2,7 +2,7 @@
   "source": {
     "url": "https://stanfordbdhg.notion.site/CS342-MED253-Building-for-Digital-Health-ea1a66dfc9b44c90b6908de0d083d4e1",
     "retrieved": "2026-11-12",
-    "note": "Rich text captured verbatim from the Notion syllabus on 2026-11-12, then edited in Topics Covered at the course team's request on 2026-11-14 (listed in README). This file, not Notion, is now the reference; re-running the snapshot script would overwrite those edits. Wording changes need course-team approval."
+    "note": "Rich text captured verbatim from the Notion syllabus on 2026-11-12, then edited in Topics Covered at the course team's request on 2026-11-14 and 2026-11-16 (listed in README). This file, not Notion, is now the reference; re-running the snapshot script would overwrite those edits. Wording changes need course-team approval."
   },
   "introduction": [
     [
@@ -70,7 +70,7 @@
         "type": "paragraph",
         "runs": [
           {
-            "text": "Welcome to CS342/MED253 - where we're pioneering the future of digital health development through vibe coding. You'll learn to prototype healthcare applications with the help of AI coding agents, dramatically accelerating the path from clinical need to working prototype."
+            "text": "Welcome to CS342/MED253 - where we combine the principles of the Biodesign process, digital health, and clinical informatics in an exciting hands-on course. You'll learn to prototype healthcare applications with the help of AI coding agents, dramatically accelerating the path from clinical need to working prototype."
           }
         ]
       },
@@ -87,13 +87,16 @@
         "type": "paragraph",
         "runs": [
           {
-            "text": "Digital health innovation shouldn't take months - it should take hours. Working alongside AI assistants like GitHub Copilot, Codex, and Claude Code, you'll rapidly prototype cross-platform mobile applications that address real clinical needs. We're embracing a new paradigm where developers and AI agents work in concert, turning clinical insights into functional software at unprecedented speed. This isn't about replacing traditional software engineering - it's about amplifying your ability to innovate."
+            "text": "Working alongside AI assistants like GitHub Copilot, Codex, and Claude Code, you'll rapidly prototype cross-platform mobile applications that address real clinical needs. We're embracing a new paradigm where developers and AI agents work in concert, turning clinical insights into functional software at unprecedented speed."
           }
         ]
       },
       {
         "type": "paragraph",
         "runs": [
+          {
+            "text": "In addition to native mobile app development, "
+          },
           {
             "text": "SpeziVibe",
             "href": "https://spezivibe.com/"
@@ -107,7 +110,7 @@
         "type": "paragraph",
         "runs": [
           {
-            "text": "Paths offer opportunity to integrate with open-source EHR systems (MedPlum) or Google Cloud, support HIPAA-compliant architectures, and embrace the same vibe coding philosophy: move fast, iterate intelligently, and let AI handle the boilerplate while you focus on solving healthcare's hardest problems."
+            "text": "Students will learn how to integrate with open-source EHR software and Stanford’s Google Cloud Platform to support HIPAA-compliant design."
           }
         ]
       },
