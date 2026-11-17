@@ -3,8 +3,8 @@
 # status
 #   not-announced  shows "Application details forthcoming"; no button
 #   opening-soon   shows the opening date (opensAt); no button
-#   open           shows the deadline (closesAt) and an active button: to formUrl, or an
-#                  "email your proposal" link when the route uses submitEmail
+#   open           shows the deadline (closesAt, when set) and an active button: to
+#                  formUrl, or an "email your proposal" link when the route uses submitEmail
 #   closed         shows the closed message; no button
 #
 # Safeguards built into the site:
@@ -12,50 +12,63 @@
 #     (never a dead button).
 #   - Once closesAt has passed, an "open" route is shown as closed automatically.
 #
+# headline  optional. Replaces "Applications are open" / "Proposals are open" at the
+#           top of the panel while the route is open.
 # formUrl   the PUBLISHED respondent link (https://forms.gle/… or
 #           https://docs.google.com/forms/d/e/…/viewform). Never the editing link
 #           or the response sheet.
 # submitEmail   the address submissions are emailed to, for a route that takes them by
 #               email instead of a form. If both are set, the form is used.
 # opensAt / closesAt   local date and time in the course time zone, "YYYY-MM-DDTHH:MM".
+#                      Leave closesAt empty for a route with no deadline; no deadline is shown.
+# notifyBy  optional date ("YYYY-MM-DD") by which submitters hear back. Available in
+#           text as {notifyBy:academic} and so on; the deadline is {deadline:academic}.
 # signInNote   shown next to the button, e.g. "Requires a Stanford Google account."
 # contact      students | sponsors  (see offering.yaml)
+# process   the sentence under the button. **Bold**, [links](https://…) and placeholders
+#           work here; {form} is the route's formUrl.
 
 student:
   name: "Student application"
   action: "Apply for Winter 2027"
-  status: not-announced
-  formUrl:
+  status: open
+  headline: "Join Building for Digital Health!"
+  formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSf3EryX40DE-kitX60J5JaramPS0uSGTz_HtDB33lOpuYYpSg/viewform?usp=dialog"
   submitEmail:
   opensAt:
   closesAt:
+  notifyBy:
   signInNote:
   contact: students
-  process: "Application dates, the selection process, and decision timing for Winter 2027 will be posted here."
+  process: "Apply to join the course [here]({form}). Admission codes will be offered on a rolling basis; apply soon if you’re interested!"
   closedMessage: "Student applications for Winter 2027 are closed. Contact the course team with questions about enrollment."
 
 academic:
   name: "Academic project proposal"
   action: "Submit an Academic Project"
   status: open
+  headline:
   formUrl:
   submitEmail: "speziteam@stanford.edu"
   opensAt:
-  closesAt:
+  closesAt: "2026-12-16T23:59"
+  notifyBy: "2026-12-20"
   signInNote:
   contact: sponsors
-  process: "Review timing for academic proposals will be posted here."
+  process: "We will notify project submitters by {notifyBy:academic} about project selection."
   closedMessage: "Academic project proposals for Winter 2027 are closed. Contact the team to discuss a future project."
 
 industry:
   name: "Industry project proposal"
   action: "Submit an Industry Project"
   status: open
+  headline:
   formUrl:
   submitEmail: "speziteam@stanford.edu"
   opensAt:
-  closesAt:
+  closesAt: "2026-12-16T23:59"
+  notifyBy: "2026-12-20"
   signInNote:
   contact: sponsors
-  process: "Review timing for industry proposals will be posted here."
+  process: "We will notify project submitters by {notifyBy:industry} about project selection."
   closedMessage: "Industry project proposals for Winter 2027 are closed. Contact the team to discuss a future partnership."

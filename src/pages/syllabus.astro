@@ -8,7 +8,7 @@ import { courseCode, offering, syllabus, tokens } from '../lib/content';
 import { fillTokens } from '../lib/richtext';
 import { formatDate } from '../lib/time';
 
-const hasUnconfirmed = syllabus.sections.some((s) => s.status !== 'confirmed');
+const hasUnconfirmed = syllabus.sections.some((s) => s.status && s.status !== 'confirmed');
 ---
 <Base title="Syllabus" description={`Course expectations, requirements, assessment, and policies for ${courseCode}: ${offering.title}, ${offering.term}.`}>
   <PageHeader eyebrow={`${offering.term} · ${courseCode}`} title="Syllabus" lead="Course expectations, requirements, assessment, and policies.">
@@ -30,7 +30,7 @@ const hasUnconfirmed = syllabus.sections.some((s) => s.status !== 'confirmed');
           <div class="section__head">
             <p class="label section__num">{String(i + 1).padStart(2, '0')}</p>
             <h2 id={`${section.id}-title`}>{section.title}</h2>
-            <div><Tag kind={section.status} label={fillTokens(section.statusNote, tokens)} /></div>
+            {section.status && section.statusNote && <div><Tag kind={section.status} label={fillTokens(section.statusNote, tokens)} /></div>}
           </div>
           <div class="prose"><Blocks blocks={section.body} /></div>
         </section>

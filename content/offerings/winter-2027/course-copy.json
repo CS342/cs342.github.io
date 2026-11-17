@@ -2,7 +2,7 @@
   "source": {
     "url": "https://stanfordbdhg.notion.site/CS342-MED253-Building-for-Digital-Health-ea1a66dfc9b44c90b6908de0d083d4e1",
     "retrieved": "2026-11-12",
-    "note": "Rich text captured verbatim from the Notion syllabus on 2026-11-12, then edited in Topics Covered at the course team's request on 2026-11-14 and 2026-11-16 (listed in README). This file, not Notion, is now the reference; re-running the snapshot script would overwrite those edits. Wording changes need course-team approval."
+    "note": "Rich text captured verbatim from the Notion syllabus on 2026-11-12, then edited in Topics Covered at the course team's request on 2026-11-14, 2026-11-16 and 2026-11-17 (listed in README). This file, not Notion, is now the reference; re-running the snapshot script would overwrite those edits. Wording changes need course-team approval."
   },
   "introduction": [
     [
@@ -127,7 +127,7 @@
         "type": "paragraph",
         "runs": [
           {
-            "text": "Healthcare desperately needs software innovation, but traditional development cycles are too slow for the pace of clinical discovery. At the end of this course, you'll be equipped to rapidly validate clinical hypotheses, test interventions with users, and deploy clinical solutions - all while maintaining the safety, privacy, and regulatory standards healthcare demands."
+            "text": "Healthcare desperately needs software innovation, but traditional development cycles are too slow for the pace of clinical discovery. At the end of this course, you'll be equipped to rapidly validate clinical hypotheses, test interventions with users, and deploy clinical solutions - all while maintaining the safety, privacy, and regulatory standards required in healthcare."
           }
         ]
       }

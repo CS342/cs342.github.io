@@ -43,13 +43,23 @@ units:
 # Course-system links. Leave empty until the 2027 link exists.
 canvasUrl:
 
-# Contacts. Student-facing and sponsor-facing contacts are maintained separately.
+# Contacts, each maintained separately:
+#   students  administrative and enrollment questions
+#   course    course content, assignments, and projects
+#   sponsors  project proposals
+# In text they are available as {contactName:students}, {contactRole:students} and
+# {contactEmail:students} (likewise course and sponsors).
 contacts:
   students:
     name: "Meghana Nerurkar"
     role: "Course manager"
     email: "mnerur@stanford.edu"
-    status: draft
+    status: confirmed
+  course:
+    name: "Biodesign Digital Health team"
+    role: "Course content"
+    email: "speziteam@stanford.edu"
+    status: confirmed
   sponsors:
     name: "Biodesign Digital Health team"
     role: "Project proposals"

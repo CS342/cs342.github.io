@@ -10,8 +10,9 @@ export function applicationView(app: Application, status: ApplicationStatus) {
     case 'open':
       return {
         tag: 'Open',
-        headline: `${Noun} are open`,
-        detail: app.closesLabel ? `Due ${app.closesLabel}` : 'Deadline to be announced',
+        headline: app.headline ?? `${Noun} are open`,
+        // A route without a closing date (rolling admission, say) shows no deadline line.
+        detail: app.closesLabel ? `Due ${app.closesLabel}` : '',
       };
     case 'opening-soon':
       return {

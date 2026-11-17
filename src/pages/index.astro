@@ -5,9 +5,8 @@ import RouteCell from '../components/RouteCell.astro';
 import Rosette from '../components/Rosette.astro';
 import NextSession from '../components/NextSession.astro';
 import Tag from '../components/Tag.astro';
-import { courseCode, courseCopy, firstSession, lastSession, meetingPattern, offering, pages, people, sessions } from '../lib/content';
+import { courseCode, courseCopy, meetingPattern, offering, pages, people } from '../lib/content';
 import { renderRuns, type Run } from '../lib/richtext';
-import { formatDate } from '../lib/time';
 import { url } from '../lib/paths';
 
 const { process, projects } = pages.home;
@@ -21,7 +20,6 @@ for (const block of courseCopy.topics.blocks) {
 
 const stepTone = (i: number) => (i < 2 ? 'green' : i === process.steps.length - 1 ? 'navy' : 'orange');
 const instructors = people.filter((p) => p.group === 'instructors');
-const sessionSpan = `${sessions.length} sessions, ${formatDate(firstSession.date, 'monthDay')} – ${formatDate(lastSession.date, 'long')}`;
 const students = offering.contacts.students;
 ---
 <Base>
@@ -39,7 +37,7 @@ const students = offering.contacts.students;
         <div>
           <p class="hero__meta">
             {meetingPattern}
-            <small>{offering.room.name ?? 'Room to be announced'} · {sessionSpan}</small>
+            <small>{offering.room.name ?? 'Room to be announced'} · {offering.term}</small>
           </p>
           <p class="hero__links">
             <a class="more" href={url('/syllabus/')}>View syllabus <span class="arrow" aria-hidden="true">→</span></a>
@@ -140,7 +138,7 @@ const students = offering.contacts.students;
     <dl class="facts">
       <div>
         <dt class="label">Class meetings</dt>
-        <dd>{meetingPattern}<span class="note">{sessionSpan}</span></dd>
+        <dd>{meetingPattern}</dd>
       </div>
       <div>
         <dt class="label">Classroom</dt>
@@ -158,7 +156,7 @@ const students = offering.contacts.students;
       <div>
         <dt class="label">Course materials</dt>
         <dd>
-          {offering.canvasUrl ? <a class="link" href={offering.canvasUrl} rel="noopener">Canvas (course access required)</a> : <Tag kind="pending" label="Canvas link forthcoming" />}
+          {offering.canvasUrl ? <a class="link" href={offering.canvasUrl} rel="noopener">Canvas (course access required)</a> : <Tag kind="pending" label="Canvas link coming soon" />}
           <span class="note">Session materials are posted on each <a class="link" href={url('/sessions/')}>session page</a>.</span>
         </dd>
       </div>
