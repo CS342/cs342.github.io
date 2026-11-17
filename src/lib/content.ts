@@ -52,7 +52,7 @@ const OfferingSchema = z.object({
   room: z.object({ name: optional, mapUrl: optional, status: Status }),
   units: z.object({ value: optional, status: Status, note: optional }),
   canvasUrl: optional,
-  contacts: z.object({ students: ContactSchema, sponsors: ContactSchema }),
+  contacts: z.object({ students: ContactSchema, course: ContactSchema, sponsors: ContactSchema }),
 });
 
 const ResourceSchema = z.object({
@@ -106,10 +106,12 @@ const ApplicationSchema = z.object({
   name: text,
   action: text,
   status: z.enum(['not-announced', 'opening-soon', 'open', 'closed']),
+  headline: optional,
   formUrl: z.url().nullish(),
   submitEmail: z.email().nullish(),
   opensAt: LocalDateTime.nullish(),
   closesAt: LocalDateTime.nullish(),
+  notifyBy: DateString.nullish(),
   signInNote: optional,
   contact: z.enum(['students', 'sponsors']),
   process: text,
@@ -124,15 +126,16 @@ const BlockSchema = z.union([
   z.strictObject({ pending: text }),
   z.strictObject({ note: text }),
   z.strictObject({ copy: z.enum(['introduction', 'goals']) }),
-  z.strictObject({ contact: z.enum(['students', 'sponsors']) }),
+  z.strictObject({ contact: z.enum(['students', 'course', 'sponsors']) }),
 ]);
 
+// status and statusNote are optional: a section that leaves them out shows no tag.
 const SectionSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   label: optional,
   title: text,
-  status: Status,
-  statusNote: text,
+  status: Status.nullish(),
+  statusNote: optional,
   body: z.array(BlockSchema),
 });
 
@@ -149,7 +152,7 @@ const PagesSchema = z.object({
     }),
     projects: z.object({ status: Status, text }),
   }),
-  apply: InfoPageSchema,
+  apply: z.object({ lead: optional, sections: z.array(SectionSchema) }),
   proposal: z.object({ section: SectionSchema, submitNote: text }),
   sponsors: InfoPageSchema,
   academic: InfoPageSchema,
@@ -298,12 +301,24 @@ export const tokens: Tokens = {
   lastClass: formatDate(lastSession.date, 'long'),
   quarterStart: formatDate(offering.quarter.instructionBegins, 'long'),
   quarterEnd: formatDate(offering.quarter.classesEnd, 'long'),
-  // "January 4–March 12, 2027"; the year is repeated only when the quarter spans two.
-  quarterRange: `${formatDate(
-    offering.quarter.instructionBegins,
-    offering.quarter.instructionBegins.slice(0, 4) === offering.quarter.classesEnd.slice(0, 4) ? 'monthDay' : 'long',
-  )}–${formatDate(offering.quarter.classesEnd, 'long')}`,
+  // First to last class meeting: "January 6–March 10, 2027"; the year is repeated only when the course spans two.
+  courseRange: `${formatDate(firstSession.date, firstSession.date.slice(0, 4) === lastSession.date.slice(0, 4) ? 'monthDay' : 'long')}–${formatDate(lastSession.date, 'long')}`,
   ...Object.fromEntries(sessions.map((s) => [`sessionDate:${s.slug}`, formatDate(s.date, 'full')])),
+  // {contactName:students}, {contactRole:students}, {contactEmail:students}; likewise course and sponsors.
+  ...Object.fromEntries(
+    Object.entries(offering.contacts).flatMap(([key, c]) => [
+      [`contactName:${key}`, c.name],
+      [`contactEmail:${key}`, c.email],
+      ...(c.role ? [[`contactRole:${key}`, c.role]] : []),
+    ]),
+  ),
+  // {deadline:academic} and {notifyBy:academic} ("December 16, 2026"), for each route that sets the date.
+  ...Object.fromEntries(
+    Object.entries(applications).flatMap(([key, app]) => [
+      ...(app.closesAt ? [[`deadline:${key}`, formatDate(app.closesAt.slice(0, 10), 'long')]] : []),
+      ...(app.notifyBy ? [[`notifyBy:${key}`, formatDate(app.notifyBy, 'long')]] : []),
+    ]),
+  ),
 };
 
 /** Data the browser needs to re-evaluate time-based states on page load. */

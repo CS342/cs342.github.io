@@ -130,11 +130,11 @@ a:hover { text-decoration-thickness: 2px; }
 .prose li::marker { color: var(--green-ink); font-weight: 700; }
 .prose h3 { margin-top: 1.9em; }
 .prose h3:first-child { margin-top: 0; }
-.prose a, .link {
+.prose a, .link, .panel__process a {
   text-decoration-color: var(--green);
   text-decoration-thickness: 2px;
 }
-.prose a:hover, .link:hover { background: var(--green); text-decoration-color: var(--ink); }
+.prose a:hover, .link:hover, .panel__process a:hover { background: var(--green); text-decoration-color: var(--ink); }
 
 /* ---------- the sheet: frame, bands, rail ---------- */
 .frame { width: var(--frame); margin-inline: auto; border-inline: 1px solid var(--rule); }

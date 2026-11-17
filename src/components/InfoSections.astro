@@ -1,5 +1,5 @@
 ---
-// Renders a list of content sections as ruled bands: rail label | heading, status tag, body.
+// Renders a list of content sections as ruled bands: rail label | heading, status tag (when the section sets one), body.
 import Band from './Band.astro';
 import Blocks from './Blocks.astro';
 import Tag from './Tag.astro';
@@ -15,7 +15,7 @@ const { sections } = Astro.props;
   <Band id={section.id} label={section.label ?? undefined}>
     <div class="section__head">
       <h2>{section.title}</h2>
-      <div><Tag kind={section.status} label={fillTokens(section.statusNote, tokens)} /></div>
+      {section.status && section.statusNote && <div><Tag kind={section.status} label={fillTokens(section.statusNote, tokens)} /></div>}
     </div>
     <div class="prose"><Blocks blocks={section.body} /></div>
   </Band>

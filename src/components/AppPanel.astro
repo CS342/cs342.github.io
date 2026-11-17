@@ -3,7 +3,8 @@
 // when the route is open and has a published form link or a submission address
 // (submitEmail). An open route also renders
 // its closed state so the browser can switch to it once the deadline passes.
-import type { Application } from '../lib/content';
+import { tokens, type Application } from '../lib/content';
+import { renderInline } from '../lib/richtext';
 import { effectiveApplicationStatus, type ApplicationStatus } from '../lib/state';
 import { applicationView } from '../lib/appview';
 
@@ -18,6 +19,8 @@ const switchable = app.status === 'open' && !!app.submitHref && !!app.closesUtc;
 const variants: ApplicationStatus[] = switchable ? ['open', 'closed'] : [status];
 const byEmail = app.submitKind === 'email';
 const noun = app.key === 'student' ? 'application' : 'proposal';
+// The sentence under the button may link to the route's own form with {form}.
+const processTokens = app.submitKind === 'form' && app.submitHref ? { ...tokens, form: app.submitHref } : tokens;
 ---
 <div class:list={['panel', `tone-${tone}`, boxed && 'panel--boxed']} data-app-closes={switchable ? app.closesUtc!.toISOString() : undefined}>
   {variants.map((variant) => {
@@ -29,11 +32,11 @@ const noun = app.key === 'student' ? 'application' : 'proposal';
           <p class="panel__status">{view.headline}</p>
         </div>
         <div class="panel__body">
-          {variant === 'open' && (
+          {variant === 'open' && app.closesLabel && (
             <dl class="panel__facts">
               <div>
                 <dt class="label">Deadline</dt>
-                <dd>{app.closesLabel ?? 'To be announced'}</dd>
+                <dd>{app.closesLabel}</dd>
               </div>
             </dl>
           )}
@@ -44,7 +47,7 @@ const noun = app.key === 'student' ? 'application' : 'proposal';
           )}
           {variant === 'open' && byEmail && (
             <p class="small">
-              Opens your email app. The address is <a class="link" href={app.submitHref}>{app.submitEmail}</a>.
+              Link opens your email app. The address is <a class="link" href={app.submitHref}>{app.submitEmail}</a>.
             </p>
           )}
           {variant === 'open' && !byEmail && (
@@ -54,12 +57,12 @@ const noun = app.key === 'student' ? 'application' : 'proposal';
           )}
           {variant === 'open' && !byEmail && <p class="small">Opens Google Forms in a new tab.{app.signInNote ? ` ${app.signInNote}` : ''}</p>}
           {variant === 'opening-soon' && <p>{byEmail ? 'The address will be posted here when it opens.' : 'The form will be linked here when it opens.'}</p>}
-          {variant === 'closed' ? <p>{app.closedMessage}</p> : <p>{app.process}</p>}
+          {variant === 'closed' ? <p>{app.closedMessage}</p> : <p class="panel__process" set:html={renderInline(app.process, processTokens)} />}
           <p class="small">
             {variant === 'open' && byEmail && app.submitEmail === app.contact.email ? (
-              'Questions go to the same address.'
+              'Please feel free to reach out with any questions.'
             ) : (
-              <Fragment>Questions: <a class="link" href={`mailto:${app.contact.email}`}>{app.contact.email}</a></Fragment>
+              <Fragment>{app.key === 'student' ? 'Enrollment questions' : 'Questions'}: <a class="link" href={`mailto:${app.contact.email}`}>{app.contact.email}</a></Fragment>
             )}
           </p>
         </div>

@@ -8,10 +8,11 @@ import { applications, courseCode, offering, pages } from '../lib/content';
 import { url } from '../lib/paths';
 
 const app = applications.student;
-const contact = app.contact;
+const enrollment = offering.contacts.students;
+const course = offering.contacts.course;
 ---
 <Base title="Apply as a Student" description={`Who should apply to ${courseCode}: ${offering.title}, what to expect, and how the ${offering.term} student application works.`}>
-  <PageHeader tone="green" eyebrow={`Students · ${offering.term}`} title="Apply as a Student" lead={pages.apply.lead}>
+  <PageHeader tone="green" eyebrow={`Students · ${offering.term}`} title="Apply as a Student" lead={pages.apply.lead ?? undefined}>
     <AppPanel slot="side" app={app} tone="green" />
   </PageHeader>
 
@@ -22,8 +23,10 @@ const contact = app.contact;
       <h2>{app.action}</h2>
       <AppPanel app={app} tone="green" boxed />
       <p>
-        Questions about the course or the application? Contact {contact.name}{contact.role ? `, ${contact.role}` : ''}, at
-        <a class="link" href={`mailto:${contact.email}`}>{contact.email}</a>.
+        For enrollment questions, contact {enrollment.name}{enrollment.role ? `, ${enrollment.role}` : ''}, at
+        <a class="link" href={`mailto:${enrollment.email}`}>{enrollment.email}</a>.
+        For questions about class content, contact
+        <a class="link" href={`mailto:${course.email}`}>{course.email}</a>.
       </p>
       <p class="actions">
         <a class="more" href={url('/syllabus/')}>Read the syllabus <span class="arrow" aria-hidden="true">→</span></a>

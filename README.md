@@ -59,7 +59,7 @@ file and the field instead of publishing a broken page.
 | Quarter dates, meeting time, time zone, room, units, Canvas link, contacts | `content/offerings/winter-2027/offering.yaml` |
 | A session's title, summary, agenda, speakers, materials, deliverables, status | `content/offerings/winter-2027/sessions.yaml` |
 | Faculty and team (names, roles, titles, bios, photos, profile links) | `content/offerings/winter-2027/people.yaml` |
-| Application status, form links, opening and closing dates | `content/offerings/winter-2027/applications.yaml` |
+| Application status, form links, opening, closing and decision dates | `content/offerings/winter-2027/applications.yaml` |
 | Syllabus sections and policies | `content/offerings/winter-2027/syllabus.yaml` |
 | "How the course works", student application page, sponsor pages | `content/offerings/winter-2027/pages.yaml` |
 | What a project proposal must include (shown on all three sponsor pages) | `content/offerings/winter-2027/pages.yaml` → `proposal` |
@@ -79,6 +79,9 @@ Most records carry a `status`:
 - `draft` — proposed, or carried forward from 2025–26 and not yet approved (amber marker).
 - `pending` — not yet known; the page says "to be announced" (hollow marker).
 
+A syllabus or page section that leaves out `status` and `statusNote` shows no marker. Use that for
+copy the course team has approved for this offering.
+
 Sessions keep the date status (`dateStatus`) apart from the content status (`contentStatus`), and
 both are separate from the time-based state (upcoming / in session / completed), which the site works
 out from the clock.
@@ -86,21 +89,28 @@ out from the clock.
 ### Applications
 
 Each of the three routes (student, academic, industry) has its own record in `applications.yaml` with
-a status, a form link or a submission email address, opening and closing times and a contact.
+a status, a form link or a submission email address, opening and closing times, an optional decision
+date (`notifyBy`) and a contact.
 
 | Status | What visitors see |
 | --- | --- |
 | `not-announced` | "Details forthcoming"; no button |
 | `opening-soon` | The opening date; no button |
-| `open` | The deadline and a button to the form, or an "Email your proposal" link when the route sets `submitEmail` |
+| `open` | The deadline (when `closesAt` is set) and a button to the form, or an "Email your proposal" link when the route sets `submitEmail` |
 | `closed` | The closed message; no button |
 
 Two safeguards are built in: a route marked `open` with neither a `formUrl` nor a `submitEmail` is
 shown as "details forthcoming", and an open route switches to closed by itself once `closesAt` has
 passed. Use the form's **published respondent link**, never the editing link or the response sheet.
 
+The student route is open with a Google Form and no closing date, because admission codes are
+offered on a rolling basis. Its `headline` replaces "Applications are open" at the top of the panel,
+and `{form}` in its `process` sentence links to the form.
+
 The academic and industry routes take proposals by email (`submitEmail`). To move a route to a form
-later, add its `formUrl`; the form then replaces the email link.
+later, add its `formUrl`; the form then replaces the email link. Their `closesAt` and `notifyBy`
+dates are available in page text as `{deadline:academic}` and `{notifyBy:academic}` (likewise
+`industry`), so a date is typed once.
 
 ### Dates and time-based states
 
@@ -169,22 +179,26 @@ until it is settled.
 | Decision | Where it goes |
 | --- | --- |
 | Classroom and map link | `offering.yaml` → `room` |
-| Units, prerequisites, enrollment process, workload | `offering.yaml` → `units`; `syllabus.yaml`; `pages.yaml` → `apply` |
+| Units, grading options, workload | `offering.yaml` → `units`; `syllabus.yaml` |
 | **Grading model.** The Notion syllabus (10/10/30/20/30: attendance, participation, assignments, midterm, final) and the introductory lecture (10/15/30/45: attendance, participation, midterm, final) disagree. Neither is published; the syllabus says "to be announced". Approve one and add it. | `syllabus.yaml` → `assessment` |
-| Attendance, AI and collaboration, training, IP, accessibility wording | `syllabus.yaml` |
+| Project, team, assignment and handoff details | `syllabus.yaml` |
 | 2027 roster, titles, biographies, approved photos | `people.yaml`, `public/images/people/` |
 | Session topics, guests, preparation, materials, deadlines | `sessions.yaml` |
-| Student application: questions, eligibility, dates, form owner, published link | `applications.yaml` → `student`; `pages.yaml` → `apply` |
-| Academic proposals (open, by email): eligible institutions, deadline, fee, terms | `applications.yaml` → `academic`; `pages.yaml` → `academic` |
-| Industry proposals (open, by email): deadline, sponsorship terms, agreement process | `applications.yaml` → `industry`; `pages.yaml` → `industry` |
-| Student contact address (currently the 2025–26 contact) | `offering.yaml` → `contacts` |
+| Student application (open, Google Form, rolling admission): a closing date, if one is set | `applications.yaml` → `student` |
+| Academic proposals (open, by email, due December 16, 2026): eligible institutions | `applications.yaml` → `academic`; `pages.yaml` → `academic` |
+| Industry proposals (open, by email, due December 16, 2026): agreement process | `applications.yaml` → `industry`; `pages.yaml` → `industry` |
+| Office hours | `syllabus.yaml` → `contact` |
 | Canvas link for Winter 2027 | `offering.yaml` → `canvasUrl` |
 | Branding, institutional footer wording, domain | `site.yaml`; `public/images/` |
 | Go live | `site.yaml` → `launchStatus: live` |
 
-Deliberately **not** carried over from the 2025–26 pages: the $5,000 and $20,000 participation fees,
-hosting-cost estimates, open/closed-source provisions, the 2025–26 room, Zoom link and Canvas course,
-and the single legacy proposal form.
+Deliberately **not** carried over from the 2025–26 pages: hosting-cost estimates, open/closed-source
+provisions, the 2025–26 room, Zoom link and Canvas course, and the single legacy proposal form.
+
+The project costs ($5,000 for an academic project, $20,000 for an industry project) were published
+on 2026-11-17 at the course team's direction. The same day the course team approved the Apply and
+sponsor page copy and six syllabus sections, so those no longer carry status markers or "not yet
+published" notices.
 
 Before opening any application: publish the form, test a submission and its confirmation message with
 test data, confirm who owns the responses, then set the route to `open`.
@@ -216,6 +230,11 @@ Requested by the course team on 2026-11-16, all in *Topics Covered*:
 - "Paths offer opportunity to integrate with open-source EHR systems (MedPlum) or Google Cloud…" →
   "Students will learn how to integrate with open-source EHR software and Stanford’s Google Cloud
   Platform to support HIPAA-compliant design."
+
+Requested by the course team on 2026-11-17, in *Topics Covered*:
+
+- *Why This Matters Now*: "regulatory standards healthcare demands" → "regulatory standards required
+  in healthcare".
 
 ### Suggested copy changes (not applied)
 
