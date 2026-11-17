@@ -104,8 +104,8 @@ shown as "details forthcoming", and an open route switches to closed by itself o
 passed. Use the form's **published respondent link**, never the editing link or the response sheet.
 
 The student route is open with a Google Form and no closing date, because admission codes are
-offered on a rolling basis. Its `headline` replaces "Applications are open" at the top of the panel,
-and `{form}` in its `process` sentence links to the form.
+offered on a rolling basis. Its `headline` replaces "Applications are open" at the top of the panel.
+The button is the link to the form; a `process` sentence can also link to it with `{form}`.
 
 The academic and industry routes take proposals by email (`submitEmail`). To move a route to a form
 later, add its `formUrl`; the form then replaces the email link. Their `closesAt` and `notifyBy`

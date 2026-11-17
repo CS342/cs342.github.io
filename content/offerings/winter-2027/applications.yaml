@@ -40,7 +40,7 @@ student:
   notifyBy:
   signInNote:
   contact: students
-  process: "Apply to join the course [here]({form}). Admission codes will be offered on a rolling basis; apply soon if you’re interested!"
+  process: "Admission codes will be offered on a rolling basis; apply soon if you’re interested!"
   closedMessage: "Student applications for Winter 2027 are closed. Contact the course team with questions about enrollment."
 
 academic:
