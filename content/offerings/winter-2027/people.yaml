@@ -66,6 +66,19 @@
   headshotAlt: "Portrait of Aydin Zahedivash"
   status: draft
 
+- name: "Sherman Leung"
+  credentials: "MD"
+  group: instructors
+  role: "Instructor"
+  academicTitles:
+    - "Resident Physician in Emergency Medicine"
+    - "Founding Instructor of CS342"
+  profileUrl: "https://profiles.stanford.edu/sherman-leung"
+  profileLabel: "Stanford profile"
+  headshot: "sherman-leung.jpg"
+  headshotAlt: "Portrait of Sherman Leung"
+  status: draft
+
 - name: "Meghana Nerurkar"
   group: operations
   role: "Course manager"

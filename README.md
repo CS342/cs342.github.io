@@ -231,18 +231,18 @@ Requested by the course team on 2026-11-16, all in *Topics Covered*:
   "Students will learn how to integrate with open-source EHR software and Stanford’s Google Cloud
   Platform to support HIPAA-compliant design."
 
-Requested by the course team on 2026-11-17, in *Topics Covered*:
+Requested by the course team on 2026-11-17:
 
 - *Why This Matters Now*: "regulatory standards healthcare demands" → "regulatory standards required
   in healthcare".
+- *Goals of the Course*, third goal: "accelarate" → "accelerate".
 
 ### Suggested copy changes (not applied)
 
 Apart from the changes above, the preserved sections are published as written in Notion. These are
 suggestions for the course team, recorded here rather than applied:
 
-- *Goals of the Course*, third goal: "accelarate" → "accelerate"; the item has no closing period,
-  unlike the other two.
+- *Goals of the Course*, third goal: the item has no closing period, unlike the other two.
 - *Topics Covered*: "SpeziVibe, our new cross-platform built for AI-assisted development" appears to
   be missing a noun after "cross-platform" (framework? template?).
 - The heading *Goals of the Course* is bold in the source and *Topics Covered* is not; both are
