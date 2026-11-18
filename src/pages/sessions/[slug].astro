@@ -40,7 +40,7 @@ const ACCESS: Record<string, string> = { stanford: 'Stanford login required', co
       </div>
       <div>
         <dt class="label">Classroom</dt>
-        <dd>{s.room ?? 'To be announced'}</dd>
+        <dd>{s.room ? (s.roomMapUrl ? <a class="link" href={s.roomMapUrl} rel="noopener">{s.room}</a> : s.room) : 'To be announced'}</dd>
       </div>
       <div>
         <dt class="label">Status</dt>

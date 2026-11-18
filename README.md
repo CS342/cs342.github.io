@@ -180,7 +180,6 @@ until it is settled.
 
 | Decision | Where it goes |
 | --- | --- |
-| Classroom and map link | `offering.yaml` → `room` |
 | Units, grading options, workload | `offering.yaml` → `units`; `syllabus.yaml` |
 | **Grading model.** The Notion syllabus (10/10/30/20/30: attendance, participation, assignments, midterm, final) and the introductory lecture (10/15/30/45: attendance, participation, midterm, final) disagree. Neither is published; the syllabus says "to be announced". Approve one and add it. | `syllabus.yaml` → `assessment` |
 | Project, team, assignment and handoff details | `syllabus.yaml` |
@@ -199,6 +198,9 @@ provisions, the 2025–26 room, Zoom link and Canvas course, and the single lega
 
 On 2026-11-17 the course team approved the Apply and sponsor page copy and six syllabus sections,
 so those no longer carry status markers or "not yet published" notices.
+
+On 2026-11-18 the course team set the classroom, CCSR 4205 (`offering.yaml` → `room`). The room
+name links to the building on the Stanford campus map on Home and on every session page.
 
 Before opening any application: publish the form, test a submission and its confirmation message with
 test data, confirm who owns the responses, then set the route to `open`.
