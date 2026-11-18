@@ -9,7 +9,7 @@ import { courseCode, courseCopy, meetingPattern, offering, pages, people } from 
 import { renderRuns, type Run } from '../lib/richtext';
 import { url } from '../lib/paths';
 
-const { process, projects } = pages.home;
+const { process, projects, international } = pages.home;
 
 // Topics Covered: each bold source paragraph is a sub-heading that opens a group.
 const topicGroups: { heading: Run[] | null; paragraphs: Run[][] }[] = [];
@@ -133,6 +133,14 @@ const students = offering.contacts.students;
       <a class="more" href={url('/sponsors/')}>Expectations for project sponsors <span class="arrow" aria-hidden="true">→</span></a>
     </p>
   </Band>
+
+  {international && (
+    <Band id="international" label="Sweden">
+      <h2 class="band__head">{international.title}</h2>
+      <div class="prose"><p>{international.text}</p></div>
+      <p class="backlink"><a class="more" href={international.link.url} rel="noopener">{international.link.label} <span class="arrow" aria-hidden="true">→</span></a></p>
+    </Band>
+  )}
 
   <Band id="current" label={offering.term} sideFlush>
     <h2 class="band__head">{offering.term} at a glance</h2>

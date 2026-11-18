@@ -152,6 +152,7 @@ const PagesSchema = z.object({
       after: text,
     }),
     projects: z.object({ status: Status, text }),
+    international: z.object({ title: text, text, link: Link }).nullish(),
   }),
   apply: z.object({ lead: optional, sections: z.array(SectionSchema) }),
   proposal: z.object({ section: SectionSchema, submitNote: text }),

@@ -31,6 +31,13 @@ home:
   projects:
     status: pending
     text: "Winter 2027 projects will be announced here once they are selected."
+  # Short note on Home about the course's international partnership. Remove to hide the band.
+  international:
+    title: "The course in Sweden"
+    text: "In 2025, Chalmers University of Technology and Sahlgrenska University Hospital in Gothenburg launched Digital Health Implementation, the first course modeled on CS 342 outside Stanford. Students build digital health apps with Stanford Spezi, the Stanford team joins the opening lectures, and one team is chosen to visit Stanford for a week."
+    link:
+      label: "Read the Chalmers announcement"
+      url: "https://www.chalmers.se/en/current/news/e2-new-digital-health-course-launched-in-collaboration-with-stanford-university/"
 
 apply:
   lead:            # optional line under the page title
