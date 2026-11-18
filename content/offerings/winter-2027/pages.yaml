@@ -102,9 +102,9 @@ sponsors:
         - p: "At the end of the quarter the team hands its work off to the project sponsor. The sponsor keeps ownership of the project’s direction: continued development, deployment, hosting, and maintenance are the sponsor’s responsibility, which is why every proposal includes a continuation plan."
     - id: terms
       label: "Terms"
-      title: "Costs and terms"
+      title: "Contribution and terms"
       body:
-        - p: "Costs for academic projects are $5,000. For industry projects, the cost is $20,000. These costs support resources for the course."
+        - p: "Selected projects contribute to the resources that support the course. Details are worked out with course staff after selection, and we’re flexible for sponsors who can also offer in-kind support that students can work with."
         - p: "Submitting a proposal does not involve a payment or an agreement."
 
 academic:
@@ -121,10 +121,10 @@ academic:
       body:
         - p: "Projects that involve research participants or protected data need their own approvals, such as IRB review and a data risk assessment. These remain the responsibility of the project lead. Identify them in your proposal under project readiness."
     - id: costs
-      label: "Costs"
-      title: "Participation costs"
+      label: "Contribution"
+      title: "Course contribution"
       body:
-        - p: "The cost for an academic project is $5,000. This cost supports resources for the course."
+        - p: "Selected projects contribute to the resources that support the course. Details are worked out with course staff after selection, and we’re flexible for sponsors who can also offer in-kind support that students can work with."
 
 industry:
   lead: "We invite industry mentors to propose projects for {term}. A student team will work with your project mentor to develop a focused digital health prototype during the ten-week course, {courseRange}."
@@ -144,7 +144,7 @@ industry:
             - "**A first prototype.** Take an idea to a working MVP built around two or three core capabilities."
     - id: terms
       label: "Terms"
-      title: "Sponsorship costs, agreements, and IP"
+      title: "Contribution, agreements, and IP"
       body:
-        - p: "The cost for an industry project is $20,000. This cost supports resources for the course."
+        - p: "Selected projects contribute to the resources that support the course. Details are worked out with course staff after selection, and we’re flexible for sponsors who can also offer in-kind support that students can work with."
         - p: "Questions about agreements, intellectual property, or source-code arrangements are handled directly with course staff, outside this website. You can raise them in your proposal for follow-up."

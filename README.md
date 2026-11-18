@@ -197,10 +197,8 @@ until it is settled.
 Deliberately **not** carried over from the 2025–26 pages: hosting-cost estimates, open/closed-source
 provisions, the 2025–26 room, Zoom link and Canvas course, and the single legacy proposal form.
 
-The project costs ($5,000 for an academic project, $20,000 for an industry project) were published
-on 2026-11-17 at the course team's direction. The same day the course team approved the Apply and
-sponsor page copy and six syllabus sections, so those no longer carry status markers or "not yet
-published" notices.
+On 2026-11-17 the course team approved the Apply and sponsor page copy and six syllabus sections,
+so those no longer carry status markers or "not yet published" notices.
 
 Before opening any application: publish the form, test a submission and its confirmation message with
 test data, confirm who owns the responses, then set the route to `open`.
