@@ -234,6 +234,8 @@ export const sessions = rawSessions
       startUtc: zonedTimeToUtc(s.date, start, tz),
       endUtc: zonedTimeToUtc(s.date, end, tz),
       room: s.room ?? offering.room.name ?? null,
+      // The map link belongs to the course room; a session that names its own room is not linked.
+      roomMapUrl: s.room ? null : (offering.room.mapUrl ?? null),
       timeLabel: `${formatTimeRange(start, end)} ${zone}`,
       weekLabel: String(s.week).padStart(2, '0'),
       href: url(`/sessions/${s.slug}/`),

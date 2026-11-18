@@ -37,7 +37,7 @@ const students = offering.contacts.students;
         <div>
           <p class="hero__meta">
             {meetingPattern}
-            <small>{offering.room.name ?? 'Room to be announced'} · {offering.term}</small>
+            <small>{offering.room.name ? (offering.room.mapUrl ? <a class="link" href={offering.room.mapUrl} rel="noopener">{offering.room.name}</a> : offering.room.name) : 'Room to be announced'} · {offering.term}</small>
           </p>
           <p class="hero__links">
             <a class="more" href={url('/syllabus/')}>View syllabus <span class="arrow" aria-hidden="true">→</span></a>

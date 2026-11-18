@@ -29,11 +29,12 @@ meeting:
   start: "15:30"
   end: "18:20"
 
-# Classroom. Leave name empty until the room is confirmed.
+# Classroom. Wherever the room is shown, its name links to mapUrl (a map of the
+# building). Leave name empty to show "to be announced".
 room:
-  name:            # e.g. "L107, Littlefield Center"
-  mapUrl:          # link to a map or location page
-  status: pending
+  name: "CCSR 4205"
+  mapUrl: "https://campus-map.stanford.edu/?id=07-590"   # Center for Clinical Sciences Research
+  status: confirmed
 
 units:
   value: "3–4"
