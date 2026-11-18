@@ -33,7 +33,6 @@
     - "The prototype brings onboarding, consent, intake information, and skin-photo upload into a mobile workflow for remote assessment."
   image: "2026-allerkey.webp"
   imageAlt: "Screens from the AllerKey app."
-  caption: "Midterm prototype"
 
 - title: "HomeFlow / StreamSync"
   year: 2026
@@ -43,7 +42,6 @@
     - "Combines study consent, urinary symptom questionnaires, and data from Apple Watch and a home urine-monitoring device in a research workflow."
   image: "2026-homeflow.webp"
   imageAlt: "Screens from the HomeFlow / StreamSync app."
-  caption: "Midterm prototype"
 
 - title: "SchoolKit"
   year: 2026
@@ -183,7 +181,6 @@
     - "Provides a mobile research workflow for enrollment and ECG upload, with a dashboard to help the study team review recordings."
   image: "2023-paws.webp"
   imageAlt: "PAWS app showing a successfully uploaded ECG recording, beside an Apple Watch recording an ECG."
-  caption: "From the later PAWS research study"
 
 - title: "Balance"
   partner: "Stanford Psychiatry and Behavioral Sciences"
@@ -267,7 +264,6 @@
     - "The project design combines patient education, adjustable medication tracking, and postoperative information for follow-up reports."
   image: "2021-kidney-care.webp"
   imageAlt: "Kidney Care logo."
-  caption: "Project logo"
 
 - title: "BeatHeartDisease"
   partner: "Stanford Cardiovascular Medicine"
@@ -278,7 +274,6 @@
     - "Connects patient-facing tracking with a provider view and Bluetooth-enabled measurements from devices such as blood-pressure cuffs and scales."
   image: "2021-beatheartdisease.webp"
   imageAlt: "BeatHeartDisease logo."
-  caption: "Project logo"
 
 - title: "Hybrid Physical-Digital Spaces"
   partner: "Student-led, with the Stanford HCI Lab"
@@ -289,7 +284,6 @@
     - "Combines Apple Watch physiological and activity measurements with Bluetooth-beacon location information to connect experience with place."
   image: "2021-hybrid-spaces.webp"
   imageAlt: "Hybrid Physical-Digital Spaces logo."
-  caption: "Project logo"
 
 - title: "Women’s Derm Health (DermTeam)"
   partner: "Student-led team"
