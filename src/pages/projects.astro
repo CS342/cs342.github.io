@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import Band from '../components/Band.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { courseCode, pastProjects } from '../lib/content';
+import { url, isExternal } from '../lib/paths';
+
+// One band per quarter, newest first, keeping the order of content/projects.yaml within a quarter.
+const quarters: { key: string; label: string; projects: typeof pastProjects }[] = [];
+for (const project of pastProjects) {
+  const label = `${project.term} ${project.year}`;
+  let quarter = quarters.find((q) => q.label === label);
+  if (!quarter) quarters.push((quarter = { key: `${project.year}-${project.term.toLowerCase()}`, label, projects: [] }));
+  quarter.projects.push(project);
+}
+quarters.sort((a, b) => b.key.localeCompare(a.key));
+
+const first = quarters[quarters.length - 1].label;
+const last = quarters[0].label;
+---
+<Base title="Past Projects" description={`Digital health projects built by student teams in earlier offerings of ${courseCode}, ${first} to ${last}.`}>
+  <PageHeader eyebrow={`${first} – ${last} · ${courseCode}`} title="Past Projects" lead={`Digital health apps that student teams built with their project sponsors in earlier offerings of the course.`}>
+    <p class="small muted" style="margin-top: 1.25rem">Compiled from course archives, repositories and presentations; some earlier projects may be missing.</p>
+    <nav aria-label="Jump to a quarter" style="margin-top: 1.25rem">
+      <ul class="quarterlinks">
+        {quarters.map((q) => <li><a href={`#${q.key}`}>{q.label}</a></li>)}
+      </ul>
+    </nav>
+  </PageHeader>
+
+  {quarters.map((quarter) => (
+    <Band id={quarter.key} label={quarter.label}>
+      <h2 class="band__head">{quarter.label}</h2>
+      <ul class="projects">
+        {quarter.projects.map((project) => (
+          <li class="project">
+            {project.image ? (
+              <figure class="project__figure">
+                <div class="project__frame">
+                  <img src={url(`/images/projects/${project.image}`)} alt={project.imageAlt ?? ''} loading="lazy" decoding="async" />
+                </div>
+                {project.caption && <figcaption class="label">{project.caption}</figcaption>}
+              </figure>
+            ) : (
+              <div class="project__frame project__frame--empty gridmotif" aria-hidden="true"></div>
+            )}
+            <h3>{project.title}</h3>
+            {project.partner && <p class="project__partner">{project.partner}</p>}
+            <ul class="project__summary">
+              {project.summary.map((line) => <li>{line}</li>)}
+            </ul>
+            {project.links && project.links.length > 0 && (
+              <p class="project__links">
+                {project.links.map((link) => (
+                  <a class="link" href={isExternal(link.url) ? link.url : url(link.url)} rel={isExternal(link.url) ? 'noopener' : undefined}>
+                    {link.label}<span class="visually-hidden"> for {project.title}</span>
+                  </a>
+                ))}
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+    </Band>
+  ))}
+</Base>

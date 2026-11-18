@@ -5,6 +5,7 @@
 import { parse as parseYaml } from 'yaml';
 import { z } from 'astro/zod';
 import siteRaw from '../../content/site.yaml?raw';
+import projectsRaw from '../../content/projects.yaml?raw';
 import { formatDate, formatLocalDateTime, formatTimeRange, nextDay, zonedTimeToUtc } from './time';
 import type { Tokens } from './richtext';
 import { url } from './paths';
@@ -170,6 +171,20 @@ const CourseCopySchema = z.object({
   }),
 });
 
+const PastProjectSchema = z
+  .object({
+    title: text,
+    partner: optional,
+    year: z.number().int(),
+    term: z.enum(['Winter', 'Spring', 'Summer', 'Fall']),
+    summary: z.array(text).min(1),
+    image: optional,
+    imageAlt: optional,
+    caption: optional,
+    links: z.array(Link).nullish(),
+  })
+  .refine((p) => !p.image || p.imageAlt, { message: 'imageAlt is required when image is set' });
+
 /* ---------- loading ---------- */
 
 function validate<S extends z.ZodType>(schema: S, data: unknown, file: string): z.infer<S> {
@@ -179,6 +194,7 @@ function validate<S extends z.ZodType>(schema: S, data: unknown, file: string): 
 }
 
 export const site = validate(SiteSchema, parseYaml(siteRaw), 'site.yaml');
+export const pastProjects = validate(z.array(PastProjectSchema).min(1), parseYaml(projectsRaw), 'projects.yaml');
 
 function load<S extends z.ZodType>(schema: S, name: string): z.infer<S> {
   const file = `offerings/${site.currentOffering}/${name}`;

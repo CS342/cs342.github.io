@@ -1,0 +1,320 @@
+# Projects from earlier offerings, shown on /projects/. Newest first.
+#
+# year, term   the quarter the project ran (not the archive URL's year)
+# title        project name as the team used it
+# partner      department, institution or company the team built it with (optional)
+# summary      two short sentences describing the project
+# image        file name in public/images/projects/ (optional); imageAlt is required when set
+# caption      short note shown under the image when it is not a final app screen (optional)
+# links        optional list of { label, url }; none are shown for now
+#
+# Compiled from course archives, repositories and presentations on 2026-11-17. It is a recovered
+# inventory, not a complete list: no separate 2020 cohort was found.
+# Images: Balance, U-STEP, BUDI, GaitMate, PAWS, S-SMART and CARE-IT are from https://bdh.stanford.edu/projects;
+# the rest are from the course archives and team presentations. Shown with a placeholder for now:
+# QuanCardio and Z Flo Pro (images from internal sponsor presentations, awaiting sponsor clearance), and
+# GetMoovin, Remote Assessment of Contact Allergies, Women's Derm Health and Activate (only a text brief
+# or slide was found, no app image).
+
+- title: "HeartSense"
+  year: 2026
+  term: Winter
+  summary:
+    - "Connects cardiac symptom and activity logs with physiological data from Apple Watch and HealthKit for longitudinal research."
+    - "Combines quick symptom entry, editable history, trend views, and reminders to help participants record events close to when they occur."
+  image: "2026-heartsense.webp"
+  imageAlt: "HeartSense home, symptom entry, and history screens."
+
+- title: "AllerKey"
+  year: 2026
+  term: Winter
+  summary:
+    - "Explores remote patch testing for people with chronic eczema who may have allergic contact dermatitis."
+    - "The prototype brings onboarding, consent, intake information, and skin-photo upload into a mobile workflow for remote assessment."
+  image: "2026-allerkey.webp"
+  imageAlt: "Screens from the AllerKey app."
+  caption: "Midterm prototype"
+
+- title: "HomeFlow / StreamSync"
+  year: 2026
+  term: Winter
+  summary:
+    - "Studies recovery around bladder outlet surgery by connecting home voiding measurements with wearable activity and sleep information."
+    - "Combines study consent, urinary symptom questionnaires, and data from Apple Watch and a home urine-monitoring device in a research workflow."
+  image: "2026-homeflow.webp"
+  imageAlt: "Screens from the HomeFlow / StreamSync app."
+  caption: "Midterm prototype"
+
+- title: "SchoolKit"
+  year: 2026
+  term: Winter
+  summary:
+    - "Supports young cancer survivors as they return to school, with resources tailored to students, parents, and school staff."
+    - "Pairs personalized educational topics and community stories with saved resources and progress rewards to support the school transition."
+  image: "2026-schoolkit.webp"
+  imageAlt: "SchoolKit My Puzzles screen showing progress rewards."
+
+- title: "Z Flo Pro (PIP)"
+  partner: "Mölnlycke Health Care"
+  year: 2026
+  term: Winter
+  summary:
+    - "Supports pressure injury prevention in the hospital by helping care teams manage patient positioning devices."
+    - "Brings tracking and reporting together in apps and dashboards for hospital staff."
+
+- title: "FeedBridge"
+  year: 2025
+  term: Winter
+  summary:
+    - "Helps parents document newborn feeding, weight, diaper output, and signs relevant to hydration during the early postnatal period."
+    - "Displays logs and trends in a dashboard designed to support communication with clinicians and recognition of feeding concerns."
+  image: "2025-feedbridge.webp"
+  imageAlt: "Screens from the FeedBridge app."
+
+- title: "NeutroFeverGuard"
+  partner: "Technical University of Munich"
+  year: 2025
+  term: Winter
+  summary:
+    - "Supports symptom and fever monitoring for people receiving chemotherapy, with attention to febrile neutropenia risk."
+    - "Combines manually entered vitals and laboratory values with Apple Health data, trend charts, reminders, and prototype risk alerts."
+  image: "2025-neutrofeverguard.webp"
+  imageAlt: "Screens from the NeutroFeverGuard app."
+
+- title: "Stanford360"
+  year: 2025
+  term: Winter
+  summary:
+    - "Supports healthy routines for young people undergoing metabolic and bariatric surgery through activity, hydration, and protein tracking."
+    - "Uses daily goals, history views, educational content, and encouraging progress feedback, including meal-photo support for protein logging."
+  image: "2025-stanford360.webp"
+  imageAlt: "Screens from the Stanford360 app."
+
+- title: "QuanCardio (QuanBioSync)"
+  year: 2025
+  term: Winter
+  summary:
+    - "Explores remote cardiovascular monitoring with a connected device."
+    - "Lets users review their cardiovascular measurements and trends over time in a mobile app."
+
+- title: "CoughSync"
+  partner: "Regeneron"
+  year: 2025
+  term: Winter
+  summary:
+    - "Explores smartphone-based cough monitoring for people whose chronic cough affects sleep and quality of life."
+    - "Combines a prototype cough-detection model, quality-of-life check-ins, and daily, weekly, and monthly reports that can be shared with clinicians."
+  image: "2025-coughsync.webp"
+  imageAlt: "Screens from the CoughSync app."
+
+- title: "Intake"
+  partner: "Stanford Biodesign Digital Health"
+  year: 2024
+  term: Winter
+  summary:
+    - "Streamlines preparation for a medical visit by collecting current concerns and relevant health history in one intake workflow."
+    - "Uses a conversational interface and connected health records to organize information into an editable summary that can be exported as a PDF."
+  image: "2024-intake.webp"
+  imageAlt: "Screens from the Intake app."
+
+- title: "Nourish Navigator"
+  year: 2024
+  term: Winter
+  summary:
+    - "Supports people with avoidant/restrictive food intake disorder through a structured, personalized approach to nutrition."
+    - "Provides nutrition-block plans, meal and progress logging, calendar views, and educational resources to help users follow their care plan."
+  image: "2024-nourish-navigator.webp"
+  imageAlt: "Screens from the Nourish Navigator app."
+
+- title: "PICS"
+  partner: "Charité – Universitätsmedizin Berlin"
+  year: 2024
+  term: Winter
+  summary:
+    - "Supports recovery after intensive care by bringing recovery information and patient-reported assessments into a mobile application."
+    - "Combines connected health metrics, symptom and cognitive assessments, appointments, and medication information for ongoing follow-up."
+  image: "2024-pics.webp"
+  imageAlt: "Screens from the PICS app."
+
+- title: "Prisma"
+  year: 2024
+  term: Winter
+  summary:
+    - "Explores personalized support for physical activity and behavior change through a conversational digital coach."
+    - "Combines a language-model interface with goal setting, health-data visualizations, and daily surveys to tailor the experience."
+  image: "2024-prisma.webp"
+  imageAlt: "Screens from the Prisma app."
+
+- title: "Stronger"
+  partner: "Stanford Program in Menopause and Healthy Aging"
+  year: 2024
+  term: Winter
+  summary:
+    - "Supports muscle health in postmenopausal women through protein tracking and resistance-training guidance."
+    - "Combines food logging, exercise routines, progress information, and educational resources in a mobile experience."
+  image: "2024-stronger.webp"
+  imageAlt: "Screens from the Stronger app."
+
+- title: "TBI Sleep Monitor"
+  year: 2024
+  term: Winter
+  summary:
+    - "Explores the relationship between sleep and recovery after traumatic brain injury using patient reports and wearable data."
+    - "Combines symptom questionnaires, Apple Watch sleep and health metrics, and a recovery dashboard for longitudinal monitoring."
+  image: "2024-tbi-sleep-monitor.webp"
+  imageAlt: "Screens from the TBI Sleep Monitor app."
+
+- title: "U-STEP"
+  partner: "University of Utah, Division of Vascular Surgery"
+  year: 2023
+  term: Winter
+  summary:
+    - "Brings vascular-surgery patient-reported outcome collection to people who may live far from specialty care."
+    - "Is designed to combine remote surveys, HealthKit activity measures, consent, and functional tasks such as a six-minute walk test."
+  image: "2023-u-step.webp"
+  imageAlt: "U-STEP clock-drawing, get-up-and-go and results screens."
+
+- title: "PAWS — Pediatric Apple Watch Study"
+  partner: "Stanford Pediatric Cardiology"
+  year: 2023
+  term: Winter
+  summary:
+    - "Explores Apple Watch as a way to collect ECG recordings and symptoms from children being evaluated for intermittent arrhythmias."
+    - "Provides a mobile research workflow for enrollment and ECG upload, with a dashboard to help the study team review recordings."
+  image: "2023-paws.webp"
+  imageAlt: "PAWS app showing a successfully uploaded ECG recording, beside an Apple Watch recording an ECG."
+  caption: "From the later PAWS research study"
+
+- title: "Balance"
+  partner: "Stanford Psychiatry and Behavioral Sciences"
+  year: 2023
+  term: Winter
+  summary:
+    - "Supports adolescents with anorexia nervosa between family-based treatment sessions, with a focus on emotion regulation."
+    - "Explores teen-friendly coping and distraction activities, personalization, and diary tools to help with distress around meals."
+  image: "2023-balance.webp"
+  imageAlt: "Balance app home screen with diary, meditation and distraction options."
+
+- title: "GetMoovin"
+  partner: "HealthSpan Heroes (BIOE 273 team)"
+  year: 2023
+  term: Winter
+  summary:
+    - "Encourages older adults to stay physically active as strength, agility, and cardiovascular fitness change with age."
+    - "The project design connects families and friends through activity photos and explores personalized plans to support a longer healthspan."
+
+- title: "Remote Assessment of Contact Allergies"
+  partner: "Stanford Dermatology"
+  year: 2023
+  term: Winter
+  summary:
+    - "Explores remote patch testing to broaden access for people with chronic eczema and suspected contact allergies."
+    - "Uses a mobile workflow for guided, sequential photos of test sites, supporting remote review and research into image-assisted interpretation."
+
+- title: "BUDI"
+  year: 2022
+  term: Winter
+  summary:
+    - "Uses Apple Watch to support upper-limb rehabilitation for children with cerebral palsy outside a clinician-led session."
+    - "Pairs movement tracking and biofeedback with therapy-session history and progress views for children and their support teams."
+  image: "2022-budi.webp"
+  imageAlt: "BUDI iPhone and Apple Watch screens, including a trail walking test and therapy progress charts."
+
+- title: "Activate"
+  partner: "Stanford Psychiatry and Behavioral Sciences"
+  year: 2022
+  term: Winter
+  summary:
+    - "Supports positive lifestyle changes for outpatients with schizophrenia spectrum disorders."
+    - "Lets users set personalized well-being goals, schedule activities, record daily progress, complete surveys, and view progress charts."
+
+- title: "GaitMate"
+  partner: "Stanford Emergency Medicine"
+  year: 2022
+  term: Winter
+  summary:
+    - "Explores at-home functional mobility assessment to help identify fall risk in older adults."
+    - "Combines guided walking and gait tasks, fall reporting, questionnaires, and sensor measurements for remote research."
+  image: "2022-gaitmate.webp"
+  imageAlt: "GaitMate screens for fall reporting, instructional videos and contacts."
+
+- title: "mCHOIR"
+  partner: "Stanford Pain Medicine, Department of Anesthesiology"
+  year: 2022
+  term: Winter
+  summary:
+    - "Extends the CHOIR chronic-pain research platform with mobile assessments and wearable sensor information."
+    - "Combines scheduled surveys, reminders, and longitudinal measurements to study relationships between daily pain experiences and physiology."
+  image: "2022-mchoir.webp"
+  imageAlt: "Screens from the mCHOIR app."
+
+- title: "VascTracX"
+  partner: "Stanford Vascular Surgery"
+  year: 2022
+  term: Winter
+  summary:
+    - "Explores passive physical-activity monitoring around surgery, including work focused on peripheral artery disease."
+    - "Collects activity information and patient reports before and after procedures to investigate their relationship with surgical outcomes."
+  image: "2022-vasctracx.webp"
+  imageAlt: "Screens from the VascTracX app."
+
+- title: "Kidney Care"
+  partner: "Stanford Department of Surgery"
+  year: 2021
+  term: Winter
+  summary:
+    - "Supports the complex outpatient-care routine in the first month after kidney transplantation."
+    - "The project design combines patient education, adjustable medication tracking, and postoperative information for follow-up reports."
+  image: "2021-kidney-care.webp"
+  imageAlt: "Kidney Care logo."
+  caption: "Project logo"
+
+- title: "BeatHeartDisease"
+  partner: "Stanford Cardiovascular Medicine"
+  year: 2021
+  term: Winter
+  summary:
+    - "Explores a mobile platform for cardiovascular disease prevention and management."
+    - "Connects patient-facing tracking with a provider view and Bluetooth-enabled measurements from devices such as blood-pressure cuffs and scales."
+  image: "2021-beatheartdisease.webp"
+  imageAlt: "BeatHeartDisease logo."
+  caption: "Project logo"
+
+- title: "Hybrid Physical-Digital Spaces"
+  partner: "Student-led, with the Stanford HCI Lab"
+  year: 2021
+  term: Winter
+  summary:
+    - "Studies how characteristics of buildings and indoor spaces relate to occupant well-being and environmental sustainability."
+    - "Combines Apple Watch physiological and activity measurements with Bluetooth-beacon location information to connect experience with place."
+  image: "2021-hybrid-spaces.webp"
+  imageAlt: "Hybrid Physical-Digital Spaces logo."
+  caption: "Project logo"
+
+- title: "Women’s Derm Health (DermTeam)"
+  partner: "Student-led team"
+  year: 2021
+  term: Winter
+  summary:
+    - "Explores how hormonal changes, medication, diet, stress, and other factors relate to dermatologic flare-ups."
+    - "Pairs longitudinal skin photographs with potential-trigger tracking to support research into relationships between inputs and skin changes."
+
+- title: "S-SMART"
+  partner: "VA Palo Alto Health Care System"
+  year: 2019
+  term: Fall
+  summary:
+    - "Focuses on postoperative follow-up through a mobile tool for recording opioid use and daily functioning."
+    - "Pairs medication-use and recovery information to support research into earlier recognition of patients who may need additional follow-up."
+  image: "2019-ssmart.webp"
+  imageAlt: "S-SMART welcome, survey list, pain rating and pain location screens."
+
+- title: "CARE-IT"
+  partner: "Stanford Health Care"
+  year: 2019
+  term: Fall
+  summary:
+    - "Focuses on empowering patients and families to take part in advance care planning."
+    - "Brings advance care planning into a mobile-health course project centered on patients’ preferences for future care."
+  image: "2019-care-it.webp"
+  imageAlt: "CARE-IT screens for learning about advance care planning and recording wishes."

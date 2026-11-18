@@ -21,6 +21,7 @@ and so on) are linked.
 | Sessions (list and calendar) | `/sessions/`, `/sessions/?view=calendar` |
 | Session detail | `/sessions/week-1/` … `/sessions/week-10/` |
 | Faculty & Team | `/faculty/` |
+| Past Projects | `/projects/` |
 | Apply as a Student | `/apply/` |
 | Propose a Project | `/sponsors/` |
 | Academic Sponsors | `/sponsors/academic/` |
@@ -64,6 +65,7 @@ file and the field instead of publishing a broken page.
 | "How the course works", student application page, sponsor pages | `content/offerings/winter-2027/pages.yaml` |
 | What a project proposal must include (shown on all three sponsor pages) | `content/offerings/winter-2027/pages.yaml` → `proposal` |
 | Introduction, Goals of the Course, Topics Covered (preserved wording) | `content/offerings/winter-2027/course-copy.json` |
+| Past Projects page (projects from earlier offerings, images in `public/images/projects/`) | `content/projects.yaml` |
 | Review banner, footer affiliations, address, earlier offerings | `content/site.yaml` |
 
 Each file starts with a comment that explains its fields.
