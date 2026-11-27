@@ -105,9 +105,16 @@ Two safeguards are built in: a route marked `open` with neither a `formUrl` nor 
 shown as "details forthcoming", and an open route switches to closed by itself once `closesAt` has
 passed. Use the form's **published respondent link**, never the editing link or the response sheet.
 
-The student route is open with a Google Form and no closing date, because admission codes are
-offered on a rolling basis. Its `headline` replaces "Applications are open" at the top of the panel.
-The button is the link to the form; a `process` sentence can also link to it with `{form}`.
+The student route is open with a Google Form. Admission codes are offered on a rolling basis, and
+applications are due December 10, 2026 at 11:59 pm Pacific (`closesAt`). Its `headline` replaces
+"Applications are open" at the top of the panel. The button is the link to the form; a `process`
+sentence can also link to it with `{form}`.
+
+`process` is one sentence or a list of sentences, each shown on its own line under the button.
+`{deadline}` in a sentence is the route's own closing date and time. A route that states the
+deadline this way does not also get the Deadline box above the button, so the student panel reads
+"Admission codes will be offered on a rolling basis…" followed by "Applications are due …". Closing
+the route on the site does not close the Google Form; close the form itself as well.
 
 The academic and industry routes take proposals by email (`submitEmail`). To move a route to a form
 later, add its `formUrl`; the form then replaces the email link. Their `closesAt` and `notifyBy`
@@ -185,7 +192,6 @@ until it is settled.
 | Project, team, assignment and handoff details | `syllabus.yaml` |
 | 2027 roster, titles, biographies, approved photos | `people.yaml`, `public/images/people/` |
 | Session topics, guests, preparation, materials, deadlines | `sessions.yaml` |
-| Student application (open, Google Form, rolling admission): a closing date, if one is set | `applications.yaml` → `student` |
 | Academic proposals (open, by email, due December 16, 2026): eligible institutions | `applications.yaml` → `academic`; `pages.yaml` → `academic` |
 | Industry proposals (open, by email, due December 16, 2026): agreement process | `applications.yaml` → `industry`; `pages.yaml` → `industry` |
 | Office hours | `syllabus.yaml` → `contact` |

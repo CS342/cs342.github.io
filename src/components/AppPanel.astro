@@ -19,8 +19,15 @@ const switchable = app.status === 'open' && !!app.submitHref && !!app.closesUtc;
 const variants: ApplicationStatus[] = switchable ? ['open', 'closed'] : [status];
 const byEmail = app.submitKind === 'email';
 const noun = app.key === 'student' ? 'application' : 'proposal';
-// The sentence under the button may link to the route's own form with {form}.
-const processTokens = app.submitKind === 'form' && app.submitHref ? { ...tokens, form: app.submitHref } : tokens;
+// The sentences under the button may link to the route's own form with {form} and state
+// its closing date and time with {deadline}.
+const processTokens = {
+  ...tokens,
+  ...(app.submitKind === 'form' && app.submitHref ? { form: app.submitHref } : {}),
+  ...(app.closesLabel ? { deadline: app.closesLabel } : {}),
+};
+// A route that states the deadline in its own sentence does not repeat it in the Deadline box.
+const statesDeadline = app.process.some((line) => line.includes('{deadline}'));
 ---
 <div class:list={['panel', `tone-${tone}`, boxed && 'panel--boxed']} data-app-closes={switchable ? app.closesUtc!.toISOString() : undefined}>
   {variants.map((variant) => {
@@ -32,7 +39,7 @@ const processTokens = app.submitKind === 'form' && app.submitHref ? { ...tokens,
           <p class="panel__status">{view.headline}</p>
         </div>
         <div class="panel__body">
-          {variant === 'open' && app.closesLabel && (
+          {variant === 'open' && app.closesLabel && !statesDeadline && (
             <dl class="panel__facts">
               <div>
                 <dt class="label">Deadline</dt>
@@ -57,7 +64,7 @@ const processTokens = app.submitKind === 'form' && app.submitHref ? { ...tokens,
           )}
           {variant === 'open' && !byEmail && <p class="small">Opens Google Forms in a new tab.{app.signInNote ? ` ${app.signInNote}` : ''}</p>}
           {variant === 'opening-soon' && <p>{byEmail ? 'The address will be posted here when it opens.' : 'The form will be linked here when it opens.'}</p>}
-          {variant === 'closed' ? <p>{app.closedMessage}</p> : <p class="panel__process" set:html={renderInline(app.process, processTokens)} />}
+          {variant === 'closed' ? <p>{app.closedMessage}</p> : app.process.map((line) => <p class="panel__process" set:html={renderInline(line, processTokens)} />)}
           <p class="small">
             {variant === 'open' && byEmail && app.submitEmail === app.contact.email ? (
               'Please feel free to reach out with any questions.'

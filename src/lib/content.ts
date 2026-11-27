@@ -115,7 +115,8 @@ const ApplicationSchema = z.object({
   notifyBy: DateString.nullish(),
   signInNote: optional,
   contact: z.enum(['students', 'sponsors']),
-  process: text,
+  // One sentence, or a list of sentences that each get their own line.
+  process: z.union([text, z.array(text).min(1)]).transform((value) => (Array.isArray(value) ? value : [value])),
   closedMessage: text,
 });
 
