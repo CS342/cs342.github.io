@@ -25,8 +25,11 @@
 #           text as {notifyBy:academic} and so on; the deadline is {deadline:academic}.
 # signInNote   shown next to the button, e.g. "Requires a Stanford Google account."
 # contact      students | sponsors  (see offering.yaml)
-# process   the sentence under the button. **Bold**, [links](https://…) and placeholders
-#           work here; {form} is the route's formUrl.
+# process   the sentence under the button, or a list of sentences, each on its own line.
+#           **Bold**, [links](https://…) and placeholders work here; {form} is the route's
+#           formUrl and {deadline} is its closesAt, written out with the time ("Thursday,
+#           December 10, 2026 at 11:59 pm Pacific"). A route that states {deadline} in its
+#           own sentence does not also get the Deadline box above the button.
 
 student:
   name: "Student application"
@@ -36,11 +39,13 @@ student:
   formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSf3EryX40DE-kitX60J5JaramPS0uSGTz_HtDB33lOpuYYpSg/viewform?usp=dialog"
   submitEmail:
   opensAt:
-  closesAt:
+  closesAt: "2026-12-10T23:59"
   notifyBy:
   signInNote:
   contact: students
-  process: "Admission codes will be offered on a rolling basis; apply soon if you’re interested!"
+  process:
+    - "Admission codes will be offered on a rolling basis; apply soon if you’re interested!"
+    - "Applications are due **{deadline}**."
   closedMessage: "Student applications for Winter 2027 are closed. Contact the course team with questions about enrollment."
 
 academic:
